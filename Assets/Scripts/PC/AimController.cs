@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AimController : MonoBehaviour
@@ -7,22 +8,50 @@ public class AimController : MonoBehaviour
 	[SerializeField] private Transform origin;
 	[SerializeField] private float maxInitialVelocity = 11.5f;
 	[SerializeField] private float minInitialVelocity = 6f;
+	[SerializeField] private float arrowGravity = -9.81f;
 	[SerializeField] private float deadZone = 0.05f;
 	[SerializeField] private int smoothFrames = 40;
 	[SerializeField] private LayerMask collisionLayerMask;
 	[SerializeField] private LineRenderer curveRendererPreHit, curveRendererPostHit;
 	[SerializeField] private float curveTimeStep = 0.025f;
 
+	public bool ReadyToShoot { get; private set; }
+	public float Alpha { get; private set; }
+	public float V0 { get; private set; }
+	public float G { get; private set; }
+
+	PCController pcController;
+	InputManager inputManager;
 	Queue<Vector2> smoothedInputs;
 	Camera cam;
+
+	public void Init(PCController pc, InputManager inputMngr)
+	{
+		pcController = pc;
+		inputManager = inputMngr;
+
+		Activate(false);
+	}
+
+	public void ResetAiming()
+	{
+		smoothedInputs = new Queue<Vector2>(smoothFrames);
+		ReadyToShoot = false;
+	}
+
+	public void Activate(bool mustBeActive)
+	{
+		gameObject.SetActive(mustBeActive);
+	}
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		if (smoothFrames < 1) smoothFrames = 1;
-		smoothedInputs = new Queue<Vector2>(smoothFrames);
 
 		cam = Camera.main;
+
+		ResetAiming();
 	}
 
 	// Update is called once per frame
@@ -32,13 +61,14 @@ public class AimController : MonoBehaviour
 
 		if (Mathf.Abs(inputs.x) > deadZone || Mathf.Abs(inputs.y) > deadZone)
 		{
-			float alpha = Mathf.Atan2(inputs.y, inputs.x);
+			Alpha = Mathf.Atan2(inputs.y, inputs.x);
 			float inputMag = Mathf.Clamp01(inputs.magnitude);
-			float v0 = inputMag / (1f - deadZone) * (maxInitialVelocity - minInitialVelocity) + minInitialVelocity;
-			float g = Physics2D.gravity.y;
+			V0 = inputMag / (1f - deadZone) * (maxInitialVelocity - minInitialVelocity) + minInitialVelocity;
+			G = arrowGravity;
 
 			Vector3[] curvePreHit, curvePostHit;
-			(curvePreHit, curvePostHit) = GetBallisticCurves(v0, alpha, g);
+			(curvePreHit, curvePostHit) = GetBallisticCurves(V0, Alpha, G);
+			ReadyToShoot = true;
 
 			curveRendererPreHit.enabled = true;
 			curveRendererPreHit.positionCount = curvePreHit.Length;
@@ -49,6 +79,7 @@ public class AimController : MonoBehaviour
 		}
 		else
 		{
+			ReadyToShoot = false;
 			curveRendererPreHit.enabled = false;
 			curveRendererPostHit.enabled = false;
 		}
@@ -56,7 +87,7 @@ public class AimController : MonoBehaviour
 
 	Vector2 GetAxesInputs()
 	{
-		smoothedInputs.Enqueue(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+		smoothedInputs.Enqueue(new Vector2(inputManager.GetHorizontalInput(), inputManager.GetVerticalInput()));
 		if (smoothedInputs.Count > smoothFrames)
 		{
 			smoothedInputs.Dequeue();
