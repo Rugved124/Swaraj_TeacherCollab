@@ -1,0 +1,738 @@
+fileFormatVersion: 2
+guid: 12fe37a9ceb20434faaf434ff25568aa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tileset fort inner botttom right
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -250, y: 250}
+        - {x: -250, y: -249.45055}
+        - {x: -48, y: -250}
+        - {x: -48, y: 21}
+        - {x: 250, y: 28}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff50301676ac63b4c93f9bf7d2777124
+      internalID: 320079509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort bottom 2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -249.99998, y: 250}
+        - {x: -250, y: 24}
+        - {x: 250, y: 27}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67d8b60d46c3fd47a81ca06e178854a
+      internalID: 233770346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort inner bottom left
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -249.51169, y: 250}
+        - {x: -250, y: 28}
+        - {x: 43, y: 23}
+        - {x: 48, y: -250}
+        - {x: 250, y: -249.45055}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b2a9d514578494aac1177c60314971
+      internalID: -309504881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort top left
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 94, y: -17}
+        - {x: 50, y: -69}
+        - {x: 49, y: -249}
+        - {x: 250, y: -249.45055}
+        - {x: 250, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd482c79c51f1584f9a677990db39f38
+      internalID: 94310451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort top
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -250, y: -17}
+        - {x: -249.99994, y: -249.45055}
+        - {x: 250, y: -249.45055}
+        - {x: 250, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc0bb0fa5f7b294d8b6c23820af89ce
+      internalID: -1454493486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort  top right
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -91, y: -17}
+        - {x: -250, y: -16}
+        - {x: -249.51178, y: -249.45055}
+        - {x: -49, y: -250}
+        - {x: -50, y: -69}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e615135bb62d148bbde7fb46b30d3c
+      internalID: -242155358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort right 2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -250, y: 250}
+        - {x: -250, y: -249.81685}
+        - {x: -40, y: -250}
+        - {x: -45, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136bfdb3f3f260a4dbc25f8fc7087f87
+      internalID: -1053205049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort left 2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 43, y: 250}
+        - {x: 42, y: -250}
+        - {x: 250, y: -249.81685}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65fadf4416b62814f898d712b49a6a3e
+      internalID: -1019788473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort left
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 49, y: 250}
+        - {x: 49, y: -250}
+        - {x: 250, y: -249.81685}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e858db816cb2a74e8589ef00e8a7ba0
+      internalID: -267372906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort middle
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -249.99994, y: 250}
+        - {x: -249.99994, y: -249.81685}
+        - {x: 250, y: -249.81685}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4541eb65bb2b94ea2d8ebb3d6a3095
+      internalID: 1791844446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort right
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -249.51178, y: 250}
+        - {x: -249.51178, y: -249.81685}
+        - {x: -49, y: -250}
+        - {x: -50, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd3a1ac71001504a882236728238cc2
+      internalID: -5745948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort inner top right
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 250, y: -250}
+        - {x: 250, y: -28}
+        - {x: -47, y: -22}
+        - {x: -45, y: 250}
+        - {x: -250, y: 250}
+        - {x: -250, y: -250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e73cf3ca0828d439d198f37247ef30
+      internalID: 840496519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort top 2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 502
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -250, y: -29}
+        - {x: -249.99998, y: -250}
+        - {x: 250, y: -250}
+        - {x: 250, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1287afed9b3b75f4e9f84c148a702d15
+      internalID: 1438217722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort inner top left
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 45, y: 250}
+        - {x: 48, y: -21}
+        - {x: -250, y: -28}
+        - {x: -249.51169, y: -250}
+        - {x: 250, y: -250}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13dbf00c7dc5154ab39d094b3b2ce9e
+      internalID: 983254873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort bottom left
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 49, y: 250}
+        - {x: 51, y: 60}
+        - {x: 90, y: 16}
+        - {x: 250, y: 16}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c847b9b7ffa74c45bda2d0782526ef7
+      internalID: 861157382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort bottom
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -249.99994, y: 250}
+        - {x: -250, y: 17}
+        - {x: 250, y: 16}
+        - {x: 250, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4750fd2f0337b024287017161f1194ec
+      internalID: -1417129601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort bottom right
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -249.51178, y: 250}
+        - {x: -250, y: 16}
+        - {x: -96, y: 17}
+        - {x: -50, y: 62}
+        - {x: -50, y: 250}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c16767098fe9344298d86266589d1ae
+      internalID: 1760152547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unused 1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3300fe0e9f42948900b89e3a677597
+      internalID: -173058444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unused 2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efcc839ec3f83494facd5ffc82c342d9
+      internalID: 1376014641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unused 3
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b1514a1ef06f641b31231007580c40
+      internalID: 1509719066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort platform left
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 42, y: 104}
+        - {x: -6, y: 50}
+        - {x: -4, y: -36}
+        - {x: 80, y: -97}
+        - {x: 250, y: -97}
+        - {x: 250, y: 104}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598b736e222ac53438ca8a3e5b82ad3c
+      internalID: 1097716017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort platform middle
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -250, y: 105}
+        - {x: -250, y: -95}
+        - {x: 250, y: -96}
+        - {x: 250, y: 104}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873df717c93252147a2437022753884c
+      internalID: -1258621947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset fort platform right
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -43, y: 103}
+        - {x: -250, y: 105}
+        - {x: -250, y: -95}
+        - {x: -78, y: -95}
+        - {x: 3, y: -37}
+        - {x: 7, y: 47}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b5e134e5f0d494fb42ca0ae64a2404
+      internalID: 1105528930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      tileset fort  top right: -242155358
+      tileset fort bottom: -1417129601
+      tileset fort bottom 2: 233770346
+      tileset fort bottom left: 861157382
+      tileset fort bottom right: 1760152547
+      tileset fort inner bottom left: -309504881
+      tileset fort inner botttom right: 320079509
+      tileset fort inner top left: 983254873
+      tileset fort inner top right: 840496519
+      tileset fort left: -267372906
+      tileset fort left 2: -1019788473
+      tileset fort middle: 1791844446
+      tileset fort platform left: 1097716017
+      tileset fort platform middle: -1258621947
+      tileset fort platform right: 1105528930
+      tileset fort right: -5745948
+      tileset fort right 2: -1053205049
+      tileset fort top: -1454493486
+      tileset fort top 2: 1438217722
+      tileset fort top left: 94310451
+      unused 1: -173058444
+      unused 2: 1376014641
+      unused 3: 1509719066
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
