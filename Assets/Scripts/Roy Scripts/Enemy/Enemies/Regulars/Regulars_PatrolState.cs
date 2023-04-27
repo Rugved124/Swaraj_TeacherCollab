@@ -34,6 +34,18 @@ public class Regulars_PatrolState : EnemyPatrolState
                 stateMachine.ChangeState(regularsEnemy.idleState);
             }
         }
+        else
+        {
+            if (regularsEnemy.hasReachedNext)
+            {
+                if (regularsEnemy.HasReachedEndWayPoint())
+                {
+                    regularsEnemy.idleState.SetFlipAfterIdle(true);
+                }
+                
+                stateMachine.ChangeState(regularsEnemy.idleState);
+            }
+        }
         
     }
 }

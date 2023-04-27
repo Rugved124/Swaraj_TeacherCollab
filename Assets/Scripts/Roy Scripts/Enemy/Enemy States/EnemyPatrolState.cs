@@ -8,6 +8,9 @@ public class EnemyPatrolState : CharacterStates
 
     protected bool isDetectingWall;
     protected bool isDetectingLedge;
+    protected bool hasReachedWayPoint;
+
+    
 
     public EnemyPatrolState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemyPatrolStateData stateData) : base(stateMachine, baseEnemy, animBoolName)
     {
@@ -17,10 +20,15 @@ public class EnemyPatrolState : CharacterStates
     public override void EnterState()
     {
         base.EnterState();
-        baseEnemy.SetVelocity(stateData.movementSpeed);
 
-        isDetectingLedge = baseEnemy.CheckGround();
-        isDetectingWall = baseEnemy.CheckWall();
+        if (!baseEnemy.isWayPointBased)
+        {
+            baseEnemy.SetVelocity(stateData.movementSpeed);
+
+            isDetectingLedge = baseEnemy.CheckGround();
+            isDetectingWall = baseEnemy.CheckWall();
+        }
+        
     }
 
     public override void ExitState()
@@ -34,5 +42,17 @@ public class EnemyPatrolState : CharacterStates
 
         isDetectingLedge = baseEnemy.CheckGround();
         isDetectingWall = baseEnemy.CheckWall();
+
+        if (baseEnemy.isWayPointBased)
+        {
+            if (!baseEnemy.hasReachedNext)
+            {
+                baseEnemy.SetVelocityWaypoint(stateData.movementSpeed);
+            }
+            
+        }
+
     }
+
+   
 }

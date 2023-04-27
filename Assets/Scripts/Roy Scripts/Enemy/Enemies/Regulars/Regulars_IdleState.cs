@@ -28,6 +28,12 @@ public class Regulars_IdleState : EnemyIdleState
 
         if (isIdleTimeOver)
         {
+            if (regularsEnemy.isWayPointBased)
+            {
+                regularsEnemy.hasReachedNext = false;
+                regularsEnemy.ModifyWaypoint();
+            }
+           
             stateMachine.ChangeState(regularsEnemy.patrolState);
         }
     }

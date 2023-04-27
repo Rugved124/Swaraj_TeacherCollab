@@ -19,7 +19,18 @@ public class BaseEnemy : MonoBehaviour
 
     private Vector2 updatedVelocity;
 
+    [Header("Switch this on to make it waypoint based")]
     public bool isWayPointBased;
+
+    [Header("Make sure there are waypoints if ")]
+    public Vector3[] localWaypoints;
+    Vector3[] globalWaypoints;
+
+    int currentWaypoint = 0;
+    int currentDirection = 1;
+
+    [HideInInspector]
+    public bool hasReachedNext;
 
     [SerializeField]
     private Transform wallCheck;
@@ -37,6 +48,23 @@ public class BaseEnemy : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
 
         enemyFSM = new FiniteStateMachine();
+        hasReachedNext = false;
+
+        if (localWaypoints != null)
+        {
+            globalWaypoints = new Vector3[localWaypoints.Length];
+            for (int i = 0; i < localWaypoints.Length; i++)
+            {
+                globalWaypoints[i] = localWaypoints[i] + transform.position;
+            }
+
+            if (isWayPointBased)
+            {
+                transform.position = globalWaypoints[0];
+            }
+        }
+
+        
     }
 
     public virtual void Update()
@@ -66,9 +94,87 @@ public class BaseEnemy : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
+    public virtual void SetVelocityWaypoint(float speed)
+    {
+        if (!hasReachedNext)
+        {
+            if (currentWaypoint < globalWaypoints.Length)
+            {
+                Vector2 targetPosition = new Vector2(globalWaypoints[currentWaypoint].x, transform.position.y);
+                Vector2 direction = targetPosition - enemyRb.position;
+                enemyRb.velocity = direction.normalized * speed;
+
+                if (Mathf.Abs(targetPosition.x - enemyRb.position.x) < 0.1f)
+                {
+                    hasReachedNext = true;
+                }
+
+
+            }
+            else
+            {
+                currentDirection = -1;
+                currentWaypoint = globalWaypoints.Length - 2;
+            }
+
+
+        }
+      
+    }
+
+    public void ModifyWaypoint()
+    {
+        if (currentWaypoint + currentDirection >= globalWaypoints.Length || currentWaypoint + currentDirection < 0)
+        {
+            currentDirection *= -1;
+            currentWaypoint = globalWaypoints.Length - 2;
+        }
+        else
+        {
+            currentWaypoint += currentDirection;
+        }
+    }
+
+    public bool HasReachedEndWayPoint()
+    {
+        return(currentWaypoint == globalWaypoints.Length - 1 && currentDirection == 1 || currentWaypoint == 0 && currentDirection == -1);
+    }
+
+    
+
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * facingDirection * characterData.wallCheckDistance));
-        Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + (Vector3)(Vector2.down * characterData.ledgeCheckDistance));
+        Gizmos.color = Color.red;
+
+        if (!isWayPointBased)
+        {
+            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * facingDirection * characterData.wallCheckDistance));
+            Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + (Vector3)(Vector2.down * characterData.ledgeCheckDistance));
+        }
+        else if (isWayPointBased)
+        {
+            if (localWaypoints != null)
+            {
+                float gizmoSize = 0.25f;
+                Vector3 globalWaypointPos;
+
+                for (int i = 0; i < localWaypoints.Length; i++)
+                {
+                    if (Application.isPlaying)
+                    {
+                        globalWaypointPos = globalWaypoints[i];
+                    }
+                    else
+                    {
+                        globalWaypointPos = localWaypoints[i] + transform.position;
+                    }
+                    
+
+                    Gizmos.DrawLine(globalWaypointPos - Vector3.up * gizmoSize, globalWaypointPos + Vector3.up * gizmoSize);
+                    Gizmos.DrawLine(globalWaypointPos - Vector3.left * gizmoSize, globalWaypointPos + Vector3.left * gizmoSize);
+                }
+            }
+        }
+       
     }
 }
