@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+	[SerializeField] private float walkRunThreshold = 0.9f;
+	
 	float horizontalInputValue, verticalInputValue;
 	bool jumpInput;
 	bool canWalk;
@@ -28,13 +30,13 @@ public class InputManager : MonoBehaviour
 	{
 		if (horizontalInputValue != 0f)
 		{
-			if (Mathf.Abs(horizontalInputValue) >= 0.9f)
+			if (Mathf.Abs(horizontalInputValue) >= walkRunThreshold)
 			{
 				canRun = true;
 				canWalk = false;
 			}
 
-			else if (Mathf.Abs(horizontalInputValue) < 0.9f)
+			else if (Mathf.Abs(horizontalInputValue) < walkRunThreshold)
 			{
 				canRun = false;
 				canWalk = true;

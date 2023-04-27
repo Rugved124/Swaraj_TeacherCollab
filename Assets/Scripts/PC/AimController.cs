@@ -110,24 +110,6 @@ public class AimController : MonoBehaviour
 		return new Rect(bottomLeft, topRight - bottomLeft);
 	}
 
-	//Vector3[] GetBallisticCurve(float v0, float alpha, float g)
-	//{
-	//	int maxPointsCount = Mathf.CeilToInt(maxCurveDuration / curveTimeStep);
-	//	Vector3[] curvePoints = new Vector3[maxPointsCount];
-
-	//	float t = 0f;
-
-	//	for (int i = 0; i < maxPointsCount; i++)
-	//	{
-	//		float x = v0 * Mathf.Cos(alpha) * t + origin.position.x;
-	//		float y = 0.5f * g * t * t + v0 * Mathf.Sin(alpha) * t + origin.position.y;
-	//		curvePoints[i] = new Vector3(x, y);
-	//		t += curveTimeStep;
-	//	}
-
-	//	return curvePoints;
-	//}
-
 	(Vector3[], Vector3[]) GetBallisticCurves(float v0, float alpha, float g)
 	{
 		List<Vector3> curvePointsPreHit = new List<Vector3>();

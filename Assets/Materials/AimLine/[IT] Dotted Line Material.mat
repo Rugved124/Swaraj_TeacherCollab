@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: '[IT] Dotted Line Material'
-  m_Shader: {fileID: 4800000, guid: f7a92a39dcc62f443aff361707600777, type: 3}
+  m_Shader: {fileID: 4800000, guid: 07a0187593f2fea43848620d13ce203c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _Rep: 100
-    - _Sharpness: 100
+    - _Sharpness: 5
     - _Spacing: 1.2
     - _Thickness: 0.35
     m_Colors:
