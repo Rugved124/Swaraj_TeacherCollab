@@ -9,4 +9,8 @@ public class CharacterData : ScriptableObject
     public float ledgeCheckDistance = 0.4f;
 
     public LayerMask whatIsGround;
+
+    public float visionAngle = 30f;
+    public float visionDistance = 10f;
+    public int raycastCount = 10;
 } 

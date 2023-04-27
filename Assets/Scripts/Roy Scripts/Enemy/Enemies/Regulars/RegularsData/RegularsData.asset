@@ -17,3 +17,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  visionAngle: 25
+  visionDistance: 10
+  raycastCount: 10

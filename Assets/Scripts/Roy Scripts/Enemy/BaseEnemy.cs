@@ -17,6 +17,8 @@ public class BaseEnemy : MonoBehaviour
 
     protected SpriteRenderer enemySpriteRenderer;
 
+    protected EnemyFOV enemyFOV;
+
     private Vector2 updatedVelocity;
 
     [Header("Switch this on to make it waypoint based")]
@@ -45,6 +47,8 @@ public class BaseEnemy : MonoBehaviour
         facingDirection = 1;
         enemySpriteRenderer = transform.Find("Visuals").GetComponent<SpriteRenderer>();
         enemyAnim = transform.Find("Visuals").GetComponent<Animator>();
+        enemyFOV = transform.Find("EnemyVision").GetComponent<EnemyFOV>();
+
         enemyRb = GetComponent<Rigidbody2D>();
 
         enemyFSM = new FiniteStateMachine();
@@ -64,7 +68,7 @@ public class BaseEnemy : MonoBehaviour
             }
         }
 
-        
+        enemyFOV.VisionInit(characterData.visionAngle, characterData.visionDistance, characterData.raycastCount);
     }
 
     public virtual void Update()
