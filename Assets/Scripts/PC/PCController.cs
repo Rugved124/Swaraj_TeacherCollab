@@ -51,10 +51,20 @@ public class PCController : MonoBehaviour
 		ChangeState(State.Idle);
 	}
 
+	/// <summary>
+	/// Teleports the PC to the indicated location and orients it as ordered. Public method because PCPositioner calls it.
+	/// </summary>
+	public void InstantReposition(Vector2 pos, bool mustFaceLeft)
+	{
+		rb.position = pos;
+		transform.position = new Vector3(pos.x, pos.y, transform.position.z);
+
+		if (mustFaceLeft) FaceDirection(false);
+	}
+
 	void Update()
 	{
-		if (currentState == State.Death)
-			return;
+		if (currentState == State.Death) return;
 
 		if (transform.position.y < bottomDeathLine.transform.position.y)
 		{
@@ -127,14 +137,13 @@ public class PCController : MonoBehaviour
 		moveVector = new Vector2(dirX * maxSpeedX, rb.velocity.y);
 		rb.velocity = moveVector;
 
-		if (dirX > 0)
-		{
-			transform.rotation = Quaternion.Euler(0, 0, 0);
-		}
-		else if (dirX < 0)
-		{
-			transform.rotation = Quaternion.Euler(0, 180, 0);
-		}
+		if (dirX > 0) FaceDirection(true);
+		else if (dirX < 0) FaceDirection(false);
+	}
+
+	private void FaceDirection(bool isFacingRight)
+	{
+		transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
 	}
 
 	void ChangeState(State newState)
@@ -178,27 +187,6 @@ public class PCController : MonoBehaviour
 				break;
 		}
 	}
-
-	//bool IsGrounded()
-	//{
-	//	float extraDepth = 0.5f;
-	//	RaycastHit2D groundHit = Physics2D.BoxCast(pcCollider.bounds.center, pcCollider.bounds.size, 0f, Vector2.down, extraDepth, platformLayer);
-
-	//	Color rayColor;
-	//	if (groundHit.collider != null)
-	//	{
-	//		rayColor = Color.green;
-	//	}
-	//	else
-	//	{
-	//		rayColor = Color.red;
-	//	}
-
-	//	Debug.DrawRay(pcCollider.bounds.center + new Vector3(pcCollider.bounds.extents.x, 0f), Vector2.down * (pcCollider.bounds.extents.y + extraDepth), rayColor);
-	//	Debug.DrawRay(pcCollider.bounds.center - new Vector3(pcCollider.bounds.extents.x, 0f), Vector2.down * (pcCollider.bounds.extents.y + extraDepth), rayColor);
-	//	Debug.DrawRay(pcCollider.bounds.center - new Vector3(pcCollider.bounds.extents.x, pcCollider.bounds.extents.y), Vector2.right * (pcCollider.bounds.extents.x), rayColor);
-	//	return groundHit.collider != null;
-	//}
 
 	void Jump()
 	{

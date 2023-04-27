@@ -1,13 +1,18 @@
 using System;
-using Enums;
 using UnityEngine;
 
 public class MovePlatform : MonoBehaviour
 {
-    [SerializeField] private Transform[] waypoints;
+	public enum WayPointType
+	{
+		ResetTo0,
+		GoBack
+	}
+
+	[SerializeField] private Transform[] waypoints;
     [SerializeField] private float speed = 5.0f;
 
-    [SerializeField] private EWayPointType type = EWayPointType.GoBack;
+    [SerializeField] private WayPointType type = WayPointType.GoBack;
     
     [SerializeField] private int currentWaypointIndex = 0;
 
@@ -20,11 +25,11 @@ public class MovePlatform : MonoBehaviour
         {
             switch (type)
             {
-                case EWayPointType.ResetTo0:
+                case WayPointType.ResetTo0:
                     // Set next waypoint as current waypoint
                     currentWaypointIndex = (currentWaypointIndex +1) % waypoints.Length;
                     break;
-                case EWayPointType.GoBack:
+                case WayPointType.GoBack:
                     if (!reversed)
                     {
                         currentWaypointIndex++;
