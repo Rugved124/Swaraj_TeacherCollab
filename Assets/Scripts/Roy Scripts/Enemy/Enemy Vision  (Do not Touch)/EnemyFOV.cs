@@ -14,6 +14,7 @@ public class EnemyFOV : MonoBehaviour
     public LayerMask obstructionLayers;
 
     public bool isSeeing;
+    public bool sawPlayer;
     bool isHitting;
 
     List<RaycastHit2D> hitList;
@@ -57,10 +58,24 @@ public class EnemyFOV : MonoBehaviour
                 didHit = true;
                 hitList.Add(hit);
                 hitSomethingArr[i] = true;
+
+                if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC")
+                {
+                    if (!sawPlayer)
+                    {
+                        sawPlayer = true;
+                    }
+
+                }
+                else
+                {
+                    sawPlayer = false;
+                }
             }
             else
             {
                 hitSomethingArr[i] = false;
+
             }
 
             currentAngle += angleStep;

@@ -11,6 +11,8 @@ public class EnemyIdleState : CharacterStates
 
     protected float idleTime;
 
+    public bool shouldLook;
+
     public EnemyIdleState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemyIdleStateData stateData) : base(stateMachine, baseEnemy, animBoolName)
     {
         this.stateData = stateData;
@@ -28,7 +30,7 @@ public class EnemyIdleState : CharacterStates
     {
         base.ExitState();
 
-        if (flipAfterIdle)
+        if (flipAfterIdle && !shouldLook)
         {
             baseEnemy.Flip();
             flipAfterIdle = false;
@@ -38,6 +40,8 @@ public class EnemyIdleState : CharacterStates
     public override void UpdateState()
     {
         base.UpdateState();
+
+        Debug.Log("Idle State");
 
         if (Time.time >= startTime + idleTime)
         {

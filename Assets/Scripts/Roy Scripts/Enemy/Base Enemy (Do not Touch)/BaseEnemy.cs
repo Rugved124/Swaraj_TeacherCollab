@@ -24,21 +24,28 @@ public class BaseEnemy : MonoBehaviour
     [Header("Switch this on to make it waypoint based")]
     public bool isWayPointBased;
 
-    [Header("Make sure there are waypoints if ")]
-    public Vector3[] localWaypoints;
+    public EnemyWaypointsData[] localWaypoints;
     Vector3[] globalWaypoints;
 
-    int currentWaypoint = 0;
-    int currentDirection = 1;
+    public int currentWaypoint = 0;
+    public int currentDirection = 1;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasReachedNext;
+
+    public bool hasFinishedLooking;
+
+    public int patrolCount;
 
     [SerializeField]
     private Transform wallCheck;
 
     [SerializeField]
     private Transform ledgeCheck;
+
+    Quaternion originalFOVRotation;
+
+
 
 
 
@@ -52,14 +59,14 @@ public class BaseEnemy : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
 
         enemyFSM = new FiniteStateMachine();
-        hasReachedNext = false;
+
 
         if (localWaypoints != null)
         {
             globalWaypoints = new Vector3[localWaypoints.Length];
             for (int i = 0; i < localWaypoints.Length; i++)
             {
-                globalWaypoints[i] = localWaypoints[i] + transform.position;
+                globalWaypoints[i] = localWaypoints[i].localPosition + transform.position;
             }
 
             if (isWayPointBased)
@@ -67,6 +74,8 @@ public class BaseEnemy : MonoBehaviour
                 transform.position = globalWaypoints[0];
             }
         }
+        patrolCount = 0;
+        hasReachedNext = false;
 
         enemyFOV.VisionInit(characterData.visionAngle, characterData.visionDistance, characterData.raycastCount);
     }
@@ -111,6 +120,7 @@ public class BaseEnemy : MonoBehaviour
                 if (Mathf.Abs(targetPosition.x - enemyRb.position.x) < 0.1f)
                 {
                     hasReachedNext = true;
+                    
                 }
 
 
@@ -144,7 +154,50 @@ public class BaseEnemy : MonoBehaviour
         return(currentWaypoint == globalWaypoints.Length - 1 && currentDirection == 1 || currentWaypoint == 0 && currentDirection == -1);
     }
 
-    
+    public void LookAroundInIdle(float rotateAngle, float rotateTime)
+    {
+        originalFOVRotation = enemyFOV.transform.rotation;
+        Quaternion targetRotation = enemyFOV.transform.rotation * Quaternion.Euler(0f, 0f, -rotateAngle);
+        StartCoroutine(RotateVision(targetRotation, rotateTime));
+    }
+
+    IEnumerator RotateVision(Quaternion targetRotation, float rotateTime)
+    {
+        float t = 0f;
+        while (t < rotateTime)
+        {
+            t += Time.deltaTime;
+            float fraction = Mathf.Clamp01(t / rotateTime);
+            enemyFOV.transform.rotation = Quaternion.Lerp(originalFOVRotation, targetRotation, fraction);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f); // wait for 1 second
+
+        t = 0f;
+        while (t < rotateTime)
+        {
+            t += Time.deltaTime;
+            float fraction = Mathf.Clamp01(t / rotateTime);
+            enemyFOV.transform.rotation = Quaternion.Lerp(targetRotation, originalFOVRotation, fraction);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f); // wait for 1 second
+
+        transform.rotation = originalFOVRotation; // set rotation to original rotation
+        hasFinishedLooking = true;
+    }
+
+    public float GetVisionRotation()
+    {
+        return localWaypoints[currentWaypoint].rotateAngle;
+    }
+
+    public float GetVisionTime()
+    {
+        return localWaypoints[currentWaypoint].rotateTime;
+    }
 
     private void OnDrawGizmos()
     {
@@ -170,7 +223,7 @@ public class BaseEnemy : MonoBehaviour
                     }
                     else
                     {
-                        globalWaypointPos = localWaypoints[i] + transform.position;
+                        globalWaypointPos = localWaypoints[i].localPosition + transform.position;
                     }
                     
 
