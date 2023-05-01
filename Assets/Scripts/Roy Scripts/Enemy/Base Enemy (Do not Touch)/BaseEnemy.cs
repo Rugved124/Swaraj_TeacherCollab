@@ -46,8 +46,16 @@ public class BaseEnemy : MonoBehaviour
     Quaternion originalFOVRotation;
 
 
+    public AlertMeter alertMeter;
+    float maxAlertLevel;
+    float currentAlertLevel;
+    float initialAlertLevel;
+    bool initialAlert;
 
+    float increaseDuration = 1f;
 
+    public float initialAlertFillAmount = 0.2f;
+    float alertLevelIncreaseTime;
 
     public virtual void Start()
     {
@@ -55,11 +63,11 @@ public class BaseEnemy : MonoBehaviour
         enemySpriteRenderer = transform.Find("Visuals").GetComponent<SpriteRenderer>();
         enemyAnim = transform.Find("Visuals").GetComponent<Animator>();
         enemyFOV = transform.Find("EnemyVision").GetComponent<EnemyFOV>();
+        alertMeter = transform.Find("AlertMeter").GetComponent<AlertMeter>();
 
         enemyRb = GetComponent<Rigidbody2D>();
 
         enemyFSM = new FiniteStateMachine();
-
 
         if (localWaypoints != null)
         {
@@ -78,12 +86,38 @@ public class BaseEnemy : MonoBehaviour
         hasReachedNext = false;
 
         enemyFOV.VisionInit(characterData.visionAngle, characterData.visionDistance, characterData.raycastCount);
+
+        initialAlertLevel = 0;
+        currentAlertLevel = initialAlertLevel;
     }
 
     public virtual void Update()
     {
         enemyFSM.currentState.UpdateState();
+
+        if (enemyFOV.sawPlayer)
+        {
+
+            if (!initialAlert)
+            {
+                initialAlert = true;
+                currentAlertLevel = initialAlertLevel + initialAlertFillAmount;
+                alertMeter.SetScaleX(currentAlertLevel);
+            }
+
+            if (Time.time > alertLevelIncreaseTime)
+            {
+                alertLevelIncreaseTime = Time.time + increaseDuration;
+                float newX = currentAlertLevel + initialAlertFillAmount;
+                currentAlertLevel = Mathf.Clamp01(newX); // Clamp the value between 0 and 1
+                alertMeter.SetScaleX(currentAlertLevel);
+            }
+        }
+
+
     }
+
+   
 
     public virtual void SetVelocity(float velocity)
     {
@@ -197,6 +231,16 @@ public class BaseEnemy : MonoBehaviour
     public float GetVisionTime()
     {
         return localWaypoints[currentWaypoint].rotateTime;
+    }
+
+    public void HasReachedNext(bool hasReached)
+    {
+        hasReachedNext = hasReached;
+    }
+
+    public void HasFinishedLooking(bool hasLooked)
+    {
+        hasFinishedLooking = hasLooked;
     }
 
     private void OnDrawGizmos()

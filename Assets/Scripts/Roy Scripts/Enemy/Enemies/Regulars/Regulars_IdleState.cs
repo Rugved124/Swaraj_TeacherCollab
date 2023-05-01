@@ -16,7 +16,7 @@ public class Regulars_IdleState : EnemyIdleState
     public override void EnterState()
     {
         base.EnterState();
-        regularsEnemy.hasFinishedLooking = false;
+        regularsEnemy.HasFinishedLooking(false);
         idleCounter += 1;
 
     }
@@ -43,7 +43,7 @@ public class Regulars_IdleState : EnemyIdleState
                 {
                     if (regularsEnemy.isWayPointBased)
                     {
-                        regularsEnemy.hasReachedNext = false;
+                        regularsEnemy.HasReachedNext(false);
 
                         if (idleCounter != 1 && regularsEnemy.GetVisionRotation() > 0)
                         {
