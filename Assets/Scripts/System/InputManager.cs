@@ -44,6 +44,23 @@ public class InputManager : MonoBehaviour
 		}
 	}
 
+	public void DisableInput()
+	{
+		horizontalInputValue = 0f;
+		verticalInputValue = 0f;
+        jumpInput = false;
+        canWalk = false;
+        canJump = false;
+        canRun = false;
+        aimInput = false;
+		this.enabled = false;
+    }
+
+	public void EnableInput()
+	{
+		this.enabled = true;
+	}
+
 	void CheckJumpInput()
 	{
 		if (jumpInput)

@@ -25,7 +25,7 @@ public class BaseEnemy : MonoBehaviour
     public bool isWayPointBased;
 
     public EnemyWaypointsData[] localWaypoints;
-    Vector3[] globalWaypoints;
+    public Vector3[] globalWaypoints;
 
     public int currentWaypoint = 0;
     public int currentDirection = 1;

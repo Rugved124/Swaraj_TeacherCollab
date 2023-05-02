@@ -12,8 +12,8 @@ public class PCController : MonoBehaviour
 		Run,
 		Jump,
 		Airborne,
-		CrouchIdle,
-		CrouchWalk,
+		Crouch,
+		Climbing,
 		Aiming,
 		Death
 	}
@@ -22,7 +22,7 @@ public class PCController : MonoBehaviour
 	public bool isOnPlatform = true;
 
 	[SerializeField] float jumpForce = 15f;
-	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, crouchWalkSpeed = 3f;
+	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, crouchWalkSpeed = 3f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
 
 	private InputManager inputManager;
@@ -104,7 +104,15 @@ public class PCController : MonoBehaviour
 		}
 		else
 		{
-			if (inputManager.IsWalking() && !inputManager.IsRunning())
+			if (inputManager.IsCrouch() && currentState == State.Crouch)
+			{
+				DoWhileCrouch();
+			}
+			else if (currentState == State.Climbing)
+			{
+				DoWhileClimbing();
+			}
+			else if (inputManager.IsWalking() && !inputManager.IsRunning())
 			{
 				if (currentState != State.Walk)
 				{
@@ -129,6 +137,16 @@ public class PCController : MonoBehaviour
 				HorizontalMove();
 			}
 		}
+	}
+
+	private void DoWhileClimbing()
+	{
+		throw new NotImplementedException();
+	}
+
+	private void DoWhileCrouch()
+	{
+		
 	}
 
 	private void HorizontalMove()
@@ -173,6 +191,16 @@ public class PCController : MonoBehaviour
 
 			case State.Airborne:
 				currentState = State.Airborne;
+				break;
+
+			case State.Crouch:
+				currentState = State.Jump;
+				maxSpeedX = 0f;
+				break;
+
+			case State.Climbing:
+				currentState = State.Jump;
+				maxSpeedX = 0f;
 				break;
 
 			case State.Aiming:
