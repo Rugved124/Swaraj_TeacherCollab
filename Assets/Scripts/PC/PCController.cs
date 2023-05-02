@@ -57,7 +57,7 @@ public class PCController : MonoBehaviour
 		inputManager = FindObjectOfType<InputManager>();
 		bottomDeathLine = FindObjectOfType<BottomDeathLine>();
 		aimController.Init(this, inputManager);
-		ChangeState(State.Idle);
+		UpdateState(State.Idle);
 	}
 
 	/// <summary>
@@ -77,36 +77,32 @@ public class PCController : MonoBehaviour
 
 		if (transform.position.y < bottomDeathLine.transform.position.y)
 		{
-			ChangeState(State.Death);
+			UpdateState(State.Death);
 			return;
 		}
 
 		if (inputManager.IsAiming() && collisionManager.IsGrounded)
 		{
-			if (currentState != State.Aiming)
-				ChangeState(State.Aiming);
+			UpdateState(State.Aiming);
 			return;
 		}
 
 		if (inputManager.IsJumping() && collisionManager.IsGrounded)
 		{
-			if (currentState != State.Jump)
-			{
-				ChangeState(State.Jump);
-			}
+			UpdateState(State.Jump);
 		}
 
 		if (currentState == State.Jump)
 		{
-			ChangeState(State.Airborne);
+			UpdateState(State.Airborne);
 		}
 		else if (currentState == State.Airborne)
 		{
 			if (collisionManager.IsGrounded)
 			{
-				ChangeState(State.Idle);
+				UpdateState(State.Idle);
 			}
-			else if (inputManager.IsWalking())
+			else if (inputManager.IsWalking() || inputManager.IsRunning())
 			{
 				HorizontalMove();
 			}
@@ -123,26 +119,17 @@ public class PCController : MonoBehaviour
 			}
 			else if (inputManager.IsWalking() && !inputManager.IsRunning())
 			{
-				if (currentState != State.Walk)
-				{
-					ChangeState(State.Walk);
-				}
+				UpdateState(State.Walk);
 				HorizontalMove();
 			}
 			else if (!inputManager.IsWalking() && inputManager.IsRunning())
 			{
-				if (currentState != State.Run)
-				{
-					ChangeState(State.Run);
-				}
+				UpdateState(State.Run);
 				HorizontalMove();
 			}
 			else if (!inputManager.IsWalking() && !inputManager.IsJumping() && !inputManager.IsRunning())
 			{
-				if (currentState != State.Idle)
-				{
-					ChangeState(State.Idle);
-				}
+				UpdateState(State.Idle);
 				HorizontalMove();
 			}
 		}
@@ -173,8 +160,11 @@ public class PCController : MonoBehaviour
 		transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
 	}
 
-	void ChangeState(State newState)
+	void UpdateState(State newState)
 	{
+		if (newState == currentState)
+			return;
+
 		switch (newState)
 		{
 			case State.Idle:
@@ -258,7 +248,7 @@ public class PCController : MonoBehaviour
 
 		aimController.Activate(false);
 		yield return new WaitForSeconds(pauseTimeAfterShoot);
-		ChangeState(State.Idle);
+		UpdateState(State.Idle);
 	}
 
 	private void UpdateAnimState(AnimState newState)

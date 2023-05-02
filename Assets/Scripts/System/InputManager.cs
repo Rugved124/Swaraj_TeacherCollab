@@ -41,6 +41,11 @@ public class InputManager : MonoBehaviour
 				canWalk = true;
 			}
 		}
+		else
+		{
+			canRun = false;
+			canWalk = false;
+		}
 	}
 
 	public void DisableInput()

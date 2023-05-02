@@ -560,7 +560,9 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 8
   crouchWalkSpeed: 2.5
+  climbingSpeed: 5
   pauseTimeAfterShoot: 0.3
+  animator: {fileID: 797411079958156569}
 --- !u!114 &3434448908027713570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,6 +826,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c1945ecab9970041b5e8d560260113d, type: 3}
+--- !u!95 &797411079958156569 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6328187810599574270, guid: 9c1945ecab9970041b5e8d560260113d, type: 3}
+  m_PrefabInstance: {fileID: 6684120774139400167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3407884640650674328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8325459613308489599, guid: 9c1945ecab9970041b5e8d560260113d, type: 3}
