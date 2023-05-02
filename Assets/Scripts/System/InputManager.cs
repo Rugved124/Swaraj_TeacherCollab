@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +13,6 @@ public class InputManager : MonoBehaviour
 	bool canRun;
 	bool aimInput;
 	private bool canAim;
-	private bool isCrounch;
 
 	void Update()
 	{
@@ -44,6 +42,23 @@ public class InputManager : MonoBehaviour
 				canWalk = true;
 			}
 		}
+	}
+
+	public void DisableInput()
+	{
+		horizontalInputValue = 0f;
+		verticalInputValue = 0f;
+        jumpInput = false;
+        canWalk = false;
+        canJump = false;
+        canRun = false;
+        aimInput = false;
+		this.enabled = false;
+    }
+
+	public void EnableInput()
+	{
+		this.enabled = true;
 	}
 
 	void CheckJumpInput()
@@ -100,10 +115,5 @@ public class InputManager : MonoBehaviour
 	public bool IsAiming()
 	{
 		return canAim;
-	}
-
-	internal bool IsCrouch()
-	{
-		return isCrounch;
 	}
 }

@@ -5,13 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	InputManager inputManager;
 	// Start is called before the first frame update
 	void Start()
     {
-        
+       inputManager = GetComponent<InputManager>(); 
+
+    }
+	public void SwitchOffInputManager()
+	{
+		inputManager.DisableInput();
+    }
+    public void SwitchOnInputManager()
+    {
+        inputManager.EnableInput();
     }
 
-	private void OnEnable()
+    private void OnEnable()
 	{
 		NavigationPoint.OnTriggered += HandleOnNavTrigger;
 	}
