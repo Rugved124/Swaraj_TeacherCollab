@@ -534,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 7083798e4d24128459e2b8450f92c7f6, type: 3}
       propertyPath: m_Name
-      value: PC Visual Variant
+      value: PC Visual
       objectReference: {fileID: 0}
     - target: {fileID: -8249325274097665718, guid: 7083798e4d24128459e2b8450f92c7f6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -546,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 7083798e4d24128459e2b8450f92c7f6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 7083798e4d24128459e2b8450f92c7f6, type: 3}
       propertyPath: m_LocalScale.x
