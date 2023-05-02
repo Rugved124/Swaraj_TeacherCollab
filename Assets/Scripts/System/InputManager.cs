@@ -8,12 +8,10 @@ public class InputManager : MonoBehaviour
 	[SerializeField] private float walkRunThreshold = 0.9f;
 	
 	float horizontalInputValue, verticalInputValue;
-	bool jumpInput;
-	bool canWalk;
-	bool canJump;
-	bool canRun;
+	bool jumpInput, canWalk, canJump, canRun;
 	bool aimInput;
 	private bool canAim;
+	private bool canCrouch;
 
 	void Update()
 	{
@@ -120,6 +118,6 @@ public class InputManager : MonoBehaviour
 
 	internal bool IsCrouch()
 	{
-		
+		return canCrouch;
 	}
 }
