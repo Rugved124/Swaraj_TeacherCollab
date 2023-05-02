@@ -15,6 +15,7 @@ public class PCController : MonoBehaviour
 		Crouch,
 		Climbing,
 		Aiming,
+		CrouchAiming,
 		Death
 	}
 
@@ -23,7 +24,12 @@ public class PCController : MonoBehaviour
 		Idle = 0,
 		Walk = 1,
 		Run = 2,
-		Aim = 3
+		Aim = 3,
+		Jump = 4,
+		Crouch = 5,
+		Death = 6,
+		Climbing = 7,
+		CrouchAim = 8
 	}
 
 	public State currentState;
@@ -83,66 +89,60 @@ public class PCController : MonoBehaviour
 
 		if (inputManager.IsAiming() && collisionManager.IsGrounded)
 		{
-			UpdateState(State.Aiming);
+			UpdateState(inputManager.IsCrouch() ? State.CrouchAiming : State.Aiming);
+			return;
+		}
+
+		if (inputManager.IsCrouch() && collisionManager.IsGrounded)
+		{
+			UpdateState(State.Crouch);
 			return;
 		}
 
 		if (inputManager.IsJumping() && collisionManager.IsGrounded)
 		{
 			UpdateState(State.Jump);
+			UpdateState(State.Airborne);
+			return;
 		}
 
-		if (currentState == State.Jump)
-		{
-			UpdateState(State.Airborne);
-		}
-		else if (currentState == State.Airborne)
+		if (currentState == State.Airborne)
 		{
 			if (collisionManager.IsGrounded)
 			{
 				UpdateState(State.Idle);
 			}
-			else if (inputManager.IsWalking() || inputManager.IsRunning())
+			else
 			{
 				HorizontalMove();
 			}
 		}
 		else
 		{
-			if (inputManager.IsCrouch() && currentState == State.Crouch)
-			{
-				DoWhileCrouch();
-			}
-			else if (currentState == State.Climbing)
+			if (currentState == State.Climbing)
 			{
 				DoWhileClimbing();
+				return;
 			}
-			else if (inputManager.IsWalking() && !inputManager.IsRunning())
+			if (inputManager.IsWalking())
 			{
 				UpdateState(State.Walk);
-				HorizontalMove();
 			}
-			else if (!inputManager.IsWalking() && inputManager.IsRunning())
+			else if (inputManager.IsRunning())
 			{
 				UpdateState(State.Run);
-				HorizontalMove();
 			}
-			else if (!inputManager.IsWalking() && !inputManager.IsJumping() && !inputManager.IsRunning())
+			else if (!inputManager.IsJumping())
 			{
 				UpdateState(State.Idle);
-				HorizontalMove();
 			}
+			HorizontalMove();
 		}
 	}
 
 	private void DoWhileClimbing()
 	{
 		throw new NotImplementedException();
-	}
-
-	private void DoWhileCrouch()
-	{
-		
 	}
 
 	private void HorizontalMove()
@@ -188,21 +188,25 @@ public class PCController : MonoBehaviour
 			case State.Jump:
 				currentState = State.Jump;
 				maxSpeedX = runSpeed;
+				UpdateAnimState(AnimState.Jump);
 				Jump();
 				break;
 
 			case State.Airborne:
 				currentState = State.Airborne;
+				maxSpeedX = runSpeed;
 				break;
 
 			case State.Crouch:
 				currentState = State.Jump;
 				maxSpeedX = 0f;
+				UpdateAnimState(AnimState.Crouch);
 				break;
 
 			case State.Climbing:
 				currentState = State.Jump;
 				maxSpeedX = 0f;
+				UpdateAnimState(AnimState.Climbing);
 				break;
 
 			case State.Aiming:
@@ -211,8 +215,15 @@ public class PCController : MonoBehaviour
 				UpdateAnimState(AnimState.Aim);
 				break;
 
+			case State.CrouchAiming:
+				currentState = State.Jump;
+				maxSpeedX = 0f;
+				UpdateAnimState(AnimState.CrouchAim);
+				break;
+
 			case State.Death:
 				currentState = State.Death;
+				UpdateAnimState(AnimState.Death);
 				Destroy(gameObject);
 				Debug.Log("Dead");
 				break;
