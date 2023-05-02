@@ -18,12 +18,21 @@ public class PCController : MonoBehaviour
 		Death
 	}
 
+	private enum AnimState
+	{
+		Idle = 0,
+		Walk = 1,
+		Run = 2,
+		Aim = 3
+	}
+
 	public State currentState;
 	public bool isOnPlatform = true;
 
 	[SerializeField] float jumpForce = 15f;
 	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, crouchWalkSpeed = 3f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
+	[SerializeField] private Animator animator;
 
 	private InputManager inputManager;
 	private BottomDeathLine bottomDeathLine;
@@ -171,16 +180,19 @@ public class PCController : MonoBehaviour
 			case State.Idle:
 				currentState = State.Idle;
 				maxSpeedX = 0f;
+				UpdateAnimState(AnimState.Idle);
 				break;
 
 			case State.Walk:
 				currentState = State.Walk;
 				maxSpeedX = walkSpeed;
+				UpdateAnimState(AnimState.Walk);
 				break;
 
 			case State.Run:
 				currentState = State.Run;
 				maxSpeedX = runSpeed;
+				UpdateAnimState(AnimState.Run);
 				break;
 
 			case State.Jump:
@@ -206,6 +218,7 @@ public class PCController : MonoBehaviour
 			case State.Aiming:
 				currentState = State.Aiming;
 				StartAiming();
+				UpdateAnimState(AnimState.Aim);
 				break;
 
 			case State.Death:
@@ -246,5 +259,10 @@ public class PCController : MonoBehaviour
 		aimController.Activate(false);
 		yield return new WaitForSeconds(pauseTimeAfterShoot);
 		ChangeState(State.Idle);
+	}
+
+	private void UpdateAnimState(AnimState newState)
+	{
+		animator.SetInteger("State", (int)newState);
 	}
 }
