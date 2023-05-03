@@ -3,7 +3,6 @@ using System.Collections;
 
 public class NavigationPoint : MonoBehaviour
 {
-	private const float SWITCH_RANGE = 5f;
 
 	static public event System.Action<NavigationPoint> OnTriggered;
 
@@ -13,6 +12,7 @@ public class NavigationPoint : MonoBehaviour
 	public string exitToScene;
 	public int entryPointID = 0;
 	public bool mustPCFaceLeft;
+	[SerializeField] private float switchRange = 4f;
 
 	/// <summary>
 	/// true when the PC has been some distance away from it (to avoid trigger when the PC just spawns in it)
@@ -50,7 +50,7 @@ public class NavigationPoint : MonoBehaviour
 	void MaySwitchOn()
 	{
 		Vector2 d = transform.position - pc.transform.position;
-		if (d.sqrMagnitude > SWITCH_RANGE * SWITCH_RANGE)
+		if (d.sqrMagnitude > switchRange * switchRange)
 		{
 			isOn = true;
 		}
