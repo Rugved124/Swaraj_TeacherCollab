@@ -7,11 +7,21 @@ public class GameManager : MonoBehaviour
 {
 	InputManager inputManager;
 	// Start is called before the first frame update
+	PauseButton pauseButton;
+	public bool isPaused { get; private set; }
+
+	private void Awake()
+	{
+		pauseButton = FindObjectOfType<PauseButton>();
+	}
+
 	void Start()
     {
-       inputManager = GetComponent<InputManager>(); 
+       inputManager = GetComponent<InputManager>();
+		isPaused = false;
 
-    }
+
+	}
 	public void SwitchOffInputManager()
 	{
 		inputManager.DisableInput();
@@ -44,6 +54,20 @@ public class GameManager : MonoBehaviour
 		{
 			SceneManager.LoadScene(navTrigger.exitToScene);
 		}
+	}
+
+
+	public void PauseGame()
+	{
+		Time.timeScale = 0;
+		isPaused = true;
+		// Add code to show pause menu, if desired
+	}
+	public void ResumeGame()
+	{
+		Time.timeScale = 1;
+		isPaused = false;
+		// Add code to hide pause menu, if desired
 	}
 
 }
