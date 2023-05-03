@@ -28,8 +28,9 @@ public class PCController : MonoBehaviour
 		Jump = 4,
 		Crouch = 5,
 		Death = 6,
-		Climbing = 7,
-		CrouchAim = 8
+		CrouchAim = 7,
+		Shoot = 8,
+		Climbing = 9,
 	}
 
 	public State currentState;
@@ -38,7 +39,7 @@ public class PCController : MonoBehaviour
 	[SerializeField] float jumpForce = 15f;
 	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, crouchWalkSpeed = 3f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
-	[SerializeField] private Animator animator;
+	[SerializeField] private Animator animator, animatorClimbing;
 
 	private InputManager inputManager;
 	private BottomDeathLine bottomDeathLine;
@@ -265,5 +266,6 @@ public class PCController : MonoBehaviour
 	private void UpdateAnimState(AnimState newState)
 	{
 		animator.SetInteger("State", (int)newState);
+		animatorClimbing.SetBool("isClimbing", newState == AnimState.Climbing);
 	}
 }
