@@ -25,7 +25,7 @@ public class AlertMeter : MonoBehaviour
 
     public bool Alerted()
     {
-        if (transform.localScale.x == 0f)
+        if (transform.localScale.x <= 0f)
         {
             return false;
         }

@@ -28,8 +28,6 @@ public class RegularsNoPatrol_IdleState : EnemyIdleState
     {
         base.UpdateState();
 
-        Debug.Log("No Patrol Idle");
-
         if (regularsNoPatrolEnemy.SeeingPlayer())
         {
             stateMachine.ChangeState(regularsNoPatrolEnemy.searchingState);

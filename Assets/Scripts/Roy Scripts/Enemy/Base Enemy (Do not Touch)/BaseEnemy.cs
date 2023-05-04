@@ -14,10 +14,12 @@ public class BaseEnemy : MonoBehaviour
 
     protected Rigidbody2D enemyRb;
 
+    [HideInInspector]
     public Animator enemyAnim;
 
     protected SpriteRenderer enemySpriteRenderer;
 
+    [HideInInspector]
     public EnemyFOV enemyFOV;
 
     private Vector2 updatedVelocity;
@@ -26,17 +28,18 @@ public class BaseEnemy : MonoBehaviour
     public bool isWayPointBased;
 
     public EnemyWaypointsData[] localWaypoints;
-    public Vector3[] globalWaypoints;
+    Vector3[] globalWaypoints;
 
-    public int currentWaypoint = 0;
-    public int currentDirection = 1;
+    int currentWaypoint = 0;
+    int currentDirection = 1;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool hasReachedNext;
 
+    [HideInInspector]
     public bool hasFinishedLooking;
 
-    public int patrolCount;
+   int patrolCount;
 
     [SerializeField]
     private Transform wallCheck;
@@ -46,7 +49,7 @@ public class BaseEnemy : MonoBehaviour
 
     Quaternion originalFOVRotation;
 
-
+    [HideInInspector]
     public AlertMeter alertMeter;
     float maxAlertLevel;
     float currentAlertLevel;
@@ -59,8 +62,14 @@ public class BaseEnemy : MonoBehaviour
     float alertLevelIncreaseTime;
 
     bool isLookingDown = false;
+
+    [HideInInspector]
     public bool resetVision;
+
+    [HideInInspector]
     public bool isSeeingPlayer;
+
+    [HideInInspector]
     public bool isAlarmed;
 
     public virtual void Start()
@@ -147,7 +156,10 @@ public class BaseEnemy : MonoBehaviour
         return isSeeingPlayer;
     }
 
-
+    public void LookAtPlayer()
+    {
+        enemyFOV.LookAtPlayer();
+    }
    
 
     public virtual void SetVelocity(float velocity)
@@ -278,35 +290,20 @@ public class BaseEnemy : MonoBehaviour
 
     public void ResetVision(Quaternion currentAngle, float rotateTime)
     {
-        if (facingDirection == 1)
-        {
-            enemyFOV.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        else if (facingDirection == -1)
-        {
-            enemyFOV.transform.rotation = Quaternion.Euler(0f, -180f, 0f);
-        }
+        enemyFOV.transform.rotation = transform.rotation;
+        //if (facingDirection == 1)
+        //{
+        //    enemyFOV.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        //}
+        //else if (facingDirection == -1)
+        //{
+        //    enemyFOV.transform.localRotation = Quaternion.Euler(0f, -180f, 0f);
+        //}
         
         resetVision = true;
     }
 
-    IEnumerator ResetVisionAngle(Quaternion currentAngle, float rotateTime)
-    {
-        float t = 0f;
-        while (t < rotateTime)
-        {
-            t += Time.deltaTime;
-            float fraction = Mathf.Clamp01(t / rotateTime);
-            enemyFOV.transform.rotation = Quaternion.Lerp(enemyFOV.transform.rotation, originalFOVRotation, fraction);
-            if (enemyFOV.sawPlayer)
-            {
-                yield break; // exit the coroutine if player is seen
-            }
-            yield return null;
-        }
-
-        resetVision = true;
-    }
+   
 
     public float GetVisionRotation()
     {

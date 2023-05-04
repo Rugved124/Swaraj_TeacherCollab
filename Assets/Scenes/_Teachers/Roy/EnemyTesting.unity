@@ -575,6 +575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RegularsEnemyGO
       objectReference: {fileID: 0}
+    - target: {fileID: 7644763119006405992, guid: d76f640de4680b74ebf3cafd83f2257b, type: 3}
+      propertyPath: resetVision
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -9,6 +9,8 @@ public class EnemySearchingState : CharacterStates
     protected bool isSearchingTimeOver;
     protected float searchingTime = 2f;
 
+    protected bool shoot;
+
     public EnemySearchingState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemySearchingStateData stateData) : base(stateMachine, baseEnemy, animBoolName)
     {
         this.stateData = stateData;
@@ -18,7 +20,8 @@ public class EnemySearchingState : CharacterStates
     public override void EnterState()
     {
         base.EnterState();
-        isSearchingTimeOver = false;
+        
+
         baseEnemy.SetVelocity(0f);
 
     }
@@ -26,15 +29,22 @@ public class EnemySearchingState : CharacterStates
     public override void ExitState()
     {
         base.ExitState();
+        isSearchingTimeOver = false;
+        shoot = false;
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
-        if (!baseEnemy.SeeingPlayer() && !baseEnemy.isAlarmed)
+        if (!baseEnemy.isSeeingPlayer)
         {
             isSearchingTimeOver = true;
+        }
+
+        if (baseEnemy.isAlarmed)
+        {
+            shoot = true;
         }
         
     }

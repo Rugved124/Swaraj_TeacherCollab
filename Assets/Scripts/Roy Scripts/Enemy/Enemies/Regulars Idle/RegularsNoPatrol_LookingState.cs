@@ -30,8 +30,6 @@ public class RegularsNoPatrol_LookingState : EnemyLookingState
     {
         base.UpdateState();
 
-        Debug.Log("No Patrol Looking");
-
         if (regularsNoPatrolEnemy.SeeingPlayer())
         {
             stateMachine.ChangeState(regularsNoPatrolEnemy.searchingState);

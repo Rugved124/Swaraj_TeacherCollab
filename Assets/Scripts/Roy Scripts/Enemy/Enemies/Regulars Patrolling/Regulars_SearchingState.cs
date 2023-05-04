@@ -30,10 +30,8 @@ public class Regulars_SearchingState : EnemySearchingState
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.Log("Searching State");
 
-
-        if (isSearchingTimeOver)
+        if (isSearchingTimeOver && !shoot)
         {
             isSearchingTimeOver = false;
 
@@ -45,7 +43,7 @@ public class Regulars_SearchingState : EnemySearchingState
                 {
                     stateMachine.ChangeState(previousState);
                 }
-                else if(previousState == regularsEnemy.lookState)
+                else if (previousState == regularsEnemy.lookState)
                 {
                     if (regularsEnemy.HasReachedEndWayPoint())
                     {
@@ -57,5 +55,14 @@ public class Regulars_SearchingState : EnemySearchingState
                 }
             }
         }
+        else if (isSearchingTimeOver && shoot)
+        {
+            Debug.Log("Player Shot");
+        }
+        else
+        {
+            regularsEnemy.LookAtPlayer();
+        }
+        
     }
 }

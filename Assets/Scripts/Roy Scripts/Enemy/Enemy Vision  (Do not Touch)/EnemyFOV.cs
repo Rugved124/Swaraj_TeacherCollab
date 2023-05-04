@@ -22,6 +22,8 @@ public class EnemyFOV : MonoBehaviour
 
     public int facingDirection;
 
+    Vector3 playerPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +73,8 @@ public class EnemyFOV : MonoBehaviour
 
         bool didHit = false;
 
+        sawPlayer = false;
+
         for (int i = 0; i < numRays; i++)
         {
             Vector2 rotatedDirection = RotateVector2(direction, currentAngle);
@@ -82,17 +86,14 @@ public class EnemyFOV : MonoBehaviour
                 hitList.Add(hit);
                 hitSomethingArr[i] = true;
 
+                
+
                 if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC")
                 {
-                    if (!sawPlayer)
-                    {
-                        sawPlayer = true;
-                    }
+                    playerPos = hit.collider.gameObject.transform.position;
 
-                }
-                else
-                {
-                    sawPlayer = false;
+                    sawPlayer = true;
+
                 }
             }
             else
@@ -104,6 +105,16 @@ public class EnemyFOV : MonoBehaviour
         }
 
         return didHit;
+    }
+
+    public void LookAtPlayer()
+    {
+        Vector3 direction = playerPos - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+        transform.rotation = targetRotation;
+       
+
     }
 
     void OnDrawGizmos()
@@ -138,11 +149,7 @@ public class EnemyFOV : MonoBehaviour
                 Gizmos.color = Color.red;
                 Gizmos.DrawLine(transform.position, hitList[i].point);
             }
-            else
-            {
-                Gizmos.color = Color.green;
-                Gizmos.DrawLine(transform.position, transform.position + (Vector3)rotatedDirection * visionDistance);
-            }
+                
 
             currentAngle += angleStep;
         }
