@@ -43,6 +43,7 @@ public class PCController : MonoBehaviour
 		aimController = GetComponentInChildren<AimController>();
 		shootManager = GetComponentInChildren<ShootManager>();
 		collisionManager = GetComponent<PCCollisionManager>();
+		visualManager = GetComponent<PCVisualManager>();
 	}
 
 	void Start()
@@ -235,6 +236,7 @@ public class PCController : MonoBehaviour
 		//Aiming
 		do
 		{
+			visualManager.Aim(aimController.Alpha * Mathf.Rad2Deg);
 			yield return null;
 		} while (inputManager.IsAiming());
 

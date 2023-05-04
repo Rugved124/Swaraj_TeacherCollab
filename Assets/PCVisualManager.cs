@@ -19,16 +19,16 @@ public class PCVisualManager : MonoBehaviour
 	}
 
 	[SerializeField] private Animator animator, animatorClimbing;
-
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
+	[SerializeField] private Transform boneToRotateForAim;
 
 	public void UpdateAnimState(AnimState newState)
 	{
 		animator.SetInteger("State", (int)newState);
 		animatorClimbing.SetBool("isClimbing", newState == AnimState.Climbing);
+	}
+
+	public void Aim(float angle)
+	{
+		boneToRotateForAim.localRotation = Quaternion.Euler(0f, 0f, angle);
 	}
 }
