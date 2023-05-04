@@ -9,7 +9,7 @@ public class InteractiveObject : MonoBehaviour
 
 	public virtual void OnHitByArrow()
 	{
-		
+	
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -24,4 +24,5 @@ public class InteractiveObject : MonoBehaviour
 		}
 		
 	}
+
 }
