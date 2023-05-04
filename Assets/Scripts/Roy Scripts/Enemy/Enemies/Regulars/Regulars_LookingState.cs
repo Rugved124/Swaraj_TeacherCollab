@@ -14,14 +14,14 @@ public class Regulars_LookingState : EnemyLookingState
     public override void EnterState()
     {
         base.EnterState();
-
+        baseEnemy.SetVelocity(0f);
+        regularsEnemy.HasReachedNext(false);
         regularsEnemy.LookAroundInIdle(lookingAngle,lookingTime);
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        regularsEnemy.idleState.shouldLook = false;
     }
 
     public override void UpdateState()
@@ -29,8 +29,20 @@ public class Regulars_LookingState : EnemyLookingState
         base.UpdateState();
         Debug.Log("Looking State");
 
+        if (regularsEnemy.SeeingPlayer())
+        {
+            stateMachine.ChangeState(regularsEnemy.searchingState);
+            return;
+        }
+
         if (regularsEnemy.hasFinishedLooking)
         {
+            if (regularsEnemy.HasReachedEndWayPoint())
+            {
+
+                regularsEnemy.idleState.SetFlipAfterIdle(true);
+            }
+
             stateMachine.ChangeState(regularsEnemy.idleState);
 
         }

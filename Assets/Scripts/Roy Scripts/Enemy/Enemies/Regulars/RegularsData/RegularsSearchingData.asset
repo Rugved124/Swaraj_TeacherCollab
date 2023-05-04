@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56fcb439c45237438bd00b1804c21e8, type: 3}
-  m_Name: RegularWaypoint 3
+  m_Script: {fileID: 11500000, guid: 23abfa9977640da409bca07e4ba63474, type: 3}
+  m_Name: RegularsSearchingData
   m_EditorClassIdentifier: 
-  localPosition: {x: 4, y: 0, z: 0}
-  rotateAngle: 25
-  rotateTime: 1

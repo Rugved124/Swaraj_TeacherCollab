@@ -11,7 +11,6 @@ public class EnemyIdleState : CharacterStates
 
     protected float idleTime;
 
-    public bool shouldLook;
 
     public EnemyIdleState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemyIdleStateData stateData) : base(stateMachine, baseEnemy, animBoolName)
     {
@@ -30,7 +29,7 @@ public class EnemyIdleState : CharacterStates
     {
         base.ExitState();
 
-        if (flipAfterIdle && !shouldLook)
+        if (flipAfterIdle)
         {
             baseEnemy.Flip();
             flipAfterIdle = false;

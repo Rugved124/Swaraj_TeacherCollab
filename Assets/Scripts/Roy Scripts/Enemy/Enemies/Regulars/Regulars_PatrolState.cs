@@ -25,26 +25,31 @@ public class Regulars_PatrolState : EnemyPatrolState
     public override void UpdateState()
     {
         base.UpdateState();
+        Debug.Log("Patrol State");
 
-        if (!regularsEnemy.isWayPointBased)
+        if (regularsEnemy.isSeeingPlayer || regularsEnemy.isAlarmed)
         {
-            if (isDetectingWall || !isDetectingLedge)
-            {
-                regularsEnemy.idleState.SetFlipAfterIdle(true);
-                stateMachine.ChangeState(regularsEnemy.idleState);
-            }
+            stateMachine.ChangeState(regularsEnemy.searchingState);
+            return;
         }
-        else
+
+        if (regularsEnemy.hasReachedNext)
         {
-            if (regularsEnemy.hasReachedNext)
+            if (regularsEnemy.GetVisionRotation() > 0)
+            {
+                stateMachine.ChangeState(regularsEnemy.lookState);
+            }
+            else 
             {
                 if (regularsEnemy.HasReachedEndWayPoint())
                 {
+
                     regularsEnemy.idleState.SetFlipAfterIdle(true);
                 }
-                
+
                 stateMachine.ChangeState(regularsEnemy.idleState);
             }
+            
         }
         
     }

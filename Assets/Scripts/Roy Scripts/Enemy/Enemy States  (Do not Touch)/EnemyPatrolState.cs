@@ -10,7 +10,7 @@ public class EnemyPatrolState : CharacterStates
     protected bool isDetectingLedge;
     protected bool hasReachedWayPoint;
 
-    
+    protected bool shouldLook;
 
     public EnemyPatrolState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemyPatrolStateData stateData) : base(stateMachine, baseEnemy, animBoolName)
     {
@@ -39,6 +39,8 @@ public class EnemyPatrolState : CharacterStates
     public override void UpdateState()
     {
         base.UpdateState();
+
+       
 
         isDetectingLedge = baseEnemy.CheckGround();
         isDetectingWall = baseEnemy.CheckWall();

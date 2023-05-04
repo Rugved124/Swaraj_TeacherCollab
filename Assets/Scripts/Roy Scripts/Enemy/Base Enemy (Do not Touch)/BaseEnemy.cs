@@ -17,7 +17,7 @@ public class BaseEnemy : MonoBehaviour
 
     protected SpriteRenderer enemySpriteRenderer;
 
-    protected EnemyFOV enemyFOV;
+    public EnemyFOV enemyFOV;
 
     private Vector2 updatedVelocity;
 
@@ -57,11 +57,15 @@ public class BaseEnemy : MonoBehaviour
     public float initialAlertFillAmount = 0.2f;
     float alertLevelIncreaseTime;
 
+    bool isLookingDown = false;
+    public bool resetVision;
+    public bool isSeeingPlayer;
+    public bool isAlarmed;
+
     public virtual void Start()
     {
         facingDirection = 1;
-        enemySpriteRenderer = transform.Find("Visuals").GetComponent<SpriteRenderer>();
-        enemyAnim = transform.Find("Visuals").GetComponent<Animator>();
+        enemyAnim = transform.Find("RegularVisual").GetComponent<Animator>();
         enemyFOV = transform.Find("EnemyVision").GetComponent<EnemyFOV>();
         alertMeter = transform.Find("AlertMeter").GetComponent<AlertMeter>();
 
@@ -89,14 +93,20 @@ public class BaseEnemy : MonoBehaviour
 
         initialAlertLevel = 0;
         currentAlertLevel = initialAlertLevel;
+
+        
     }
 
     public virtual void Update()
     {
         enemyFSM.currentState.UpdateState();
 
+        isSeeingPlayer = alertMeter.Alerted();
+        isAlarmed = alertMeter.Alarmed();
+
         if (enemyFOV.sawPlayer)
         {
+            
 
             if (!initialAlert)
             {
@@ -113,9 +123,25 @@ public class BaseEnemy : MonoBehaviour
                 alertMeter.SetScaleX(currentAlertLevel);
             }
         }
+        else
+        {
+            if (Time.time > alertLevelIncreaseTime)
+            {
+                alertLevelIncreaseTime = Time.time + increaseDuration;
+                float newX = currentAlertLevel - initialAlertFillAmount;
+                currentAlertLevel = Mathf.Clamp01(newX); // Clamp the value between 0 and 1
+                alertMeter.SetScaleX(currentAlertLevel);
+            }
+        }
 
 
     }
+
+    public bool SeeingPlayer()
+    {
+        return isSeeingPlayer;
+    }
+
 
    
 
@@ -172,10 +198,15 @@ public class BaseEnemy : MonoBehaviour
 
     public void ModifyWaypoint()
     {
-        if (currentWaypoint + currentDirection >= globalWaypoints.Length || currentWaypoint + currentDirection < 0)
+        if (currentWaypoint + currentDirection >= globalWaypoints.Length)
         {
             currentDirection *= -1;
             currentWaypoint = globalWaypoints.Length - 2;
+        }
+        else if (currentWaypoint + currentDirection < 0)
+        {
+            currentDirection *= -1;
+            currentWaypoint += currentDirection;
         }
         else
         {
@@ -190,37 +221,77 @@ public class BaseEnemy : MonoBehaviour
 
     public void LookAroundInIdle(float rotateAngle, float rotateTime)
     {
-        originalFOVRotation = enemyFOV.transform.rotation;
+        
         Quaternion targetRotation = enemyFOV.transform.rotation * Quaternion.Euler(0f, 0f, -rotateAngle);
-        StartCoroutine(RotateVision(targetRotation, rotateTime));
+        StartCoroutine(LookDown(targetRotation, rotateTime));
     }
 
-    IEnumerator RotateVision(Quaternion targetRotation, float rotateTime)
+    IEnumerator LookDown(Quaternion targetRotation, float rotateTime)
     {
+        isLookingDown = true;
+        originalFOVRotation = enemyFOV.transform.rotation;
         float t = 0f;
         while (t < rotateTime)
         {
             t += Time.deltaTime;
             float fraction = Mathf.Clamp01(t / rotateTime);
             enemyFOV.transform.rotation = Quaternion.Lerp(originalFOVRotation, targetRotation, fraction);
+            if (enemyFOV.sawPlayer)
+            {
+                isLookingDown = false;
+                yield break; // exit the coroutine if player is seen
+            }
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f); // wait for 1 second
+        // If player is not seen, start looking up
+        StartCoroutine(LookUp(rotateTime));
+    }
 
-        t = 0f;
+    // Coroutine to look up
+    IEnumerator LookUp(float rotateTime)
+    {
+        Quaternion targetRotation = originalFOVRotation; // rotate back to original rotation
+        float t = 0f;
         while (t < rotateTime)
         {
             t += Time.deltaTime;
             float fraction = Mathf.Clamp01(t / rotateTime);
-            enemyFOV.transform.rotation = Quaternion.Lerp(targetRotation, originalFOVRotation, fraction);
+            enemyFOV.transform.rotation = Quaternion.Lerp(enemyFOV.transform.rotation, targetRotation, fraction);
+            if (enemyFOV.sawPlayer)
+            {
+                yield break; // exit the coroutine if player is seen
+            }
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f); // wait for 1 second
+        isLookingDown = false;
 
-        transform.rotation = originalFOVRotation; // set rotation to original rotation
         hasFinishedLooking = true;
+    }
+
+    public void ResetVision(Quaternion currentAngle, float rotateTime)
+    {
+        enemyFOV.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        resetVision = true;
+    }
+
+    IEnumerator ResetVisionAngle(Quaternion currentAngle, float rotateTime)
+    {
+        float t = 0f;
+        while (t < rotateTime)
+        {
+            t += Time.deltaTime;
+            float fraction = Mathf.Clamp01(t / rotateTime);
+            enemyFOV.transform.rotation = Quaternion.Lerp(enemyFOV.transform.rotation, originalFOVRotation, fraction);
+            if (enemyFOV.sawPlayer)
+            {
+                yield break; // exit the coroutine if player is seen
+            }
+            yield return null;
+        }
+
+        resetVision = true;
     }
 
     public float GetVisionRotation()

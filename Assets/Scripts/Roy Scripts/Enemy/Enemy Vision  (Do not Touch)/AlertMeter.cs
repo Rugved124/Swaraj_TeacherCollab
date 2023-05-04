@@ -22,4 +22,28 @@ public class AlertMeter : MonoBehaviour
         newScale.x = alertFillAmount;
         transform.localScale = newScale;
     }
+
+    public bool Alerted()
+    {
+        if (transform.localScale.x == 0f)
+        {
+            return false;
+        }
+        else if (transform.localScale.x > 0f && transform.localScale.x < 1f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool Alarmed()
+    {
+        if (transform.localScale.x == 1f)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

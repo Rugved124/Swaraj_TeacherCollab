@@ -19,6 +19,8 @@ public class Regulars_IdleState : EnemyIdleState
         regularsEnemy.HasFinishedLooking(false);
         idleCounter += 1;
 
+        regularsEnemy.ModifyWaypoint();
+        stateMachine.ChangeState(regularsEnemy.patrolState);
     }
 
     public override void ExitState()
@@ -30,44 +32,21 @@ public class Regulars_IdleState : EnemyIdleState
     {
         base.UpdateState();
 
+        if (regularsEnemy.SeeingPlayer())
+        {
+            stateMachine.ChangeState(regularsEnemy.searchingState);
+            return;
+        }
+
         if (regularsEnemy.isWayPointBased)
         {
-            if (stateMachine.CheckPreviousState() == regularsEnemy.lookState)
-            {
-                regularsEnemy.ModifyWaypoint();
-                stateMachine.ChangeState(regularsEnemy.patrolState);
-            }
-            else
-            {
-                if (isIdleTimeOver)
-                {
-                    if (regularsEnemy.isWayPointBased)
-                    {
-                        regularsEnemy.HasReachedNext(false);
 
-                        if (idleCounter != 1 && regularsEnemy.GetVisionRotation() > 0)
-                        {
-                            shouldLook = true;
-                            stateMachine.ChangeState(regularsEnemy.lookState);
-                        }
-                        else
-                        {
-                            regularsEnemy.ModifyWaypoint();
-                            stateMachine.ChangeState(regularsEnemy.patrolState);
-                        }
-
-
-                    }
-
-
-                }
-            }
-
-            
+            regularsEnemy.ModifyWaypoint();
+            stateMachine.ChangeState(regularsEnemy.patrolState);
 
         }
 
-       
+   
        
     }
 }
