@@ -325,6 +325,11 @@ public class BaseEnemy : MonoBehaviour
         
     }
 
+    public virtual void OnHitByHazard()
+    {
+        
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

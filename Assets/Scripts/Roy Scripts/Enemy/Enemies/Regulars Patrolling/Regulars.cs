@@ -40,4 +40,10 @@ public class Regulars : BaseEnemy
 
         Destroy(this.gameObject);
     }
+
+    public override void OnHitByHazard()
+    {
+
+        Destroy(this.gameObject);
+    }
 }

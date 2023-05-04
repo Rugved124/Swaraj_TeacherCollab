@@ -34,4 +34,10 @@ public class RegularsNoPatrol : BaseEnemy
 
         Destroy(this.gameObject);
     }
+
+    public override void OnHitByHazard()
+    {
+
+        Destroy(this.gameObject);
+    }
 }
