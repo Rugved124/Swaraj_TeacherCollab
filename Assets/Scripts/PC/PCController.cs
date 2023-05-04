@@ -19,27 +19,12 @@ public class PCController : MonoBehaviour
 		Death
 	}
 
-	private enum AnimState
-	{
-		Idle = 0,
-		Walk = 1,
-		Run = 2,
-		Aim = 3,
-		Jump = 4,
-		Crouch = 5,
-		Death = 6,
-		CrouchAim = 7,
-		Shoot = 8,
-		Climbing = 9,
-	}
-
 	public State currentState;
 	public bool isOnPlatform = true;
 
 	[SerializeField] float jumpForce = 15f;
 	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, crouchWalkSpeed = 3f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
-	[SerializeField] private Animator animator, animatorClimbing;
 
 	private InputManager inputManager;
 	private BottomDeathLine bottomDeathLine;
@@ -47,6 +32,7 @@ public class PCController : MonoBehaviour
 	private AimController aimController;
 	private ShootManager shootManager;
 	private PCCollisionManager collisionManager;
+	private PCVisualManager visualManager;
 	private float maxSpeedX;
 	private float dirX;
 	private Vector2 moveVector;
@@ -171,25 +157,25 @@ public class PCController : MonoBehaviour
 			case State.Idle:
 				currentState = State.Idle;
 				maxSpeedX = 0f;
-				UpdateAnimState(AnimState.Idle);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Idle);
 				break;
 
 			case State.Walk:
 				currentState = State.Walk;
 				maxSpeedX = walkSpeed;
-				UpdateAnimState(AnimState.Walk);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Walk);
 				break;
 
 			case State.Run:
 				currentState = State.Run;
 				maxSpeedX = runSpeed;
-				UpdateAnimState(AnimState.Run);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Run);
 				break;
 
 			case State.Jump:
 				currentState = State.Jump;
 				maxSpeedX = runSpeed;
-				UpdateAnimState(AnimState.Jump);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Jump);
 				Jump();
 				break;
 
@@ -201,30 +187,30 @@ public class PCController : MonoBehaviour
 			case State.Crouch:
 				currentState = State.Jump;
 				maxSpeedX = 0f;
-				UpdateAnimState(AnimState.Crouch);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Crouch);
 				break;
 
 			case State.Climbing:
 				currentState = State.Jump;
 				maxSpeedX = 0f;
-				UpdateAnimState(AnimState.Climbing);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Climbing);
 				break;
 
 			case State.Aiming:
 				currentState = State.Aiming;
 				StartAiming();
-				UpdateAnimState(AnimState.Aim);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Aim);
 				break;
 
 			case State.CrouchAiming:
 				currentState = State.Jump;
 				maxSpeedX = 0f;
-				UpdateAnimState(AnimState.CrouchAim);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.CrouchAim);
 				break;
 
 			case State.Death:
 				currentState = State.Death;
-				UpdateAnimState(AnimState.Death);
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Death);
 				Destroy(gameObject);
 				Debug.Log("Dead");
 				break;
@@ -263,9 +249,4 @@ public class PCController : MonoBehaviour
 		UpdateState(State.Idle);
 	}
 
-	private void UpdateAnimState(AnimState newState)
-	{
-		animator.SetInteger("State", (int)newState);
-		animatorClimbing.SetBool("isClimbing", newState == AnimState.Climbing);
-	}
 }
