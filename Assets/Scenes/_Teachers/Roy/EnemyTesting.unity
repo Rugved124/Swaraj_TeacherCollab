@@ -576,9 +576,17 @@ PrefabInstance:
       value: RegularsEnemyGO
       objectReference: {fileID: 0}
     - target: {fileID: 7644763119006405992, guid: d76f640de4680b74ebf3cafd83f2257b, type: 3}
-      propertyPath: enemySearchingStateData
+      propertyPath: localWaypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644763119006405992, guid: d76f640de4680b74ebf3cafd83f2257b, type: 3}
+      propertyPath: localWaypoints.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 42c1cc30aafcceb47ba72c4afba18664, type: 2}
+      objectReference: {fileID: 11400000, guid: 4d4763c48e6dea347b2726bc79519cd4, type: 2}
+    - target: {fileID: 7644763119006405992, guid: d76f640de4680b74ebf3cafd83f2257b, type: 3}
+      propertyPath: localWaypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d788d8ced17d17b4ca683aca9a3b8679, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

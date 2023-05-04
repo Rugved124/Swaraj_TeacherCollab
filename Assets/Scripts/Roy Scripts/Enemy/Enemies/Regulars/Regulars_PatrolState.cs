@@ -35,6 +35,7 @@ public class Regulars_PatrolState : EnemyPatrolState
 
         if (regularsEnemy.hasReachedNext)
         {
+            regularsEnemy.hasReachedNext = false;
             if (regularsEnemy.GetVisionRotation() > 0)
             {
                 stateMachine.ChangeState(regularsEnemy.lookState);

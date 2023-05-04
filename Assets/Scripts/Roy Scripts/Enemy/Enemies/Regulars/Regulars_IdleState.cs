@@ -7,6 +7,7 @@ public class Regulars_IdleState : EnemyIdleState
     private Regulars regularsEnemy;
 
     private int idleCounter;
+    CharacterStates previousState;
 
     public Regulars_IdleState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemyIdleStateData stateData, Regulars regularsEnemy) : base(stateMachine, baseEnemy, animBoolName, stateData)
     {
@@ -18,9 +19,8 @@ public class Regulars_IdleState : EnemyIdleState
         base.EnterState();
         regularsEnemy.HasFinishedLooking(false);
         idleCounter += 1;
+        previousState = stateMachine.CheckPreviousState();
 
-        regularsEnemy.ModifyWaypoint();
-        stateMachine.ChangeState(regularsEnemy.patrolState);
     }
 
     public override void ExitState()
@@ -38,7 +38,15 @@ public class Regulars_IdleState : EnemyIdleState
             return;
         }
 
-        if (regularsEnemy.isWayPointBased)
+        if (previousState == regularsEnemy.patrolState)
+        {
+            if (isIdleTimeOver)
+            {
+                regularsEnemy.ModifyWaypoint();
+                stateMachine.ChangeState(regularsEnemy.patrolState);
+            }
+        }
+        else
         {
 
             regularsEnemy.ModifyWaypoint();
