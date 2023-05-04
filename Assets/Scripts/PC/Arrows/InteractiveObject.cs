@@ -22,7 +22,23 @@ public class InteractiveObject : MonoBehaviour
 		{
 			//enemy.OnHitByHazards(this);
 		}
-		
+
+		if(otherObjColl.TryGetComponent(out Lever lever))
+		{
+
+		}
+
+		if (otherObjColl.TryGetComponent(out DrawBridge dBridge))
+		{
+
+		}
+
+		if (otherObjColl.TryGetComponent(out PivotingPlatform pivotingPlatform))
+		{
+
+		}
+
+
 	}
 
 }

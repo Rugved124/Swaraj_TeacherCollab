@@ -93,7 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2642485676281116175}
-  - component: {fileID: -716490948106716887}
+  - component: {fileID: 7958030819008410268}
+  - component: {fileID: 2598450201254172073}
   m_Layer: 0
   m_Name: Forest Lever
   m_TagString: Untagged
@@ -115,9 +116,9 @@ Transform:
   m_Children:
   - {fileID: 3634101832769777070}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-716490948106716887
+--- !u!114 &7958030819008410268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,6 +127,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 3380417046417018022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9250121e4171f48a49eb7cb3284ae9, type: 3}
+  m_Script: {fileID: 11500000, guid: e8ad5c100c02f7a40a5e64531b096f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bridge: {fileID: 0}
+--- !u!60 &2598450201254172073
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3380417046417018022}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.2685462, y: 2.3687391}
+      - {x: -2.603755, y: 4.0743127}
+      - {x: -3.7116642, y: 3.5715532}
+      - {x: -4.289509, y: 2.6417425}
+      - {x: 0.3642925, y: -1.0694921}
+      - {x: -0.48672152, y: -1.9551339}
+      - {x: 1.7798662, y: -4.228406}
+      - {x: 4.0244026, y: -1.9539405}
+      - {x: 1.7880342, y: 0.3051771}
+      - {x: 0.982427, y: -0.50661695}
+  m_UseDelaunayMesh: 0

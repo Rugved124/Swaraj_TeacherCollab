@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawBridge : MonoBehaviour
+public class DrawBridge : InteractiveObject
 {
     // Start is called before the first frame update
     void Start()
@@ -15,4 +15,15 @@ public class DrawBridge : MonoBehaviour
     {
         
     }
+
+    public void OpenDrawBridge() 
+    {
+    }
+
+    public override void OnHitByArrow()
+    {
+        base.OnHitByArrow();
+		Debug.Log("Khul Ja Sim Sim");
+
+	}
 }
