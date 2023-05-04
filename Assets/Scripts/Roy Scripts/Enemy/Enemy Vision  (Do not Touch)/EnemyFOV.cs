@@ -10,7 +10,7 @@ public class EnemyFOV : MonoBehaviour
     float visionAngle = 25f;
     float visionDistance = 10f;
 
-    float halfAngle;
+    public float halfAngle;
     int raycastCount = 10;
     public LayerMask obstructionLayers;
 
@@ -64,22 +64,17 @@ public class EnemyFOV : MonoBehaviour
     {
         float angleStep = (halfAngle * 2) / (numRays - 1);
 
-        // Rotate the direction vector based on the rotation of the parent object
-        direction = rotation * direction;
-
+        float currentAngle = -halfAngle;
 
         hitList = new List<RaycastHit2D>();
-        hitSomethingArr = new bool[numRays];
+        hitSomethingArr = new bool[numRays]; // changed from raycastCount to numRays
 
         bool didHit = false;
 
         for (int i = 0; i < numRays; i++)
         {
-            float currentAngle = -halfAngle + i * angleStep;
             Vector2 rotatedDirection = RotateVector2(direction, currentAngle);
-            Vector2 worldDirection = transform.TransformDirection(rotatedDirection); // Transform direction to world space
-
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, worldDirection, distance, layerMasks);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, rotatedDirection, distance, layerMasks);
 
             if (hit.collider != null)
             {
@@ -103,9 +98,9 @@ public class EnemyFOV : MonoBehaviour
             else
             {
                 hitSomethingArr[i] = false;
-
             }
-    
+
+            currentAngle += angleStep;
         }
 
         return didHit;
@@ -122,11 +117,15 @@ public class EnemyFOV : MonoBehaviour
         float angleStep = (halfAngle * 2) / (raycastCount - 1);
 
         // Adjust starting angle based on parent rotation
-        float currentAngle = transform.parent.eulerAngles.y == 180 ? -halfAngle : halfAngle;
-
+        float currentAngle;
+        
         if (transform.parent.eulerAngles.y == 0)
         {
-            currentAngle -= halfAngle;
+            currentAngle = -halfAngle;
+        }
+        else
+        {
+            currentAngle = halfAngle;
         }
 
         for (int i = 0; i < raycastCount; i++)

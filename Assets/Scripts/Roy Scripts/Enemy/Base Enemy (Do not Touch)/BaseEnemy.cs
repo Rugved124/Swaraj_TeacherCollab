@@ -278,7 +278,15 @@ public class BaseEnemy : MonoBehaviour
 
     public void ResetVision(Quaternion currentAngle, float rotateTime)
     {
-        enemyFOV.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        if (facingDirection == 1)
+        {
+            enemyFOV.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else if (facingDirection == -1)
+        {
+            enemyFOV.transform.rotation = Quaternion.Euler(0f, -180f, 0f);
+        }
+        
         resetVision = true;
     }
 
