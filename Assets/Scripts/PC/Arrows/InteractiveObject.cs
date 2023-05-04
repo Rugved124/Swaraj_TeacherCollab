@@ -5,8 +5,23 @@
 /// </summary>
 public class InteractiveObject : MonoBehaviour
 {
-	public void OnHitByArrow()
-	{
+	bool isAlive;
 
+	public virtual void OnHitByArrow()
+	{
+		
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (!isAlive) return;
+
+		Collider2D otherObjColl = collision.collider;
+
+		if (otherObjColl.TryGetComponent(out BaseEnemy enemy))
+		{
+			//enemy.OnHitByHazards(this);
+		}
+		
 	}
 }
