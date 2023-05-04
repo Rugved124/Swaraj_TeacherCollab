@@ -620,14 +620,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40468438c97e7d478d51ee5c5782540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  isOnPlatform: 1
   jumpForce: 15
   walkSpeed: 2
   runSpeed: 6
   crouchWalkSpeed: 2.5
   climbingSpeed: 5
-  pauseTimeAfterShoot: 1
+  pauseTimeAfterShoot: 0.3
+  currentState: 0
 --- !u!114 &3434448908027713570
 MonoBehaviour:
   m_ObjectHideFlags: 0

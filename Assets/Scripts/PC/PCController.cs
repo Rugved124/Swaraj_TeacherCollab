@@ -19,9 +19,6 @@ public class PCController : MonoBehaviour
 		Death
 	}
 
-	public State currentState;
-	public bool isOnPlatform = true;
-
 	[SerializeField] float jumpForce = 15f;
 	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, crouchWalkSpeed = 3f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
@@ -33,6 +30,8 @@ public class PCController : MonoBehaviour
 	private ShootManager shootManager;
 	private PCCollisionManager collisionManager;
 	private PCVisualManager visualManager;
+
+	private State currentState;
 	private float maxSpeedX;
 	private float dirX;
 	private Vector2 moveVector;
@@ -74,6 +73,8 @@ public class PCController : MonoBehaviour
 			UpdateState(State.Death);
 			return;
 		}
+
+		if ((currentState == State.Aiming || currentState == State.CrouchAiming) && collisionManager.IsGrounded) return;
 
 		if (inputManager.IsAiming() && collisionManager.IsGrounded)
 		{
