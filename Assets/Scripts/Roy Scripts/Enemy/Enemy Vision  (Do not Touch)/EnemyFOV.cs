@@ -19,6 +19,8 @@ public class EnemyFOV : MonoBehaviour
 
     List<RaycastHit2D> hitList;
 
+    public int facingDirection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,11 +33,17 @@ public class EnemyFOV : MonoBehaviour
         isSeeing = EnemySight(transform.right, visionDistance, halfAngle, raycastCount,obstructionLayers, out hitList, out bool[] hitSomethingArr);
     }
 
-    public void VisionInit(float visionEnemyAngle,float visionEnemyDistance, int raycastEnemyCount)
+    public void VisionInit(float visionEnemyAngle,float visionEnemyDistance, int raycastEnemyCount, int facingDir)
     {
         visionAngle = visionEnemyAngle;
         visionDistance = visionEnemyDistance;
         raycastCount = raycastEnemyCount;
+        SetFacingDirection(facingDir);
+    }
+
+    public void SetFacingDirection(int facingDir)
+    {
+        facingDirection = facingDir;
     }
 
     public bool EnemySight(Vector2 direction, float distance, float halfAngle, int numRays, LayerMask layerMasks, out List<RaycastHit2D> hitList, out bool[] hitSomethingArr)

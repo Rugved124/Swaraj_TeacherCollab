@@ -15,6 +15,7 @@ public class Regulars_LookingState : EnemyLookingState
     {
         base.EnterState();
         baseEnemy.SetVelocity(0f);
+        SetLookingTime();
         regularsEnemy.HasReachedNext(false);
         regularsEnemy.LookAroundInIdle(lookingAngle,lookingTime);
     }
@@ -27,7 +28,6 @@ public class Regulars_LookingState : EnemyLookingState
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.Log("Looking State");
 
         if (regularsEnemy.SeeingPlayer())
         {
@@ -46,6 +46,14 @@ public class Regulars_LookingState : EnemyLookingState
             stateMachine.ChangeState(regularsEnemy.idleState);
 
         }
+
+    }
+
+    private void SetLookingTime()
+    {
+
+        lookingAngle = regularsEnemy.GetVisionRotation();
+        lookingTime = regularsEnemy.GetVisionTime();
 
     }
 }

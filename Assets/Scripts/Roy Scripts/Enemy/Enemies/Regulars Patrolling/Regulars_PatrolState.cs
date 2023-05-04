@@ -25,7 +25,6 @@ public class Regulars_PatrolState : EnemyPatrolState
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.Log("Patrol State");
 
         if (regularsEnemy.isSeeingPlayer || regularsEnemy.isAlarmed)
         {

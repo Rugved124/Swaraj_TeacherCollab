@@ -19,7 +19,7 @@ public class EnemyLookingState : CharacterStates
     {
         base.EnterState();
         isLookingTimeOver = false;
-        SetLookingTime();
+        //SetLookingTime();
 
     }
 

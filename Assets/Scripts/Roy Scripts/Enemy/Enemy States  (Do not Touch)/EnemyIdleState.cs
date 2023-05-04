@@ -40,8 +40,6 @@ public class EnemyIdleState : CharacterStates
     {
         base.UpdateState();
 
-        Debug.Log("Idle State");
-
         if (Time.time >= startTime + idleTime)
         {
             isIdleTimeOver = true;

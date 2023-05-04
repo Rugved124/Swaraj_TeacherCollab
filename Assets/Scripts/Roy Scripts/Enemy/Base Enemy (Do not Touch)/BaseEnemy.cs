@@ -9,7 +9,7 @@ public class BaseEnemy : MonoBehaviour
 
     public CharacterData characterData;
 
-    public int facingDirection;
+    public int facingDirection = 1;
 
     protected Rigidbody2D enemyRb;
 
@@ -64,7 +64,6 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void Start()
     {
-        facingDirection = 1;
         enemyAnim = transform.Find("RegularVisual").GetComponent<Animator>();
         enemyFOV = transform.Find("EnemyVision").GetComponent<EnemyFOV>();
         alertMeter = transform.Find("AlertMeter").GetComponent<AlertMeter>();
@@ -89,12 +88,17 @@ public class BaseEnemy : MonoBehaviour
         patrolCount = 0;
         hasReachedNext = false;
 
-        enemyFOV.VisionInit(characterData.visionAngle, characterData.visionDistance, characterData.raycastCount);
+        enemyFOV.VisionInit(characterData.visionAngle, characterData.visionDistance, characterData.raycastCount, facingDirection);
 
         initialAlertLevel = 0;
         currentAlertLevel = initialAlertLevel;
 
-        
+        if (facingDirection == -1)
+        {
+            Flip();
+        }
+       
+
     }
 
     public virtual void Update()
@@ -164,6 +168,7 @@ public class BaseEnemy : MonoBehaviour
     public virtual void Flip()
     {
         facingDirection *= -1;
+        enemyFOV.GetComponent<EnemyFOV>().SetFacingDirection(facingDirection);
         transform.Rotate(0f, 180f, 0f);
     }
 
