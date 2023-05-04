@@ -234,10 +234,11 @@ public class PCController : MonoBehaviour
 	{
 		aimController.Activate(true);
 		aimController.ResetAiming();
+		visualManager.InitAiming();
 		//Aiming
 		do
 		{
-			visualManager.Aim(aimController.Alpha * Mathf.Rad2Deg);
+			visualManager.Aim(aimController.Alpha);
 			yield return null;
 		} while (inputManager.IsAiming());
 
@@ -245,10 +246,16 @@ public class PCController : MonoBehaviour
 		if (aimController.ReadyToShoot)
 		{
 			shootManager.Shoot(aimController.Alpha, aimController.V0, aimController.G);
+			visualManager.UpdateAnimState(PCVisualManager.AnimState.Shoot);
+			aimController.Activate(false);
+			yield return new WaitForSeconds(pauseTimeAfterShoot);
 		}
+		else
+		{
+			aimController.Activate(false);
+		}
+		visualManager.EndAiming();
 
-		aimController.Activate(false);
-		yield return new WaitForSeconds(pauseTimeAfterShoot);
 		UpdateState(State.Idle);
 	}
 

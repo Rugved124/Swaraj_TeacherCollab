@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.IK;
 
 public class PCVisualManager : MonoBehaviour
 {
@@ -18,17 +20,33 @@ public class PCVisualManager : MonoBehaviour
 		Climbing = 9,
 	}
 
-	[SerializeField] private Animator animator, animatorClimbing;
-	[SerializeField] private Transform boneToRotateForAim;
+	[SerializeField] private Animator animator;
+	[SerializeField] private LimbSolver2D LArmIKSolver;
+	[SerializeField] private Transform aimPivot, aimTarget;
+	private Transform defaultLArmTarget;
+
+	private void Awake()
+	{
+		defaultLArmTarget = LArmIKSolver.GetChain(0).target;
+	}
 
 	public void UpdateAnimState(AnimState newState)
 	{
 		animator.SetInteger("State", (int)newState);
-		animatorClimbing.SetBool("isClimbing", newState == AnimState.Climbing);
 	}
 
 	public void Aim(float angle)
 	{
-		boneToRotateForAim.localRotation = Quaternion.Euler(0f, 0f, angle);
+		aimTarget.position = aimPivot.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 1.5f;
+	}
+
+	internal void InitAiming()
+	{
+		LArmIKSolver.GetChain(0).target = aimTarget;
+	}
+
+	internal void EndAiming()
+	{
+		LArmIKSolver.GetChain(0).target = defaultLArmTarget;
 	}
 }
