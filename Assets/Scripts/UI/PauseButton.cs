@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class PauseButton : MonoBehaviour
 {
-	public GameManager gameManager;
+	public UIManager uiManager;
 	public Button resumeButton;
 
 	void Start()
 	{
-		gameManager = FindObjectOfType<GameManager>();
+		uiManager = FindObjectOfType<UIManager>();
 		resumeButton.gameObject.SetActive(false); // make the resume button inactive by default
 	}
 
@@ -18,16 +18,16 @@ public class PauseButton : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Cancel"))
 		{
-			if (!gameManager.isPaused)
+			if (!uiManager.isPaused)
 			{
-				gameManager.PauseGame();
+				uiManager.PauseGame();
 				Debug.Log("PauseGame");
 
 				resumeButton.gameObject.SetActive(true); // activate the resume button
 			}
 			else
 			{
-				gameManager.ResumeGame();
+				uiManager.ResumeGame();
 				Debug.Log("ResumeGame");
 
 				resumeButton.gameObject.SetActive(false); // hide the resume button
@@ -37,7 +37,7 @@ public class PauseButton : MonoBehaviour
 
 	public void OnResumeButtonClicked()
 	{
-		gameManager.ResumeGame();
+		uiManager.ResumeGame();
 		Debug.Log("ResumeGame");
 		resumeButton.gameObject.SetActive(false);
 	}
