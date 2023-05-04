@@ -1112,6 +1112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4011747750916488732, guid: 568080c99a5e3b949984876b24d5371f, type: 3}
+      propertyPath: facingDirection
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5768907927914726506, guid: 568080c99a5e3b949984876b24d5371f, type: 3}
       propertyPath: m_Name
       value: RegularsEnemyNoPatrolGO

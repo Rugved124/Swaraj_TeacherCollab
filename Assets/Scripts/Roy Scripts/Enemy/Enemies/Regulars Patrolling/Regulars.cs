@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Regulars : BaseEnemy
@@ -31,5 +32,12 @@ public class Regulars : BaseEnemy
         searchingState = new Regulars_SearchingState(enemyFSM, this, "aim", enemySearchingStateData, this);
 
         enemyFSM.Initialize(idleState);
+    }
+
+    public override void OnHitByArrow(Arrow arrow)
+    {
+        base.OnHitByArrow(arrow);
+
+        Destroy(this.gameObject);
     }
 }

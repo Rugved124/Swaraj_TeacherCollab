@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
@@ -317,6 +318,11 @@ public class BaseEnemy : MonoBehaviour
     public void HasFinishedLooking(bool hasLooked)
     {
         hasFinishedLooking = hasLooked;
+    }
+
+    public virtual void OnHitByArrow(Arrow arrow)
+    {
+        
     }
 
     private void OnDrawGizmos()

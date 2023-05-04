@@ -27,4 +27,11 @@ public class RegularsNoPatrol : BaseEnemy
 
         enemyFSM.Initialize(idleState);
     }
+
+    public override void OnHitByArrow(Arrow arrow)
+    {
+        base.OnHitByArrow(arrow);
+
+        Destroy(this.gameObject);
+    }
 }

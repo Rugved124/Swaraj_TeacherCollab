@@ -56,7 +56,7 @@ public abstract class Arrow : MonoBehaviour
 
 		if (otherObjColl.TryGetComponent(out BaseEnemy enemy))
 		{
-			//enemy.OnHitByArrow(this);
+			enemy.OnHitByArrow(this);
 		}
 		else if (otherObjColl.TryGetComponent(out InteractiveObject obj))
 		{
@@ -79,4 +79,6 @@ public abstract class Arrow : MonoBehaviour
 		yield return new WaitForSeconds(1.5f);
 		Destroy(gameObject);
 	}
+
+	
 }
