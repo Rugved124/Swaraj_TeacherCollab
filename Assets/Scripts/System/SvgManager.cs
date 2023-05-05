@@ -59,7 +59,7 @@ public class SvgManager : MonoBehaviour
 				//TEST
 				print("Savegame read from PlayerPrefs: Current scene name = " + SvgData.currentSceneName
 					+ " | Checkpoint ID = " + SvgData.currCheckpointID); //TEST
-				DisplayUnserializedDEBUG(); //TEST
+				//DisplayUnserializedDEBUG(); //TEST
 			}
 			else
 			{
