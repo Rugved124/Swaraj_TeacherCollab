@@ -74,7 +74,7 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void Start()
     {
-        enemyAnim = transform.Find("RegularVisual").GetComponent<Animator>();
+        enemyAnim = GetComponentInChildren<Animator>();
         enemyFOV = transform.Find("EnemyVision").GetComponent<EnemyFOV>();
         alertMeter = transform.Find("AlertMeter").GetComponent<AlertMeter>();
 
