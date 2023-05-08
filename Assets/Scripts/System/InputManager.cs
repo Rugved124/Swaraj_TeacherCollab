@@ -11,7 +11,8 @@ public class InputManager : MonoBehaviour
 	bool jumpInput, canWalk, canJump, canRun;
 	bool aimInput;
 	private bool canAim;
-	private bool canCrouch;
+
+	public bool IsCrouchInput { get; private set; }
 
 	void Update()
 	{
@@ -19,6 +20,7 @@ public class InputManager : MonoBehaviour
 		verticalInputValue = Input.GetAxis("Vertical");
 		jumpInput = Input.GetButtonDown("Jump");
 		aimInput = Input.GetButton("Fire1");
+		IsCrouchInput = Input.GetButtonDown("Crouch");
 
 		CheckJumpInput();
 		CheckHorizontalInput();
@@ -57,6 +59,7 @@ public class InputManager : MonoBehaviour
         canJump = false;
         canRun = false;
         aimInput = false;
+		IsCrouchInput = false;
 		this.enabled = false;
     }
 
@@ -119,10 +122,5 @@ public class InputManager : MonoBehaviour
 	public bool IsAiming()
 	{
 		return canAim;
-	}
-
-	internal bool IsCrouch()
-	{
-		return canCrouch;
 	}
 }

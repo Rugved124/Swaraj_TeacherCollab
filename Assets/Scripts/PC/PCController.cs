@@ -31,10 +31,11 @@ public class PCController : MonoBehaviour
 	private PCCollisionManager collisionManager;
 	private PCVisualManager visualManager;
 
-	private State currentState;
+	[SerializeField] private State currentState;
 	private float maxSpeedX;
 	private float dirX;
 	private Vector2 moveVector;
+	private bool isAlreadyAiming;
 
 	private void Awake()
 	{
@@ -51,6 +52,7 @@ public class PCController : MonoBehaviour
 		bottomDeathLine = FindObjectOfType<BottomDeathLine>();
 		aimController.Init(this, inputManager);
 		UpdateState(State.Idle);
+		isAlreadyAiming = false;
 	}
 
 	/// <summary>
@@ -64,27 +66,47 @@ public class PCController : MonoBehaviour
 		if (mustFaceLeft) FaceDirection(false);
 	}
 
+	public void Die()
+	{
+		if (currentState != State.Death)
+			UpdateState(State.Death);
+	}
+
 	void Update()
 	{
 		if (currentState == State.Death) return;
 
 		if (transform.position.y < bottomDeathLine.transform.position.y)
 		{
-			UpdateState(State.Death);
+			Die();
 			return;
+		}
+
+		if (collisionManager.IsGrounded && inputManager.IsCrouchInput)
+		{
+			if (currentState == State.Crouch)
+			{
+				UpdateState(State.Idle);
+			}
+			else if (currentState == State.CrouchAiming)
+			{
+				UpdateState(State.Aiming);
+			}
+			else if (currentState == State.Aiming)
+			{
+				UpdateState(State.CrouchAiming);
+			}
+			else
+			{
+				UpdateState(State.Crouch);
+			}
 		}
 
 		if ((currentState == State.Aiming || currentState == State.CrouchAiming) && collisionManager.IsGrounded) return;
 
 		if (inputManager.IsAiming() && collisionManager.IsGrounded)
 		{
-			UpdateState(inputManager.IsCrouch() ? State.CrouchAiming : State.Aiming);
-			return;
-		}
-
-		if (inputManager.IsCrouch() && collisionManager.IsGrounded)
-		{
-			UpdateState(State.Crouch);
+			UpdateState(currentState == State.Crouch ? State.CrouchAiming : State.Aiming);
 			return;
 		}
 
@@ -113,40 +135,26 @@ public class PCController : MonoBehaviour
 				DoWhileClimbing();
 				return;
 			}
-			if (inputManager.IsWalking())
+			else
 			{
-				UpdateState(State.Walk);
+				if (currentState != State.Crouch)
+				{
+					if (inputManager.IsWalking())
+					{
+						UpdateState(State.Walk);
+					}
+					else if (inputManager.IsRunning())
+					{
+						UpdateState(State.Run);
+					}
+					else if (!inputManager.IsJumping())
+					{
+						UpdateState(State.Idle);
+					}
+				}
+				HorizontalMove();
 			}
-			else if (inputManager.IsRunning())
-			{
-				UpdateState(State.Run);
-			}
-			else if (!inputManager.IsJumping())
-			{
-				UpdateState(State.Idle);
-			}
-			HorizontalMove();
 		}
-	}
-
-	private void DoWhileClimbing()
-	{
-		throw new NotImplementedException();
-	}
-
-	private void HorizontalMove()
-	{
-		dirX = inputManager.GetHorizontalInput();
-		moveVector = new Vector2(dirX * maxSpeedX, rb.velocity.y);
-		rb.velocity = moveVector;
-
-		if (dirX > 0) FaceDirection(true);
-		else if (dirX < 0) FaceDirection(false);
-	}
-
-	private void FaceDirection(bool isFacingRight)
-	{
-		transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
 	}
 
 	void UpdateState(State newState)
@@ -187,36 +195,58 @@ public class PCController : MonoBehaviour
 				break;
 
 			case State.Crouch:
-				currentState = State.Jump;
+				currentState = State.Crouch;
 				maxSpeedX = 0f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Crouch);
 				break;
 
 			case State.Climbing:
-				currentState = State.Jump;
+				currentState = State.Climbing;
 				maxSpeedX = 0f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Climbing);
 				break;
 
 			case State.Aiming:
 				currentState = State.Aiming;
-				StartAiming();
+				maxSpeedX = 0f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Aim);
+				StartAiming();
 				break;
 
 			case State.CrouchAiming:
-				currentState = State.Jump;
+				currentState = State.CrouchAiming;
 				maxSpeedX = 0f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.CrouchAim);
+				StartAiming();
 				break;
 
 			case State.Death:
 				currentState = State.Death;
+				maxSpeedX = 0f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Death);
-				Destroy(gameObject);
-				Debug.Log("Dead");
+				StartDeath();
 				break;
 		}
+	}
+
+	private void DoWhileClimbing()
+	{
+		throw new NotImplementedException();
+	}
+
+	private void HorizontalMove()
+	{
+		dirX = inputManager.GetHorizontalInput();
+		moveVector = new Vector2(dirX * maxSpeedX, rb.velocity.y);
+		rb.velocity = moveVector;
+
+		if (dirX > 0) FaceDirection(true);
+		else if (dirX < 0) FaceDirection(false);
+	}
+
+	private void FaceDirection(bool isFacingRight)
+	{
+		transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
 	}
 
 	void Jump()
@@ -226,18 +256,22 @@ public class PCController : MonoBehaviour
 
 	void StartAiming()
 	{
+		if (isAlreadyAiming) return;
+
 		rb.velocity = Vector3.zero;
 		StartCoroutine(coAimingAndShooting());
 	}
 
 	private IEnumerator coAimingAndShooting()
 	{
+		isAlreadyAiming = true;
 		aimController.Activate(true);
 		aimController.ResetAiming();
 		visualManager.InitAiming();
 		//Aiming
 		do
 		{
+			FaceDirection(!(Mathf.Abs(aimController.Alpha) > Mathf.PI * 0.5f));
 			visualManager.Aim(aimController.Alpha);
 			yield return null;
 		} while (inputManager.IsAiming());
@@ -256,7 +290,19 @@ public class PCController : MonoBehaviour
 		}
 		visualManager.EndAiming();
 
+		isAlreadyAiming = false;
 		UpdateState(State.Idle);
 	}
 
+	void StartDeath()
+	{
+		StartCoroutine(coDeath());
+	}
+
+	private IEnumerator coDeath()
+	{
+		yield return new WaitForSeconds(2f);
+		Debug.Log("Dead");
+		Destroy(gameObject);
+	}
 }
