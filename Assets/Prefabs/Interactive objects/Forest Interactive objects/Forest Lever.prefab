@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3634101832769777070}
   - component: {fileID: 6794528563597721977}
   m_Layer: 0
-  m_Name: Forest Lever
+  m_Name: 'Forest Lever visuals '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 964443625639018911}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2642485676281116175}
   m_RootOrder: -1
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2642485676281116175}
   - component: {fileID: 7958030819008410268}
-  - component: {fileID: 2598450201254172073}
+  - component: {fileID: 6765943156671895647}
   m_Layer: 0
   m_Name: Forest Lever
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3634101832769777070}
   m_Father: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bridge: {fileID: 0}
---- !u!60 &2598450201254172073
+--- !u!60 &6765943156671895647
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,14 +175,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.2685462, y: 2.3687391}
-      - {x: -2.603755, y: 4.0743127}
-      - {x: -3.7116642, y: 3.5715532}
-      - {x: -4.289509, y: 2.6417425}
-      - {x: 0.3642925, y: -1.0694921}
-      - {x: -0.48672152, y: -1.9551339}
-      - {x: 1.7798662, y: -4.228406}
-      - {x: 4.0244026, y: -1.9539405}
-      - {x: 1.7880342, y: 0.3051771}
-      - {x: 0.982427, y: -0.50661695}
+    - - {x: -0.19934845, y: 0.3592534}
+      - {x: -1.297821, y: 1.4074535}
+      - {x: -1.4213562, y: 1.3105907}
+      - {x: -0.32539278, y: 0.20148113}
+      - {x: -0.53115845, y: -0.003959179}
+      - {x: 0.0021577477, y: -0.546821}
+      - {x: 0.58022463, y: -0.02241683}
+      - {x: -0.005326271, y: 0.5424227}
   m_UseDelaunayMesh: 0
