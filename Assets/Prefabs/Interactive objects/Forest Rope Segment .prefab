@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7704875224138381841}
   - component: {fileID: 3379416900038951959}
   - component: {fileID: 5313361642282521521}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 'Forest Rope Segment '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,6 +205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joint2D: {fileID: 5313361642282521521}
+  Enemies:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!233 &5313361642282521521
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -221,7 +224,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 7.5, y: 0}
-  m_ConnectedAnchor: {x: 230.66309, y: -58.589893}
+  m_ConnectedAnchor: {x: 228, y: -51.470497}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
