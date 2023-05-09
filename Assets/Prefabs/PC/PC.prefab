@@ -2049,7 +2049,7 @@ Transform:
   - {fileID: 7162125788266698585}
   - {fileID: 6308417031608476694}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1121753209420726125
 Rigidbody2D:
@@ -2146,6 +2146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensorBottomLeft: {fileID: 5749674032331400465}
   sensorBottomRight: {fileID: 6196417610079301663}
+  collisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &6922973927760149444
 MonoBehaviour:
   m_ObjectHideFlags: 0
