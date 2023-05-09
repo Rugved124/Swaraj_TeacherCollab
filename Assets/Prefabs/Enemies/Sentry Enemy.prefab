@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 7cda650a878be0946880c67e1ff30a55, type: 2}
   facingDirection: 1
-  enemyAnim: {fileID: 0}
+  enemyAnim: {fileID: 8974854879293181303}
   enemyFOV: {fileID: 0}
   isWayPointBased: 0
   localWaypoints: []
@@ -592,5 +592,10 @@ PrefabInstance:
 --- !u!4 &2441099292339087306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2495467143977861775, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
+  m_PrefabInstance: {fileID: 234513710547313989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8974854879293181303 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9208803559642114098, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
   m_PrefabInstance: {fileID: 234513710547313989}
   m_PrefabAsset: {fileID: 0}
