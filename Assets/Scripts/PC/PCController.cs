@@ -20,7 +20,7 @@ public class PCController : MonoBehaviour
 	}
 
 	[SerializeField] float jumpForce = 15f;
-	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, crouchWalkSpeed = 3f, climbingSpeed = 5f;
+	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
 
 	private InputManager inputManager;
@@ -80,6 +80,12 @@ public class PCController : MonoBehaviour
 		
 		if (currentState == State.Death) return;
 
+        if (transform.position.y < bottomDeathLine.transform.position.y)
+		{
+			Die();
+			return;
+		}
+
         if (collisionManager.ladderCollision && (inputManager.CheckVerticalInput() || currentState == State.Airborne) && !isClimbing)
         {
             if (currentState != State.Climbing)
@@ -100,12 +106,6 @@ public class PCController : MonoBehaviour
                 }
 				
 			}
-		}
-
-        if (transform.position.y < bottomDeathLine.transform.position.y)
-		{
-			Die();
-			return;
 		}
 
 		if (collisionManager.IsGrounded && inputManager.IsCrouchInput)
