@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
 	[SerializeField] private float walkRunThreshold = 0.9f;
 	
 	float horizontalInputValue, verticalInputValue;
-	bool jumpInput, canWalk, canJump, canRun;
+	bool jumpInput, canWalk, canJump, canRun, canClimb;
 	bool aimInput;
 	private bool canAim;
 
@@ -50,7 +50,24 @@ public class InputManager : MonoBehaviour
 		}
 	}
 
-	public void DisableInput()
+    public bool CheckVerticalInput()
+    {
+        if (verticalInputValue != 0f)
+        {
+            canClimb = true;
+        }
+        else
+        {
+			canClimb = false;
+        }
+
+		return canClimb;
+    }
+
+
+
+
+    public void DisableInput()
 	{
 		horizontalInputValue = 0f;
 		verticalInputValue = 0f;
@@ -58,6 +75,7 @@ public class InputManager : MonoBehaviour
         canWalk = false;
         canJump = false;
         canRun = false;
+		canClimb = false;
         aimInput = false;
 		IsCrouchInput = false;
 		this.enabled = false;
