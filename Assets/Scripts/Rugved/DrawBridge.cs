@@ -32,21 +32,21 @@ public class DrawBridge : ActivableObjects
         base.Activate();
 		Debug.Log("Khul Ja Sim Sim");
 
-		torquePoint.transform.position = new Vector2(0f, 13f);
+		torquePoint.transform.position = new Vector3(0f, 13f, 0f);
 
 		// Calculate a direction for the force
-		Vector2 direction = Vector2.right;
+		Vector3 direction = Vector3.right;
 
-		Vector2 position = torquePoint.transform.position;
+		Vector3 position = torquePoint.transform.position;
 
 		// Calculate the force vector
-		Vector2 force = direction * platformFallingForce;
+		Vector3 force = direction * platformFallingForce;
 
 		// Apply the force at the specified position
 		rb.AddForceAtPosition(force, position);
 
 		// Get the position of the game object
-		Vector2 currentPosition = torquePoint.transform.position;
+		Vector3 currentPosition = torquePoint.transform.position;
 		Debug.Log("The current position of the game object is: " + currentPosition);
 
 
