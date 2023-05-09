@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ActivableObjects : MonoBehaviour
 {
+    Lever lever;
+    DrawBridge bridge;
     // Start is called before the first frame update
     void Start()
     {

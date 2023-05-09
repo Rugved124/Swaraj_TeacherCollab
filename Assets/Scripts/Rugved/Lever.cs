@@ -24,8 +24,13 @@ public class Lever : InteractiveObject
 			_activated = true;
 
 			// Trigger the door to open
-			bridge.OpenDrawBridge();
+			bridge.Activate();
 			Debug.Log("Khul Ja Sim Sim Sim");
 		}
+	}
+
+	public void Activate()
+	{
+		
 	}
 }
