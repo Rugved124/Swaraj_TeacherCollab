@@ -32,6 +32,7 @@ public class BreakableRope : InteractiveObject
 	{
         print("Hit by Arrow!");
         joint2D.breakForce = 0;
+		
 
 		// Disable the platform collider to allow the platform to fall through other colliders
 		platformCollider.enabled = false;
