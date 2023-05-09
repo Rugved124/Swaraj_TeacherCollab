@@ -371,7 +371,7 @@ Transform:
   - {fileID: 8534069399277785212}
   - {fileID: 2507942201398503928}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5085876392552840439
 Rigidbody2D:
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 069cb84c492a0d94a8d2d9e59f40baa6, type: 2}
   facingDirection: -1
-  enemyAnim: {fileID: 0}
+  enemyAnim: {fileID: 9061350565259976349}
   enemyFOV: {fileID: 0}
   isWayPointBased: 0
   localWaypoints: []
@@ -592,5 +592,10 @@ PrefabInstance:
 --- !u!4 &5178089447290510114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5605083513849612232, guid: 3a0e1d5e00382a34e95e3147f1056944, type: 3}
+  m_PrefabInstance: {fileID: 726492587125677290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9061350565259976349 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8634921646317077111, guid: 3a0e1d5e00382a34e95e3147f1056944, type: 3}
   m_PrefabInstance: {fileID: 726492587125677290}
   m_PrefabAsset: {fileID: 0}
