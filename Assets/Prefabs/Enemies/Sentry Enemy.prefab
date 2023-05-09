@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6212846581392982974}
+  - {fileID: 3176186865771921888}
   - {fileID: 5335206663708166891}
   - {fileID: 7789851849539954517}
   - {fileID: 8830888784473742092}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 7cda650a878be0946880c67e1ff30a55, type: 2}
   facingDirection: 1
-  enemyAnim: {fileID: 0}
+  enemyAnim: {fileID: 6687625578331396348}
   enemyFOV: {fileID: 0}
   isWayPointBased: 0
   localWaypoints: []
@@ -131,6 +131,38 @@ MonoBehaviour:
   enemyIdleStateData: {fileID: 11400000, guid: fbe68bc92a8c3f24db9c95af2110b8a0, type: 2}
   enemyLookingStateData: {fileID: 11400000, guid: 4547044cf4a27d446b9a389a3eb4d8ce, type: 2}
   enemySearchingStateData: {fileID: 11400000, guid: d67c0ec09f45f6d42a881bcead944dd1, type: 2}
+--- !u!1 &3718272839806253283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3176186865771921888}
+  m_Layer: 0
+  m_Name: Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3176186865771921888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3718272839806253283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6212846581392982974}
+  m_Father: {fileID: 1436183226668256076}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5556316949438101405
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +534,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1436183226668256076}
+    m_TransformParent: {fileID: 3176186865771921888}
     m_Modifications:
     - target: {fileID: 517095477917308048, guid: 7866397d086e18d45a5d7bd150c5159b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -580,9 +612,13 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5749925403747148238, guid: 7866397d086e18d45a5d7bd150c5159b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1b7e99b929516044397e5e91d0b5f3cd, type: 2}
     - target: {fileID: 6193716606056735471, guid: 7866397d086e18d45a5d7bd150c5159b, type: 3}
       propertyPath: m_Name
-      value: RegularVisual
+      value: SentryVisual
       objectReference: {fileID: 0}
     - target: {fileID: 7704254984174640604, guid: 7866397d086e18d45a5d7bd150c5159b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -600,5 +636,10 @@ PrefabInstance:
 --- !u!4 &6212846581392982974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4989031516395305612, guid: 7866397d086e18d45a5d7bd150c5159b, type: 3}
+  m_PrefabInstance: {fileID: 1370482657918826802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6687625578331396348 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5749925403747148238, guid: 7866397d086e18d45a5d7bd150c5159b, type: 3}
   m_PrefabInstance: {fileID: 1370482657918826802}
   m_PrefabAsset: {fileID: 0}

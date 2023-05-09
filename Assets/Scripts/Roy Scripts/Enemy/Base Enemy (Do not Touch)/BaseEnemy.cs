@@ -14,7 +14,6 @@ public class BaseEnemy : MonoBehaviour
 
     protected Rigidbody2D enemyRb;
 
-    [HideInInspector]
     public Animator enemyAnim;
 
     protected SpriteRenderer enemySpriteRenderer;
