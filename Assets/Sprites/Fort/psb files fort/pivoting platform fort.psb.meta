@@ -102,7 +102,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 398
+      y: 4
       width: 704
       height: 84
     spriteID: 1ade3925e75df8d4fb07d4d6d3f9adfe
@@ -113,7 +113,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 398}
+    uvTransform: {x: 4, y: 4}
     spritePosition: {x: 578, y: 725}
   - name: Layer 116
     originalName: 
@@ -122,8 +122,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 716
-      y: 398
+      x: 4
+      y: 96
       width: 65
       height: 562
     spriteID: f6c39a583dd1a7b489a4b24248acd2a0
@@ -134,29 +134,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 716, y: 398}
+    uvTransform: {x: 4, y: 96}
     spritePosition: {x: 1205, y: 222}
-  - name: Layer 86
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 440
-      height: 386
-    spriteID: 66872fdbfb25df042800d14fb5ac6036
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 788, y: 381}
   characterData:
     bones: []
     parts: []
@@ -251,7 +230,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: 1ade3925e75df8d4fb07d4d6d3f9adfe
     layerID: 12
-    mosaicPosition: {x: 4, y: 398}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -261,7 +240,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: f6c39a583dd1a7b489a4b24248acd2a0
     layerID: 13
-    mosaicPosition: {x: 716, y: 398}
+    mosaicPosition: {x: 4, y: 96}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -273,8 +252,8 @@ ScriptedImporter:
     layerID: 4
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   importFileNodeState: 1
