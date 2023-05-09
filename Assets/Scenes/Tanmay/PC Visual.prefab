@@ -1600,6 +1600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PC side view psb
       objectReference: {fileID: 0}
+    - target: {fileID: -8279094127116362739, guid: 61fb4687b6115c9498410abb6d378e45, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6249886
+      objectReference: {fileID: 0}
     - target: {fileID: -8249325274097665718, guid: 61fb4687b6115c9498410abb6d378e45, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9027703
