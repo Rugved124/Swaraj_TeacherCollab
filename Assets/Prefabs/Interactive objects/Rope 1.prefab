@@ -32,8 +32,9 @@ Transform:
   - {fileID: 6297288139264110761}
   - {fileID: 2001808912660251176}
   - {fileID: 2468381086456662371}
+  - {fileID: 49701018105803782}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4582802976617069142
 Rigidbody2D:
@@ -90,6 +91,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Forest Rope Segment '
       objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.19810104
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 4582802976617069142}
     - target: {fileID: 5871680994136131336, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0
@@ -151,6 +164,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+--- !u!50 &5040098605683541981 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4628471336106886182, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+  m_PrefabInstance: {fileID: 417045662913201147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6297288139264110761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
@@ -180,6 +198,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Rope Segment  (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -7.541232
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.000000089351204
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 5040098605683541981}
     - target: {fileID: 5871680994136131336, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 230.66309
@@ -251,6 +281,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
   m_PrefabInstance: {fileID: 5290050028205928826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6094266350364019896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3336266651668847781}
+    m_Modifications:
+    - target: {fileID: 4698141862613801717, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_Name
+      value: Forest Breakable Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6541497497210118740, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 3519285266971983383}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+--- !u!4 &49701018105803782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6062896390424213694, guid: e63ac63174096f048b63dcab0a162da8, type: 3}
+  m_PrefabInstance: {fileID: 6094266350364019896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8137056085012642353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,6 +371,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Rope Segment  (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -5.5171456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000006536911
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 671505085783143772}
     - target: {fileID: 5871680994136131336, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 230.66309
