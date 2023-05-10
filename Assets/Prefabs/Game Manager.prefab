@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5719911268223089250}
   - component: {fileID: 8927027961507500403}
   - component: {fileID: 1156427960306709283}
+  - component: {fileID: 5365527611482720344}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -71,3 +72,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkRunThreshold: 0.9
+--- !u!114 &5365527611482720344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753545379760224137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19aaccaea51a79948bb5a80b35257d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
