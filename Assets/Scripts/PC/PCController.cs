@@ -22,6 +22,7 @@ public class PCController : MonoBehaviour
 	[SerializeField] float jumpForce = 15f;
 	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
+	[SerializeField] private float jumpMulitiplierForLadder = 1/3f; 
 
 	private InputManager inputManager;
 	private BottomDeathLine bottomDeathLine;
@@ -39,6 +40,8 @@ public class PCController : MonoBehaviour
     private Vector2 moveVector;
 	private bool isAlreadyAiming;
 	private bool isClimbing;
+	
+
 
 	private void Awake()
 	{
@@ -224,7 +227,7 @@ public class PCController : MonoBehaviour
                 visualManager.UpdateAnimState(PCVisualManager.AnimState.Jump);
 				if (previousState == State.Climbing)
 				{
-					Jump(jumpForce / 3f);
+					Jump(jumpForce * jumpMulitiplierForLadder);
 				}
 				else
 				{

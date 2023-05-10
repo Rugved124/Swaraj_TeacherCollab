@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public PCCollisionManager PCCollisionManager;
+ 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             // Destroy the pickup object
             Destroy(gameObject);
 
-            // Output a debug message to the console
-            Debug.Log("You picked up something!");
+          // PCCollisionManager = ;
         }
     }
 }

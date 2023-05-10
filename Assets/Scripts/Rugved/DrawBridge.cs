@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawBridge : ActivableObjects
+public class DrawBridge : ActivableObject
 {
 	private Rigidbody2D rb;
 	[SerializeField]
@@ -29,13 +29,19 @@ public class DrawBridge : ActivableObjects
 
     public override void Activate()
     {
-        base.Activate();
 		Debug.Log("Khul Ja Sim Sim");
 
-		torquePoint.transform.position = new Vector3(0f, 13f, 0f);
 
 		// Calculate a direction for the force
-		Vector3 direction = Vector3.right;
+		Vector3 direction;
+		if(transform.rotation.eulerAngles.y == 0)
+		{
+			direction = Vector3.right;
+		}
+		else
+		{
+			direction = Vector3.left;
+		}
 
 		Vector3 position = torquePoint.transform.position;
 
@@ -45,9 +51,6 @@ public class DrawBridge : ActivableObjects
 		// Apply the force at the specified position
 		rb.AddForceAtPosition(force, position);
 
-		// Get the position of the game object
-		Vector3 currentPosition = torquePoint.transform.position;
-		Debug.Log("The current position of the game object is: " + currentPosition);
 
 
 	}
