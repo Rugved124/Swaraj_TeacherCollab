@@ -79,7 +79,6 @@ public class PCController : MonoBehaviour
 
 	void Update()
 	{
-
 		if (currentState == State.Death) return;
 
 		if (transform.position.y < bottomDeathLine.transform.position.y)
