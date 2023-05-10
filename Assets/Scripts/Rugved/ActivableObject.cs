@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivableObjects : MonoBehaviour
+public abstract class ActivableObject : MonoBehaviour
 {
     Lever lever;
     DrawBridge bridge;
