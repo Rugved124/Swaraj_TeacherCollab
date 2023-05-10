@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class DrawBridge : ActivableObject
 {
-	private Rigidbody2D rb;
-	[SerializeField]
-	private float platformFallingForce = 5.0f;
-	DrawBridge torquePoint;
+	[SerializeField] private float platformFallingForce = 5.0f;
+	[SerializeField] Transform torquePoint;
+	[SerializeField] Rigidbody2D rb;
 
 	// Start is called before the first frame update
 	void Start()
     {
-		// Get a reference to the Rigidbody2D component
-		rb = GetComponent<Rigidbody2D>();
-
+		rb.transform.parent = null;
 	}
 
 	// Update is called once per frame
@@ -43,7 +40,7 @@ public class DrawBridge : ActivableObject
 			direction = Vector3.left;
 		}
 
-		Vector3 position = torquePoint.transform.position;
+		Vector3 position = torquePoint.position;
 
 		// Calculate the force vector
 		Vector3 force = direction * platformFallingForce;

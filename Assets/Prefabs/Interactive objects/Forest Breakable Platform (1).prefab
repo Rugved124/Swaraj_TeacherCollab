@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4987874056757374822}
   - component: {fileID: 6541497497210118740}
   - component: {fileID: 7858079198368685054}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Forest Breakable Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1921358300254799227
 SpriteRenderer:
@@ -176,7 +176,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -9.352785, y: 0.00000011081513}
+  m_ConnectedAnchor: {x: 228, y: -55}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
