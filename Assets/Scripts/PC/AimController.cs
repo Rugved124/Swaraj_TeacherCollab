@@ -9,6 +9,7 @@ public class AimController : MonoBehaviour
 	[SerializeField] private float maxInitialVelocity = 11.5f;
 	[SerializeField] private float minInitialVelocity = 6f;
 	[SerializeField] private float arrowGravity = -9.81f;
+	[SerializeField] private float maxVerticalAngle = 80f;
 	[SerializeField] private float deadZone = 0.05f;
 	[SerializeField] private int smoothFrames = 40;
 	[SerializeField] private LayerMask collisionLayerMask;
@@ -62,6 +63,14 @@ public class AimController : MonoBehaviour
 		if (Mathf.Abs(inputs.x) > deadZone || Mathf.Abs(inputs.y) > deadZone)
 		{
 			Alpha = Mathf.Atan2(inputs.y, inputs.x);
+			
+			//Clamping Alpha to not aim exactly above
+			float maxAngle = maxVerticalAngle * Mathf.Deg2Rad;
+			if (Alpha > maxAngle && Alpha < Mathf.PI - maxAngle)
+			{
+				Alpha = (Alpha <= Mathf.PI * 0.5f) ? maxAngle : Mathf.PI - maxAngle;
+			}
+
 			float inputMag = Mathf.Clamp01(inputs.magnitude);
 			V0 = inputMag / (1f - deadZone) * (maxInitialVelocity - minInitialVelocity) + minInitialVelocity;
 			G = arrowGravity;
