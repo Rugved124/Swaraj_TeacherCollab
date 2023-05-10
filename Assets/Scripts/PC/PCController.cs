@@ -20,9 +20,9 @@ public class PCController : MonoBehaviour
 	}
 
 	[SerializeField] float jumpForce = 15f;
-	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, climbingSpeed = 5f;
+	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, airborneSpeed = 6.5f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
-	[SerializeField] private float jumpMulitiplierForLadder = 1/3f; 
+	[SerializeField] private float jumpMulitiplierForLadder = 1 / 3f;
 
 	private InputManager inputManager;
 	private BottomDeathLine bottomDeathLine;
@@ -33,14 +33,13 @@ public class PCController : MonoBehaviour
 	private PCVisualManager visualManager;
 
 	[SerializeField] private State currentState;
-    private State previousState;
-    private float maxSpeedX;
+	private State previousState;
+	private float maxSpeedX;
 	private float dirX;
-    private float dirY;
-    private Vector2 moveVector;
+	private float dirY;
+	private Vector2 moveVector;
 	private bool isAlreadyAiming;
 	private bool isClimbing;
-	
 
 
 	private void Awake()
@@ -80,24 +79,24 @@ public class PCController : MonoBehaviour
 
 	void Update()
 	{
-		
+
 		if (currentState == State.Death) return;
 
-        if (transform.position.y < bottomDeathLine.transform.position.y)
+		if (transform.position.y < bottomDeathLine.transform.position.y)
 		{
 			Die();
 			return;
 		}
 
-        if (collisionManager.ladderCollision && (inputManager.CheckVerticalInput() || currentState == State.Airborne) && !isClimbing)
-        {
-            if (currentState != State.Climbing)
-            {
-                transform.position = new Vector3(collisionManager.ladderPosition.x, transform.position.y, transform.position.z);
-                isClimbing = true;
-                UpdateState(State.Climbing);
-            }
-        }
+		if (collisionManager.ladderCollision && (inputManager.CheckVerticalInput() || currentState == State.Airborne) && !isClimbing)
+		{
+			if (currentState != State.Climbing)
+			{
+				transform.position = new Vector3(collisionManager.ladderPosition.x, transform.position.y, transform.position.z);
+				isClimbing = true;
+				UpdateState(State.Climbing);
+			}
+		}
 
 		if (currentState == State.Idle || currentState == State.Run || currentState == State.Walk)
 		{
@@ -105,9 +104,9 @@ public class PCController : MonoBehaviour
 			{
 				if (currentState != State.Airborne)
 				{
-                    currentState = State.Airborne;
-                }
-				
+					currentState = State.Airborne;
+				}
+
 			}
 		}
 
@@ -202,81 +201,73 @@ public class PCController : MonoBehaviour
 			case State.Idle:
 				currentState = State.Idle;
 				maxSpeedX = 0f;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Idle);
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Idle);
 				break;
 
 			case State.Walk:
 				currentState = State.Walk;
 				maxSpeedX = walkSpeed;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Walk);
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Walk);
 				break;
 
 			case State.Run:
 				currentState = State.Run;
 				maxSpeedX = runSpeed;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Run);
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Run);
 				break;
 
 			case State.Jump:
 				currentState = State.Jump;
-				maxSpeedX = runSpeed;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Jump);
-				if (previousState == State.Climbing)
-				{
-					Jump(jumpForce * jumpMulitiplierForLadder);
-				}
-				else
-				{
-                    Jump(jumpForce);
-                }
-				
+				maxSpeedX = airborneSpeed;
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Jump);
+				Jump(jumpForce * (previousState == State.Climbing ? jumpMulitiplierForLadder : 1f));
 				break;
 
 			case State.Airborne:
 				currentState = State.Airborne;
-				maxSpeedX = runSpeed;
-                rb.gravityScale = 1f;
-                break;
+				maxSpeedX = airborneSpeed;
+				rb.gravityScale = 1f;
+				break;
 
 			case State.Crouch:
 				currentState = State.Crouch;
 				maxSpeedX = 0f;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Crouch);
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Crouch);
 				break;
 
 			case State.Climbing:
 				currentState = State.Climbing;
 				maxSpeedX = 0f;
-                rb.gravityScale = 0f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Climbing);
+				rb.gravityScale = 0f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Climbing);
 				break;
 
 			case State.Aiming:
 				currentState = State.Aiming;
 				maxSpeedX = 0f;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Aim);
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Aim);
 				StartAiming();
 				break;
 
 			case State.CrouchAiming:
 				currentState = State.CrouchAiming;
 				maxSpeedX = 0f;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.CrouchAim);
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.CrouchAim);
 				StartAiming();
 				break;
 
 			case State.Death:
 				currentState = State.Death;
 				maxSpeedX = 0f;
-                rb.gravityScale = 1f;
-                visualManager.UpdateAnimState(PCVisualManager.AnimState.Death);
+				rb.gravityScale = 1f;
+				visualManager.UpdateAnimState(PCVisualManager.AnimState.Death);
 				StartDeath();
 				break;
 		}
@@ -296,18 +287,18 @@ public class PCController : MonoBehaviour
 		{
 			isClimbing = false;
 			UpdateState(State.Jump);
-            UpdateState(State.Airborne);
-        }
-    }
+			UpdateState(State.Airborne);
+		}
+	}
 
-    private void VerticalMove()
-    {
-        dirY = inputManager.GetVerticalInput();
-        moveVector = new Vector2(0f, dirY * climbingSpeed);
-        rb.velocity = moveVector;
-    }
+	private void VerticalMove()
+	{
+		dirY = inputManager.GetVerticalInput();
+		moveVector = new Vector2(0f, dirY * climbingSpeed);
+		rb.velocity = moveVector;
+	}
 
-    private void HorizontalMove()
+	private void HorizontalMove()
 	{
 		dirX = inputManager.GetHorizontalInput();
 		moveVector = new Vector2(dirX * maxSpeedX, rb.velocity.y);
