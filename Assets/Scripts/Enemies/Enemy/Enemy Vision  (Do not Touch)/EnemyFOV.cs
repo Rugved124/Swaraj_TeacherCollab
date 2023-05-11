@@ -18,7 +18,8 @@ public class EnemyFOV : MonoBehaviour
 
     public int facingDirection;
 
-    Vector3 playerPos;
+    public Vector3 playerPos { get; private set; }
+    public PCController PC { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +71,7 @@ public class EnemyFOV : MonoBehaviour
         bool didHit = false;
 
         sawPlayer = false;
+        PC = null;
 
         for (int i = 0; i < numRays; i++)
         {
@@ -82,11 +84,12 @@ public class EnemyFOV : MonoBehaviour
                 hitList.Add(hit);
                 hitSomethingArr[i] = true;
 
-                
+
 
                 if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC")
                 {
                     playerPos = hit.collider.gameObject.transform.position;
+                    PC = hit.collider.gameObject.GetComponent<PCController>();
 
                     sawPlayer = true;
 

@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-
+	//I am doing this as a temporary restart button for the playtest - Roy
+	public void GameRestart(int levelNumber)
+	{
+		SceneManager.LoadScene(levelNumber);		
+	}
 
 }

@@ -45,6 +45,10 @@ public class EnemySearchingState : CharacterStates
         if (baseEnemy.isAlarmed)
         {
             shoot = true;
+            if (baseEnemy.enemyFOV.PC != null)
+            {
+                baseEnemy.enemyFOV.PC.Die();
+            }
         }
         
     }
