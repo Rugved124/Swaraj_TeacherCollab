@@ -64,9 +64,6 @@ public class InputManager : MonoBehaviour
 		return canClimb;
     }
 
-
-
-
     public void DisableInput()
 	{
 		horizontalInputValue = 0f;

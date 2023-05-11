@@ -364,10 +364,8 @@ public class PCController : MonoBehaviour
 
 	private IEnumerator coDeath()
 	{
-		yield return new WaitForSeconds(2f);
-		Debug.Log("Dead");
-		Destroy(gameObject);
+		yield return new WaitForSeconds(1.5f);
+		FindObjectOfType<GameManager>().GameOver();
 	}
-
 
 }
