@@ -37,7 +37,7 @@ Transform:
   - {fileID: 8830888784473742092}
   - {fileID: 6023310139440433459}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6744312611252762457
 Rigidbody2D:
@@ -128,9 +128,12 @@ MonoBehaviour:
   resetVision: 0
   isSeeingPlayer: 0
   isAlarmed: 0
+  isCorpseAlarmed: 0
+  deadEnemyGO: {fileID: 3305323696522084599, guid: 6876baad288e4b94e9fdd7a29e4a2041, type: 3}
   enemyIdleStateData: {fileID: 11400000, guid: fbe68bc92a8c3f24db9c95af2110b8a0, type: 2}
   enemyLookingStateData: {fileID: 11400000, guid: 4547044cf4a27d446b9a389a3eb4d8ce, type: 2}
   enemySearchingStateData: {fileID: 11400000, guid: d67c0ec09f45f6d42a881bcead944dd1, type: 2}
+  enemyDeadStateData: {fileID: 0}
 --- !u!1 &3718272839806253283
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +217,7 @@ MonoBehaviour:
     m_Bits: 776
   isSeeing: 0
   sawPlayer: 0
+  sawCorpse: 0
   facingDirection: 0
 --- !u!120 &6669426343229786472
 LineRenderer:
