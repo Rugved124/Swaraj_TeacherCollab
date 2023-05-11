@@ -40,7 +40,6 @@ public class EnemyPatrolState : CharacterStates
     {
         base.UpdateState();
 
-       
 
         isDetectingLedge = baseEnemy.CheckGround();
         isDetectingWall = baseEnemy.CheckWall();

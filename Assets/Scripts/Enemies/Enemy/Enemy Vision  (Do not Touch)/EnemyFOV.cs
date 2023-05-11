@@ -12,6 +12,7 @@ public class EnemyFOV : MonoBehaviour
 
     public bool isSeeing;
     public bool sawPlayer;
+    public bool sawCorpse;
     bool isHitting;
 
     List<RaycastHit2D> hitList;
@@ -71,6 +72,7 @@ public class EnemyFOV : MonoBehaviour
         bool didHit = false;
 
         sawPlayer = false;
+        sawCorpse = false;
         PC = null;
 
         for (int i = 0; i < numRays; i++)
@@ -86,10 +88,18 @@ public class EnemyFOV : MonoBehaviour
 
 
 
-                if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC")
+                if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC") || LayerMask.LayerToName(hit.collider.gameObject.layer) == "Corpse")
                 {
                     playerPos = hit.collider.gameObject.transform.position;
-                    PC = hit.collider.gameObject.GetComponent<PCController>();
+
+                    if (PC != null)
+                    {
+                        PC = hit.collider.gameObject.GetComponent<PCController>();
+                    }
+                    else 
+                    {
+                        PC = GameObject.FindObjectOfType<PCController>();
+                    }
 
                     sawPlayer = true;
 

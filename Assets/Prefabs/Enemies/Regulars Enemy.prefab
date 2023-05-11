@@ -100,6 +100,7 @@ MonoBehaviour:
   enemyPatrolStateData: {fileID: 11400000, guid: 5af802f1fa77fab408987049d6476332, type: 2}
   enemyLookingStateData: {fileID: 11400000, guid: 485b2d43503d55b4184abf24b661a510, type: 2}
   enemySearchingStateData: {fileID: 11400000, guid: 42c1cc30aafcceb47ba72c4afba18664, type: 2}
+  enemyDeadStateData: {fileID: 0}
 --- !u!70 &8786991666561239851
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ public class EnemySearchingState : CharacterStates
                 baseEnemy.enemyFOV.PC.Die();
             }
         }
-        
+
     }
 
 

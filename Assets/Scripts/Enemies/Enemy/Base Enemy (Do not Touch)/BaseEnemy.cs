@@ -21,6 +21,8 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public EnemyFOV enemyFOV;
 
+    Collider2D enemyCollider;
+
     private Vector2 updatedVelocity;
 
     [Header("Switch this on to make it waypoint based")]
@@ -71,6 +73,10 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public bool isAlarmed;
 
+    public bool isCorpseAlarmed;
+
+    public GameObject deadEnemyGO;
+
     public virtual void Start()
     {
 
@@ -78,6 +84,7 @@ public class BaseEnemy : MonoBehaviour
         alertMeter = transform.Find("AlertMeter").GetComponent<AlertMeter>();
 
         enemyRb = GetComponent<Rigidbody2D>();
+        enemyCollider = GetComponent<Collider2D>();
 
         enemyFSM = new FiniteStateMachine();
 
@@ -108,6 +115,15 @@ public class BaseEnemy : MonoBehaviour
         }
        
 
+    }
+
+    public void SpawnCorpse()
+    {
+        enemyRb.isKinematic = true;
+        enemyCollider.enabled = false;
+        Instantiate(deadEnemyGO, transform.position, transform.rotation);
+
+        Destroy(gameObject);
     }
 
     public virtual void Update()
