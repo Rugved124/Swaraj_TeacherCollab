@@ -6,13 +6,18 @@ public class ExplosiveBarrel : InteractiveObject
 {
 	public float radius = 10.0f;
 	public LayerMask Enemies;
+
+	public GameObject Explosion;
 	public override void OnHitByArrow()
 	{
 		base.OnHitByArrow();
 		Destroy(gameObject);
+		Instantiate(Explosion, transform.position, Quaternion.identity);
 
 		// Check for colliders within the specified circle
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+
+		
 
 		// Iterate over all colliders within the circle
 		foreach (Collider2D collider in colliders)
