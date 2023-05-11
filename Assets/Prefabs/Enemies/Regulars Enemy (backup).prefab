@@ -96,10 +96,13 @@ MonoBehaviour:
   resetVision: 0
   isSeeingPlayer: 0
   isAlarmed: 0
+  isCorpseAlarmed: 0
+  deadEnemyGO: {fileID: 3305323696522084599, guid: 6876baad288e4b94e9fdd7a29e4a2041, type: 3}
   enemyIdleStateData: {fileID: 11400000, guid: 999d844e458d54d49a9a493052712896, type: 2}
   enemyPatrolStateData: {fileID: 11400000, guid: 5af802f1fa77fab408987049d6476332, type: 2}
   enemyLookingStateData: {fileID: 11400000, guid: 485b2d43503d55b4184abf24b661a510, type: 2}
   enemySearchingStateData: {fileID: 11400000, guid: 42c1cc30aafcceb47ba72c4afba18664, type: 2}
+  enemyDeadStateData: {fileID: 0}
 --- !u!70 &8786991666561239851
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -186,6 +189,7 @@ MonoBehaviour:
     m_Bits: 776
   isSeeing: 0
   sawPlayer: 0
+  sawCorpse: 0
   facingDirection: 0
 --- !u!120 &6216842355010245180
 LineRenderer:
