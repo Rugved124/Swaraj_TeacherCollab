@@ -6028,6 +6028,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player cam
       objectReference: {fileID: 0}
+    - target: {fileID: 4795256243500138192, guid: 37e2ba425df3d1544b36017346d71dcf, type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 1044484347}
     - target: {fileID: 4914947911226681122, guid: 37e2ba425df3d1544b36017346d71dcf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6224,8 +6228,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -160, y: -19}
       - {x: 150, y: -19}
-      - {x: 150, y: 25}
-      - {x: -160, y: 25}
+      - {x: 150, y: 9.5}
+      - {x: -160, y: 9.5}
   m_UseDelaunayMesh: 0
 --- !u!4 &1044484348
 Transform:
@@ -61083,7 +61087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320368185856459397, guid: 80a8f2da8c9f95349a2b8b496aea1d6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -241.2
+      value: -241.20001
       objectReference: {fileID: 0}
     - target: {fileID: 7320368185856459397, guid: 80a8f2da8c9f95349a2b8b496aea1d6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -62903,7 +62907,15 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7868177669399379088, guid: c8ab6756fe01d1947a2eee3b77c5e5ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868177669399379088, guid: c8ab6756fe01d1947a2eee3b77c5e5ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868177669399379088, guid: c8ab6756fe01d1947a2eee3b77c5e5ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7868177669399379088, guid: c8ab6756fe01d1947a2eee3b77c5e5ec, type: 3}
@@ -62911,8 +62923,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 822403014}
     - target: {fileID: 7868177669399379088, guid: c8ab6756fe01d1947a2eee3b77c5e5ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868177669399379088, guid: c8ab6756fe01d1947a2eee3b77c5e5ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868177669399379088, guid: c8ab6756fe01d1947a2eee3b77c5e5ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
