@@ -372,7 +372,7 @@ Transform:
   - {fileID: 8534069399277785212}
   - {fileID: 2507942201398503928}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5085876392552840439
 Rigidbody2D:
@@ -459,6 +459,7 @@ MonoBehaviour:
   wallCheck: {fileID: 6292845685305878990}
   ledgeCheck: {fileID: 5611958523501762761}
   alertMeter: {fileID: 0}
+  increaseDuration: 0.25
   initialAlertFillAmount: 0.2
   resetVision: 0
   isSeeingPlayer: 0

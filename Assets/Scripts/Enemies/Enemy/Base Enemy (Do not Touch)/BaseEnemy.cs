@@ -57,6 +57,7 @@ public class BaseEnemy : MonoBehaviour
     float initialAlertLevel;
     bool initialAlert;
 
+    [SerializeField]
     float increaseDuration = 1f;
 
     public float initialAlertFillAmount = 0.2f;

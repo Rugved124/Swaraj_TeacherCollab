@@ -92,6 +92,7 @@ MonoBehaviour:
   wallCheck: {fileID: 5335206663708166891}
   ledgeCheck: {fileID: 7789851849539954517}
   alertMeter: {fileID: 0}
+  increaseDuration: 0.25
   initialAlertFillAmount: 0.2
   resetVision: 0
   isSeeingPlayer: 0
