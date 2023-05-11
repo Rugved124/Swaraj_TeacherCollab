@@ -22,7 +22,7 @@ public class Spikes : MonoBehaviour
 	{
 		if ((PC.value & (1 << Spikes.gameObject.layer)) != 0)
 		{
-			Destroy(pc.gameObject);
+			pc.Die();
 		}
 	}
 
