@@ -6,12 +6,16 @@ public class PauseButton : MonoBehaviour
 {
 	public UIManager uiManager;
 	public Button resumeButton;
+	public Button homeButton;
 
 	void Start()
 	{
 		uiManager = FindObjectOfType<UIManager>();
 		resumeButton.gameObject.SetActive(false); // make the resume button inactive by default
-	}
+        homeButton.gameObject.SetActive(false); // make the resume button inactive by default
+
+
+    }
 
 
 	void Update()
@@ -23,15 +27,15 @@ public class PauseButton : MonoBehaviour
 				uiManager.PauseGame();
 				Debug.Log("PauseGame");
 
-				resumeButton.gameObject.SetActive(true); // activate the resume button
-			}
+				EnableButtons();
+            }
 			else
 			{
 				uiManager.ResumeGame();
 				Debug.Log("ResumeGame");
 
-				resumeButton.gameObject.SetActive(false); // hide the resume button
-			}
+				DisableButtons();
+            }
 		}
 	}
 
@@ -39,6 +43,23 @@ public class PauseButton : MonoBehaviour
 	{
 		uiManager.ResumeGame();
 		Debug.Log("ResumeGame");
-		resumeButton.gameObject.SetActive(false);
+        DisableButtons();
+    }
+
+	public void OnHomeButtonClicked()
+	{
+		
 	}
+
+	void DisableButtons()
+	{
+        resumeButton.gameObject.SetActive(false); // hide the resume button
+        homeButton.gameObject.SetActive(false);
+    }
+
+    void EnableButtons()
+    {
+        resumeButton.gameObject.SetActive(true); // activate the resume button
+        homeButton.gameObject.SetActive(true);
+    }
 }
