@@ -40,6 +40,7 @@ public class PCController : MonoBehaviour
 	private Vector2 moveVector;
 	private bool isAlreadyAiming;
 	private bool isClimbing;
+	private bool canBeGrounded;
 
 
 	private void Awake()
@@ -58,6 +59,7 @@ public class PCController : MonoBehaviour
 		aimController.Init(this, inputManager);
 		UpdateState(State.Idle);
 		isAlreadyAiming = false;
+		canBeGrounded = true;
 	}
 
 	/// <summary>
@@ -97,17 +99,8 @@ public class PCController : MonoBehaviour
 			}
 		}
 
-		if (currentState == State.Idle || currentState == State.Run || currentState == State.Walk)
-		{
-			if (!collisionManager.IsGrounded)
-			{
-				if (currentState != State.Airborne)
-				{
-					currentState = State.Airborne;
-				}
-
-			}
-		}
+		if ((currentState == State.Idle || currentState == State.Run || currentState == State.Walk) && !collisionManager.IsGrounded)
+			UpdateState(State.Airborne);
 
 		if (collisionManager.IsGrounded && inputManager.IsCrouchInput)
 		{
@@ -141,13 +134,15 @@ public class PCController : MonoBehaviour
 		{
 			UpdateState(State.Jump);
 			UpdateState(State.Airborne);
+			Debug.LogWarning("Jump at " + Time.frameCount);//TEST
 			return;
 		}
 
 		if (currentState == State.Airborne)
 		{
-			if (collisionManager.IsGrounded)
+			if (collisionManager.IsGrounded && canBeGrounded)
 			{
+				Debug.LogWarning("GROUNDED at " + Time.frameCount);//TEST
 				UpdateState(State.Idle);
 			}
 			else
@@ -224,6 +219,8 @@ public class PCController : MonoBehaviour
 				rb.gravityScale = 1f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Jump);
 				Jump(jumpForce * (previousState == State.Climbing ? jumpMulitiplierForLadder : 1f));
+				canBeGrounded = false;
+				StartCoroutine(coNoGroundedOnJump());
 				break;
 
 			case State.Airborne:
@@ -271,7 +268,6 @@ public class PCController : MonoBehaviour
 				break;
 		}
 	}
-
 	private void DoWhileClimbing()
 	{
 		VerticalMove();
@@ -366,6 +362,12 @@ public class PCController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1.5f);
 		FindObjectOfType<GameManager>().GameOver();
+	}
+
+	private IEnumerator coNoGroundedOnJump()
+	{
+		yield return new WaitForSeconds(0.1f);
+		canBeGrounded = true;
 	}
 
 }
