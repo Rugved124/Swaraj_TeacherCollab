@@ -6,23 +6,26 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	InputManager inputManager;
-	// Start is called before the first frame update
-
 
 	void Start()
     {
        inputManager = GetComponent<InputManager>();
-
-
 	}
+
 	public void SwitchOffInputManager()
 	{
 		inputManager.DisableInput();
     }
+
     public void SwitchOnInputManager()
     {
         inputManager.EnableInput();
     }
+
+	public void GameOver()
+	{
+		StartCoroutine(coGameOver());
+	}
 
     private void OnEnable()
 	{
@@ -34,12 +37,6 @@ public class GameManager : MonoBehaviour
 		NavigationPoint.OnTriggered -= HandleOnNavTrigger;
 	}
 
-	// Update is called once per frame
-	void Update()
-    {
-        
-    }
-
 	void HandleOnNavTrigger(NavigationPoint navTrigger)
 	{
 		//We go to exitingLevel state if the navigation trigger triggered by the PC is an exit
@@ -49,10 +46,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	//I am doing this as a temporary restart button for the playtest - Roy
-	public void GameRestart(int levelNumber)
+	IEnumerator coGameOver()
 	{
-		SceneManager.LoadScene(levelNumber);		
+		//FindObjectOfType<UIManager>().FadeToBlack();
+		yield return new WaitForSeconds(0.5f);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 }
