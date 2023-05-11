@@ -15,6 +15,7 @@ public abstract class Arrow : MonoBehaviour
 	static public Action<Arrow> OnArrowHit;
 
 	public ArrowType type;
+	public GameObject ArrowBlood;
 
 	private Rigidbody2D rb;
 	private Collider2D coll;
@@ -56,6 +57,7 @@ public abstract class Arrow : MonoBehaviour
 
 		if (otherObjColl.TryGetComponent(out BaseEnemy enemy))
 		{
+			Instantiate(ArrowBlood, transform.position, Quaternion.identity);
 			enemy.OnHitByArrow(this);
 		}
 		else if (otherObjColl.TryGetComponent(out InteractiveObject obj))
