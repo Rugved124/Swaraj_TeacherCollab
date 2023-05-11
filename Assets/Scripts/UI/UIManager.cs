@@ -44,8 +44,8 @@ public class UIManager : MonoBehaviour
 	}
 
 
-	public void Restart()
+	public void ReturnToMainMenu()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		SceneManager.LoadScene(0);
 	}
 }

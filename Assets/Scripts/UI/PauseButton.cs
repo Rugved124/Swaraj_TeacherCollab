@@ -48,7 +48,8 @@ public class PauseButton : MonoBehaviour
 
 	public void OnHomeButtonClicked()
 	{
-		
+		uiManager.ReturnToMainMenu();
+		DisableButtons();
 	}
 
 	void DisableButtons()
