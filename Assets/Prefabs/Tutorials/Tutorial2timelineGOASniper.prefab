@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5079960427536222527
+--- !u!1 &5790637487329446020
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1665792074879316529}
-  - component: {fileID: 3004280154208390220}
-  - component: {fileID: 193907357003287074}
-  - component: {fileID: 8181168652194793300}
+  - component: {fileID: 3580195362466257969}
+  - component: {fileID: 849240325944925023}
+  - component: {fileID: 8228548942917462492}
+  - component: {fileID: 8406492739879620621}
   m_Layer: 0
-  m_Name: 'Tutorial3timelineGO  '
+  m_Name: Tutorial2timelineGOASniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1665792074879316529
+--- !u!4 &3580195362466257969
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079960427536222527}
+  m_GameObject: {fileID: 5790637487329446020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -81.36, y: -11, z: 0}
+  m_LocalPosition: {x: 149.95026, y: 3.675568, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!320 &3004280154208390220
+--- !u!320 &849240325944925023
 PlayableDirector:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079960427536222527}
+  m_GameObject: {fileID: 5790637487329446020}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: b3a355f702948e641b80348f0500596d, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 6967daee02914d64e989f4803e47faa2, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -59,19 +59,17 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 7087461294607014141, guid: 6967daee02914d64e989f4803e47faa2, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 7237749411616969051, guid: b3a355f702948e641b80348f0500596d, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -2233767821155969083, guid: b3a355f702948e641b80348f0500596d, type: 2}
+  - key: {fileID: -5805922994446784515, guid: 6967daee02914d64e989f4803e47faa2, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
---- !u!61 &193907357003287074
+--- !u!61 &8228548942917462492
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079960427536222527}
+  m_GameObject: {fileID: 5790637487329446020}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -110,13 +108,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 30}
   m_EdgeRadius: 0
---- !u!114 &8181168652194793300
+--- !u!114 &8406492739879620621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079960427536222527}
+  m_GameObject: {fileID: 5790637487329446020}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10cc8786b358bd343810f19683706c8b, type: 3}
