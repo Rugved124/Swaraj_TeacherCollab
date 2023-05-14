@@ -31,6 +31,9 @@ public class PCController : MonoBehaviour
 	private ShootManager shootManager;
 	private PCCollisionManager collisionManager;
 	private PCVisualManager visualManager;
+	private AudioSource bowDrawn;
+	private AudioSource pcJumping;
+	private AudioSource pcRunning;
 
 	[SerializeField] private State currentState;
 	private State previousState;
@@ -60,6 +63,9 @@ public class PCController : MonoBehaviour
 		UpdateState(State.Idle);
 		isAlreadyAiming = false;
 		canBeGrounded = true;
+		bowDrawn = transform.Find("BowDrawingSound").GetComponent<AudioSource>();
+		pcJumping = transform.Find("Jumping").GetComponent<AudioSource>();
+		pcRunning = transform.Find("Running").GetComponent<AudioSource>();
 	}
 
 	/// <summary>
@@ -211,6 +217,7 @@ public class PCController : MonoBehaviour
 				maxSpeedX = runSpeed;
 				rb.gravityScale = 1f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Run);
+				pcRunning.Play();
 				break;
 
 			case State.Jump:
@@ -221,6 +228,7 @@ public class PCController : MonoBehaviour
 				Jump(jumpForce * (previousState == State.Climbing ? jumpMulitiplierForLadder : 1f));
 				canBeGrounded = false;
 				StartCoroutine(coNoGroundedOnJump());
+				pcJumping.Play();
 				break;
 
 			case State.Airborne:
@@ -249,6 +257,7 @@ public class PCController : MonoBehaviour
 				rb.gravityScale = 1f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Aim);
 				StartAiming();
+				bowDrawn.Play();
 				break;
 
 			case State.CrouchAiming:
@@ -257,6 +266,7 @@ public class PCController : MonoBehaviour
 				rb.gravityScale = 1f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.CrouchAim);
 				StartAiming();
+				bowDrawn.Play();
 				break;
 
 			case State.Death:

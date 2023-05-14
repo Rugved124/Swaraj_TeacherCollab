@@ -48,6 +48,8 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField]
     private Transform ledgeCheck;
 
+    //private AudioSource enemyShooting;
+
     Quaternion originalFOVRotation;
 
     [HideInInspector]
@@ -86,6 +88,7 @@ public class BaseEnemy : MonoBehaviour
 
         enemyRb = GetComponent<Rigidbody2D>();
         enemyCollider = GetComponent<Collider2D>();
+        //enemyShooting = GetComponent<AudioSource>();
 
         enemyFSM = new FiniteStateMachine();
 

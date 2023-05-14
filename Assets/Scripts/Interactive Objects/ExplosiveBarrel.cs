@@ -8,11 +8,19 @@ public class ExplosiveBarrel : InteractiveObject
 	public LayerMask Enemies;
 
 	public GameObject Explosion;
+
+	private AudioSource explosionSound;
+
+	private void Start()
+	{
+		explosionSound = GetComponent<AudioSource>();
+	}
 	public override void OnHitByArrow()
 	{
 		base.OnHitByArrow();
 		Destroy(gameObject);
 		Instantiate(Explosion, transform.position, Quaternion.identity);
+		explosionSound.Play();
 
 		// Check for colliders within the specified circle
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
