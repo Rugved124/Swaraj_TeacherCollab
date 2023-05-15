@@ -13,14 +13,14 @@ public class ExplosiveBarrel : InteractiveObject
 
 	private void Start()
 	{
-		explosionSound = GetComponent<AudioSource>();
+		explosionSound = transform.Find("BarrelExplosionSFX").GetComponent<AudioSource>();
 	}
 	public override void OnHitByArrow()
 	{
 		base.OnHitByArrow();
+		explosionSound.Play();
 		Destroy(gameObject);
 		Instantiate(Explosion, transform.position, Quaternion.identity);
-		explosionSound.Play();
 
 		// Check for colliders within the specified circle
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
