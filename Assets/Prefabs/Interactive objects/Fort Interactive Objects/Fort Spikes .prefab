@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1308825979089687028, guid: 0aff3b3ece2c89a4e97012aaf25a5085, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4376170630045687158, guid: 0aff3b3ece2c89a4e97012aaf25a5085, type: 3}
       propertyPath: m_Name
       value: 'Fort Spikes '
@@ -18,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c6f3da56e6a672946a049e44e36c067d, type: 3}
     - target: {fileID: 4904065357703258691, guid: 0aff3b3ece2c89a4e97012aaf25a5085, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4904065357703258691, guid: 0aff3b3ece2c89a4e97012aaf25a5085, type: 3}
       propertyPath: m_LocalPosition.x
