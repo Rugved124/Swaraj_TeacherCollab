@@ -213,6 +213,10 @@ MonoBehaviour:
   sawPlayer: 0
   sawCorpse: 0
   facingDirection: 0
+  visionLinePrefab: {fileID: 6969455071795736945, guid: be78e5b1669044a4989c63aa7c71d85d, type: 3}
+  collidingMaterial: {fileID: 2100000, guid: 246fbd7fa272a564e90a72d49c31a1db, type: 2}
+  nonCollidingMaterial: {fileID: 2100000, guid: bbd6592014b443c40aa8d8080f62757e, type: 2}
+  existingLineRenderer: []
 --- !u!120 &1940015592347089703
 LineRenderer:
   serializedVersion: 2
@@ -221,7 +225,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5476738788951797917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -373,7 +377,7 @@ Transform:
   - {fileID: 8534069399277785212}
   - {fileID: 2507942201398503928}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5085876392552840439
 Rigidbody2D:
