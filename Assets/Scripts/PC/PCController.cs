@@ -35,7 +35,7 @@ public class PCController : MonoBehaviour
 	private AudioSource pcJumping;
 	private AudioSource pcRunning;
 
-	[SerializeField] private State currentState;
+	private State currentState;
 	private State previousState;
 	private float maxSpeedX;
 	private float dirX;
@@ -44,6 +44,10 @@ public class PCController : MonoBehaviour
 	private bool isAlreadyAiming;
 	private bool isClimbing;
 	private bool canBeGrounded;
+
+	[Header("Audio")]
+	[SerializeField] AudioSource bowDrawSfx;
+	[SerializeField] AudioSource jumpSfx, runSfx;
 
 
 	private void Awake()
@@ -63,9 +67,6 @@ public class PCController : MonoBehaviour
 		UpdateState(State.Idle);
 		isAlreadyAiming = false;
 		canBeGrounded = true;
-		bowDrawn = transform.Find("BowDrawingSound").GetComponent<AudioSource>();
-		pcJumping = transform.Find("Jumping").GetComponent<AudioSource>();
-		pcRunning = transform.Find("Running").GetComponent<AudioSource>();
 	}
 
 	/// <summary>
@@ -95,11 +96,11 @@ public class PCController : MonoBehaviour
 			return;
 		}
 
-		if (collisionManager.ladderCollision && (inputManager.CheckVerticalInput() || currentState == State.Airborne) && !isClimbing)
+		if (collisionManager.LadderCollision && (inputManager.CheckVerticalInput() || currentState == State.Airborne) && !isClimbing)
 		{
 			if (currentState != State.Climbing)
 			{
-				transform.position = new Vector3(collisionManager.ladderPosition.x, transform.position.y, transform.position.z);
+				transform.position = new Vector3(collisionManager.LadderPosition.x, transform.position.y, transform.position.z);
 				isClimbing = true;
 				UpdateState(State.Climbing);
 			}
@@ -140,7 +141,6 @@ public class PCController : MonoBehaviour
 		{
 			UpdateState(State.Jump);
 			UpdateState(State.Airborne);
-			Debug.LogWarning("Jump at " + Time.frameCount);//TEST
 			return;
 		}
 
@@ -148,7 +148,6 @@ public class PCController : MonoBehaviour
 		{
 			if (collisionManager.IsGrounded && canBeGrounded)
 			{
-				Debug.LogWarning("GROUNDED at " + Time.frameCount);//TEST
 				UpdateState(State.Idle);
 			}
 			else
@@ -156,7 +155,7 @@ public class PCController : MonoBehaviour
 				HorizontalMove();
 			}
 
-			if (collisionManager.ladderCollision && collisionManager.IsGrounded)
+			if (collisionManager.LadderCollision && collisionManager.IsGrounded)
 			{
 				UpdateState(State.Climbing);
 			}
@@ -288,7 +287,7 @@ public class PCController : MonoBehaviour
 			UpdateState(State.Idle);
 		}
 
-		if (!collisionManager.ladderCollision && isClimbing)
+		if (!collisionManager.LadderCollision && isClimbing)
 		{
 			isClimbing = false;
 			UpdateState(State.Jump);
