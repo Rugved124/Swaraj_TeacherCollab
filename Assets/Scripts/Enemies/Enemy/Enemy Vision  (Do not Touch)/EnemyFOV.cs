@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyFOV : MonoBehaviour
@@ -22,10 +23,18 @@ public class EnemyFOV : MonoBehaviour
     public Vector3 playerPos { get; private set; }
     public PCController PC { get; private set; }
 
+    public GameObject visionLinePrefab;
+
+    public Material collidingMaterial;
+    public Material nonCollidingMaterial;
+
+    public List<LineRenderer> existingLineRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
         halfAngle = visionAngle / 2f;
+
     }
 
     // Update is called once per frame
@@ -40,6 +49,7 @@ public class EnemyFOV : MonoBehaviour
         visionDistance = visionEnemyDistance;
         raycastCount = raycastEnemyCount;
         SetFacingDirection(facingDir);
+        SpawnLineRenderers(raycastCount);
     }
 
     public void SetFacingDirection(int facingDir)
@@ -86,7 +96,7 @@ public class EnemyFOV : MonoBehaviour
                 hitList.Add(hit);
                 hitSomethingArr[i] = true;
 
-
+                AdjustLineRenderer(i, collidingMaterial, hit.point);
 
                 if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC") || LayerMask.LayerToName(hit.collider.gameObject.layer) == "Corpse")
                 {
@@ -104,14 +114,21 @@ public class EnemyFOV : MonoBehaviour
                     sawPlayer = true;
 
                 }
+
+
             }
             else
             {
                 hitSomethingArr[i] = false;
+
+                AdjustLineRenderer(i, nonCollidingMaterial, transform.position + new Vector3(rotatedDirection.x, rotatedDirection.y, 0f) * distance);
+
             }
 
             currentAngle += angleStep;
         }
+
+        
 
         return didHit;
     }
@@ -126,43 +143,30 @@ public class EnemyFOV : MonoBehaviour
 
     }
 
-    void OnDrawGizmos()
+   
+
+    void SpawnLineRenderers(int lineCount)
     {
-        Vector2 direction = transform.right;
-
-        List<RaycastHit2D> hitList;
-        bool[] hitSomethingArr;
-        bool hitSomething = EnemySight(direction, visionDistance, halfAngle, raycastCount, obstructionLayers, out hitList, out hitSomethingArr, transform.parent.rotation);
-
-        float angleStep = (halfAngle * 2) / (raycastCount - 1);
-
-        // Adjust starting angle based on parent rotation
-        float currentAngle;
-        
-        if (transform.parent.eulerAngles.y == 0)
+        for (int i = 0; i < lineCount; i++)
         {
-            currentAngle = -halfAngle;
-        }
-        else
-        {
-            currentAngle = halfAngle;
-        }
-
-        for (int i = 0; i < raycastCount; i++)
-        {
-            Vector2 rotatedDirection = RotateVector2(direction, currentAngle);
-            Vector2 worldDirection = transform.TransformDirection(rotatedDirection); // Transform direction to world space
-
-            if (hitList.Count > 0 && i < hitList.Count && hitList[i].collider != null)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(transform.position, hitList[i].point);
-            }
-                
-
-            currentAngle += angleStep;
+            GameObject lineGO = Instantiate(visionLinePrefab, transform);
+            LineRenderer line = lineGO.GetComponent<LineRenderer>();
+            line.material = nonCollidingMaterial;
+            line.SetPosition(0, transform.position);
+            line.SetPosition(1, transform.position + transform.right);
+            existingLineRenderer.Add(line);
         }
     }
 
 
+    void AdjustLineRenderer(int lineIndex, Material mat, Vector2 endPoint)
+    {
+        if (existingLineRenderer != null)
+        {
+            existingLineRenderer[lineIndex].material = mat;
+            existingLineRenderer[lineIndex].SetPosition(0, transform.position);
+            existingLineRenderer[lineIndex].SetPosition(1, endPoint);
+        }
+        
+    }
 }

@@ -17,7 +17,10 @@ public class Regulars_DeadState : EnemyDeadState
     public override void EnterState()
     {
         base.EnterState();
-       
+
+        regularsEnemy.SetVelocity(0f);
+        regularsEnemy.SetDyingTime();
+        regularsEnemy.StartCoroutine(regularsEnemy.SpawnCorpse());
     }
 
     public override void ExitState()

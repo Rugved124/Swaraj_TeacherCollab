@@ -12,19 +12,19 @@ public abstract class Arrow : MonoBehaviour
 		Paranoid
 	}
 
-	static public Action<Arrow> OnArrowHit;
+	//static public Action<Arrow> OnArrowHit;
 
 	public ArrowType type;
 	public GameObject ArrowBlood;
 
 	private Rigidbody2D rb;
-	private Collider2D coll;
+	//private Collider2D coll;
 	bool isAlive;
 
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		coll = GetComponent<Collider2D>();
+		//coll = GetComponent<Collider2D>();
 	}
 
 	internal void Init(float v0, float g)
@@ -54,15 +54,18 @@ public abstract class Arrow : MonoBehaviour
 		if (!isAlive) return;
 
 		Collider2D otherObjColl = collision.collider;
+		float deathDuration = 1.5f;
 
 		if (otherObjColl.TryGetComponent(out BaseEnemy enemy))
 		{
 			Instantiate(ArrowBlood, transform.position, Quaternion.identity);
 			enemy.OnHitByArrow(this);
+			deathDuration = 0f;
 		}
 		else if (otherObjColl.TryGetComponent(out InteractiveObject obj))
 		{
 			obj.OnHitByArrow();
+			transform.parent = otherObjColl.transform;
 		}
 		else
 		{
@@ -72,13 +75,13 @@ public abstract class Arrow : MonoBehaviour
 		}
 
 		isAlive = false;
-		OnArrowHit?.Invoke(this);
-		StartCoroutine(coDying());
+		//OnArrowHit?.Invoke(this);
+		StartCoroutine(coDying(deathDuration));
 	}
 
-	private IEnumerator coDying()
+	private IEnumerator coDying(float duration)
 	{
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(duration);
 		Destroy(gameObject);
 	}
 

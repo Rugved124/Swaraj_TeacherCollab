@@ -8,16 +8,30 @@ public class ExplosiveBarrel : InteractiveObject
 	public LayerMask Enemies;
 
 	public GameObject Explosion;
+	public GameObject explosionSoundPrefab; // Prefab of the explosion sound AudioSource
+
+	AudioSource explosionSound;
+
+
+	private void Start()
+	{
+		explosionSoundPrefab = transform.Find("BarrelExplosionSFX").gameObject;
+		// Instantiate the explosion sound AudioSource
+		explosionSound = explosionSoundPrefab.GetComponent<AudioSource>();
+
+	}
 	public override void OnHitByArrow()
 	{
 		base.OnHitByArrow();
-		Destroy(gameObject);
 		Instantiate(Explosion, transform.position, Quaternion.identity);
+		explosionSoundPrefab.transform.parent = null;
+		explosionSound.Play();
+		Destroy(gameObject);
 
 		// Check for colliders within the specified circle
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
 
-		
+
 
 		// Iterate over all colliders within the circle
 		foreach (Collider2D collider in colliders)

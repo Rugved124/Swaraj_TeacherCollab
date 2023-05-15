@@ -45,7 +45,6 @@ public class Regulars : BaseEnemy
     public override void OnHitByArrow(Arrow arrow)
     {
         base.OnHitByArrow(arrow);
-
         enemyFSM.ChangeState(deadState);
 
         //Destroy(this.gameObject);
