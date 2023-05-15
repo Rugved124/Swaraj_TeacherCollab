@@ -21,9 +21,7 @@ public class EnemyDeadState : CharacterStates
     {
         base.EnterState();
         
-
-        baseEnemy.SetVelocity(0f);
-        baseEnemy.SpawnCorpse();
+       
 
     }
 

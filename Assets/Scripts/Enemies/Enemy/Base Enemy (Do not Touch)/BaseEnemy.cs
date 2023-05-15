@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -80,6 +81,8 @@ public class BaseEnemy : MonoBehaviour
 
     public GameObject deadEnemyGO;
 
+    public float dyingTime;
+
     public virtual void Start()
     {
 
@@ -121,12 +124,14 @@ public class BaseEnemy : MonoBehaviour
 
     }
 
-    public void SpawnCorpse()
+    public IEnumerator SpawnCorpse()
     {
         enemyRb.isKinematic = true;
         enemyCollider.enabled = false;
-        Instantiate(deadEnemyGO, transform.position, transform.rotation);
 
+        yield return new WaitForSeconds(dyingTime);
+
+        Instantiate(deadEnemyGO, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
@@ -322,7 +327,10 @@ public class BaseEnemy : MonoBehaviour
         resetVision = true;
     }
 
-   
+    public void SetDyingTime()
+    {
+       dyingTime = enemyAnim.GetCurrentAnimatorStateInfo(0).length;
+    }
 
     public float GetVisionRotation()
     {
