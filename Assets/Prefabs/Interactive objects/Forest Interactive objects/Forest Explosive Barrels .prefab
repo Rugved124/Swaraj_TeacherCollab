@@ -264,6 +264,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   Explosion: {fileID: 1590241258343468419, guid: e444a190b6d51184d8530325bf96e82c, type: 3}
+  explosionSoundPrefab: {fileID: 2618613573162208671}
 --- !u!61 &9191503034266449718
 BoxCollider2D:
   m_ObjectHideFlags: 0

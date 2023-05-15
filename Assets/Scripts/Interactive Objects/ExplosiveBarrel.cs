@@ -8,17 +8,21 @@ public class ExplosiveBarrel : InteractiveObject
 	public LayerMask Enemies;
 
 	public GameObject Explosion;
-
-	private AudioSource explosionSound;
+	public GameObject explosionSoundPrefab; // Prefab of the explosion sound AudioSource
 
 	private void Start()
 	{
-		explosionSound = transform.Find("BarrelExplosionSFX").GetComponent<AudioSource>();
+		// Instantiate the explosion sound AudioSource
+		GameObject soundObject = Instantiate(explosionSoundPrefab, transform.position, Quaternion.identity);
+		AudioSource explosionSound = soundObject.GetComponent<AudioSource>();
+		explosionSound.Play();
+
+		// Destroy the explosion sound GameObject after the sound finishes playing
+		Destroy(soundObject, explosionSound.clip.length);
 	}
 	public override void OnHitByArrow()
 	{
 		base.OnHitByArrow();
-		explosionSound.Play();
 		Destroy(gameObject);
 		Instantiate(Explosion, transform.position, Quaternion.identity);
 
