@@ -123,6 +123,91 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &738732471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3091847233500456164, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.00000003505217
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091847233500456164, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.19809979
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247187159068518411, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903304761358245166, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -5.517134
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903304761358245166, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000015423164
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371229333863323237, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -7.541221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371229333863323237, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000017821374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783574143365741134, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: m_Name
+      value: Forest Hanging Crate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
 --- !u!1 &809321069
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,8 +251,77 @@ Transform:
   m_Children:
   - {fileID: 1572146805}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &844248671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5179924485011104298, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_Name
+      value: 'Forest Rope Segment '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -25.873814
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -12.763009
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.564909
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
 --- !u!1 &1572146804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2004,6 +2158,303 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1580976645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2267714252753063648, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_Name
+      value: Forest Hanging Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 230.66309
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -58.391792
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336266651668847781, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49d21a2ebb1cfb845bdd4021e63fc263, type: 3}
+--- !u!1001 &1603368491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5179924485011104298, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_Name
+      value: Forest Rope Segment  (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -25.785404
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -16.259241
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.061142
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+--- !u!1001 &1610282035
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5179924485011104298, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_Name
+      value: Forest Rope Segment  (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -25.838873
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313361642282521521, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -14.521524
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.323424
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957649744213914450, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 844d1d367138e544e949d2a583a07a15, type: 3}
+--- !u!1 &1634067353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634067354}
+  m_Layer: 0
+  m_Name: Hanging Crate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1634067354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634067353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1768616981}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1768616980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1634067354}
+    m_Modifications:
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210318310630267898, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: m_Name
+      value: Forest Crate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+--- !u!4 &1768616981 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+  m_PrefabInstance: {fileID: 1768616980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1973161403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7669907416955977307, guid: a5ba8b865a1244c4698a016b727f85f9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7669907416955977307, guid: a5ba8b865a1244c4698a016b727f85f9, type: 3}
       propertyPath: m_LocalPosition.x
