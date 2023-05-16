@@ -7,6 +7,7 @@ public class DrawBridge : ActivableObject
 	[SerializeField] private float platformFallingForce = 5.0f;
 	[SerializeField] Transform torquePoint;
 	[SerializeField] Rigidbody2D rb;
+	public GameObject drawBridgeSFX;
 
 	// Start is called before the first frame update
 	void Start()
@@ -48,9 +49,8 @@ public class DrawBridge : ActivableObject
 		// Apply the force at the specified position
 		rb.AddForceAtPosition(force, position);
 
-
-
+		drawBridgeSFX.SetActive(true);
 	}
 
-	
+
 }
