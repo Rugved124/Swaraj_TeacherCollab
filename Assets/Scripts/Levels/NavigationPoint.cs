@@ -61,8 +61,10 @@ public class NavigationPoint : MonoBehaviour
 		if (!isOn)
 			return;
 
-		if (otherColl.gameObject == pc.gameObject)
+		if (otherColl.gameObject.layer == LayerMask.NameToLayer("PC"))
 		{
+			print("check point " + gameObject);//TEST
+
 			OnTriggered?.Invoke(this);
 
 			//if it is a checkpoint we switch it off till the PC moves away from it, to avoid saving it repeatedly
