@@ -177,7 +177,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 228, y: -55}
+  m_ConnectedAnchor: {x: 180.16747, y: -0.38949203}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c6b64332a5b1843acc39433d9fcf77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint2D: {fileID: 0}
+  joint2D: {fileID: 6541497497210118740}
   enemyKillForce: 10
   Enemies:
     serializedVersion: 2
