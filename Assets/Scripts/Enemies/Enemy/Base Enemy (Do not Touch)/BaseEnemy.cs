@@ -354,7 +354,7 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void OnHitByArrow(Arrow arrow)
     {
-        
+        //Rugved
     }
 
     public virtual void OnHitByHazard()

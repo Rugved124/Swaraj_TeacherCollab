@@ -18,13 +18,12 @@ public abstract class Arrow : MonoBehaviour
 	public GameObject ArrowBlood;
 
 	private Rigidbody2D rb;
-	//private Collider2D coll;
+	[SerializeField] private SpriteRenderer spriteRenderer;
 	bool isAlive;
 
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		//coll = GetComponent<Collider2D>();
 	}
 
 	internal void Init(float v0, float g)
@@ -66,6 +65,7 @@ public abstract class Arrow : MonoBehaviour
 		{
 			obj.OnHitByArrow();
 			transform.parent = otherObjColl.transform;
+			deathDuration = 0f;
 		}
 		else
 		{
@@ -81,9 +81,16 @@ public abstract class Arrow : MonoBehaviour
 
 	private IEnumerator coDying(float duration)
 	{
-		yield return new WaitForSeconds(duration);
+		float startTime = Time.time;
+		float endTime = startTime + duration;
+		do
+		{
+			float alpha = 1f - Mathf.InverseLerp(startTime, endTime, duration);
+			spriteRenderer.color = new Color(1f, 1f, 1f, alpha);
+			yield return null;
+		}
+		while (Time.time < endTime);
 		Destroy(gameObject);
 	}
 
-	
 }

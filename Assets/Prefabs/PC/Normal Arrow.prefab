@@ -239,8 +239,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4766647416826902938}
   - component: {fileID: 6845505054593383940}
-  - component: {fileID: 6114956055710385331}
   - component: {fileID: 4264902460879059686}
+  - component: {fileID: 5154905139805530418}
   m_Layer: 6
   m_Name: Normal Arrow
   m_TagString: Untagged
@@ -292,8 +292,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6114956055710385331
-BoxCollider2D:
+--- !u!114 &4264902460879059686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375867960620832609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18ca218b09b4a2eb821b81246d32a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  ArrowBlood: {fileID: 3229511824540178977, guid: 4a79dca191f353f4fb70dcd36a5399e6, type: 3}
+  spriteRenderer: {fileID: 6071951930402188695}
+--- !u!70 &5154905139805530418
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -324,30 +339,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.15}
-  m_EdgeRadius: 0
---- !u!114 &4264902460879059686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7375867960620832609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18ca218b09b4a2eb821b81246d32a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  ArrowBlood: {fileID: 3229511824540178977, guid: 4a79dca191f353f4fb70dcd36a5399e6, type: 3}
+  m_Offset: {x: 0.31997818, y: 0.00000005871319}
+  m_Size: {x: 0.25939223, y: 0.10121699}
+  m_Direction: 1

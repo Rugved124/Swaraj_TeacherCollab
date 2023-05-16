@@ -3,7 +3,6 @@ using System.Collections;
 
 public class NavigationPoint : MonoBehaviour
 {
-
 	static public event System.Action<NavigationPoint> OnTriggered;
 
 	public bool isCheckpoint = true;
@@ -13,6 +12,7 @@ public class NavigationPoint : MonoBehaviour
 	public int entryPointID = 0;
 	public bool mustPCFaceLeft;
 	[SerializeField] private float switchRange = 4f;
+
 
 	/// <summary>
 	/// true when the PC has been some distance away from it (to avoid trigger when the PC just spawns in it)
@@ -58,17 +58,17 @@ public class NavigationPoint : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D otherColl)
 	{
-		if (!isOn)
-			return;
+		if (!isOn) return;
 
 		if (otherColl.gameObject.layer == LayerMask.NameToLayer("PC"))
 		{
-			print("check point " + gameObject);//TEST
-
 			OnTriggered?.Invoke(this);
 
 			//if it is a checkpoint we switch it off till the PC moves away from it, to avoid saving it repeatedly
 			if (!isCheckpoint) isOn = false;
+
+			//trigger the animtion 
+			GetComponentInChildren<Animator>().SetTrigger("ActivateFlag");
 		}
 	}
 

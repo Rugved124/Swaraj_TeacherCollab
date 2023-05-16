@@ -21,18 +21,9 @@ public class BreakableRope : InteractiveObject
 		platformCollider = GetComponent<Collider2D>();
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 	public override void OnHitByArrow()
 	{
-        print("Hit by Arrow!");
         joint2D.breakForce = 0;
-		
 
 		// Disable the platform collider to allow the platform to fall through other colliders
 		platformCollider.enabled = false;

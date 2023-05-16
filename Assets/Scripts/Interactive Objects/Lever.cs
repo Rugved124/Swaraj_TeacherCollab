@@ -8,13 +8,6 @@ public class Lever : InteractiveObject
 
 	private bool activated = false;
 
-	private AudioSource leverMoving;
-
-	private void Start()
-	{
-		leverMoving = GetComponent<AudioSource>();
-	}
-
 	public override void OnHitByArrow()
 	{
 		if (activated) return;
@@ -25,7 +18,7 @@ public class Lever : InteractiveObject
 
 		GetComponent<Animator>().SetTrigger("activate");
 
-		leverMoving.Play();
+		GetComponent<AudioSource>().Play();
 	}
 
 }

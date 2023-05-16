@@ -366,7 +366,14 @@ public class PCController : MonoBehaviour
 
 	private IEnumerator coDeath()
 	{
-		yield return new WaitForSeconds(1.5f);
+		float endTime = Time.time + 1.5f;
+		do
+		{
+			print("coDeath with state " + currentState);//TEST
+			yield return null;
+		}
+		while (Time.time < endTime);
+
 		FindObjectOfType<GameManager>().GameOver();
 	}
 

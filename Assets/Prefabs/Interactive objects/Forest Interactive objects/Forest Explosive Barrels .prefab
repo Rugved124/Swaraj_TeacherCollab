@@ -261,9 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
-  Enemies:
+  layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 136
   explosionFX: {fileID: 3417995408104381039}
 --- !u!61 &9191503034266449718
 BoxCollider2D:
