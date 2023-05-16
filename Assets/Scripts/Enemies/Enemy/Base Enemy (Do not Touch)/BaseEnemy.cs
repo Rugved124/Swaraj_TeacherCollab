@@ -11,6 +11,8 @@ public class BaseEnemy : MonoBehaviour
 
     public CharacterData characterData;
 
+    public GameObject bloodVFX;
+
     public int facingDirection = 1;
 
     protected Rigidbody2D enemyRb;
@@ -355,6 +357,8 @@ public class BaseEnemy : MonoBehaviour
     public virtual void OnHitByArrow(Arrow arrow)
     {
         //Rugved
+        bloodVFX.SetActive(true);
+        bloodVFX.transform.parent = null;
     }
 
     public virtual void OnHitByHazard()
