@@ -50,6 +50,8 @@ public class DrawBridge : ActivableObject
 		rb.AddForceAtPosition(force, position);
 
 		drawBridgeSFX.SetActive(true);
+		drawBridgeSFX.transform.parent = null;
+
 	}
 
 
