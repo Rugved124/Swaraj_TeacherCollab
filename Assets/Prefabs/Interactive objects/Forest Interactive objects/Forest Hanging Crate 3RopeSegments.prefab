@@ -112,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.25
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 4833360353276387342, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Crate
       objectReference: {fileID: 0}
+    - target: {fileID: 7734037458612257033, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
+      propertyPath: joint2D
+      value: 
+      objectReference: {fileID: 2374523642532495893}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -160,9 +164,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7210318310630267898, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2374523642532495893}
-    - targetCorrespondingSourceObject: {fileID: 7210318310630267898, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1203789457146085350}
   m_SourcePrefab: {fileID: 100100000, guid: 42dac8c6010bbae45b05667ad34afb3a, type: 3}
 --- !u!4 &1561688515509380577 stripped
 Transform:
@@ -190,7 +191,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 3.5}
-  m_ConnectedAnchor: {x: -7.694536, y: 0.00000009116761}
+  m_ConnectedAnchor: {x: -10.755704, y: 0.0000001274374}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -199,23 +200,6 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
---- !u!114 &1203789457146085350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3652281315100466709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c6b64332a5b1843acc39433d9fcf77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joint2D: {fileID: 0}
-  enemyKillForce: 10
-  Enemies:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &7394079617045312686
 PrefabInstance:
   m_ObjectHideFlags: 0
