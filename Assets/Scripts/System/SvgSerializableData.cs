@@ -13,5 +13,9 @@ public class SvgSerializableData
 	public int currCheckpointID;
 
 	//Constructor
-	public SvgSerializableData() { }
+	public SvgSerializableData()
+	{
+		currentSceneName = "level 1";
+		currCheckpointID = 0;
+	}
 }

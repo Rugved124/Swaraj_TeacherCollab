@@ -46,7 +46,7 @@ public class RegularsNoPatrol_SearchingState : EnemySearchingState
         }
         else if (shoot)
         {
-            Debug.Log("Player Shot");
+            //Debug.Log("Player Shot");
         }
         else
         {

@@ -68,7 +68,8 @@ public class NavigationPoint : MonoBehaviour
 			if (!isCheckpoint) isOn = false;
 
 			//trigger the animtion 
-			GetComponentInChildren<Animator>().SetTrigger("ActivateFlag");
+			GetComponentInChildren<Animator>().SetTrigger("activate");
+			print("Animation not playing");
 		}
 	}
 

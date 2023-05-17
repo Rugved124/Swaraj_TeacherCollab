@@ -7,11 +7,34 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+		try
+		{
+			print("SvgManager.SvgData.currentSceneName = " + SvgManager.SvgData.currentSceneName); //TEST
+			LaunchGame(SvgManager.SvgData.currentSceneName);
+		}
+		catch
+		{
+			Debug.LogError("ERROR When trying to read SvgManager.SvgData.currentSceneName");
+		}
 
-    public void QuitGame()
+		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
+
+	public void QuitGame()
     {
         Application.Quit();
     }
+
+	void LaunchGame(string sceneToLoad)
+	{
+		if (!string.IsNullOrEmpty(sceneToLoad))
+		{
+			SceneManager.LoadScene(sceneToLoad);
+		}
+		else
+		{
+			print("Warning: no scene to load");//TEST
+		}
+	}
+
 }
