@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flag
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 609d60d277683fb438404e33bdac9f35, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 609d60d277683fb438404e33bdac9f35, type: 3}
       propertyPath: m_RootOrder
       value: 1
