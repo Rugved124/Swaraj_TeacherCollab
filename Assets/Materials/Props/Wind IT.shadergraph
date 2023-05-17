@@ -534,10 +534,10 @@
     "m_Guid": {
         "m_GuidSerialized": "a0d555c6-3bf8-4dcb-9133-12f12c22398e"
     },
-    "m_Name": "Shape",
+    "m_Name": "Granularity",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Shape",
-    "m_DefaultReferenceName": "_Shape",
+    "m_RefNameGeneratedByDisplayName": "Granularity",
+    "m_DefaultReferenceName": "_Granularity",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1192,7 +1192,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "40707c3716ad42e38a15aae7a7df1999",
     "m_Id": 0,
-    "m_DisplayName": "Shape",
+    "m_DisplayName": "Granularity",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",

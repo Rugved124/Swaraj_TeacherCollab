@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wind IT Material
+  m_Name: Wind IT Material for flag
   m_Shader: {fileID: -6465566751694194690, guid: 804cca73d5b4d55499f10729e5c469cb, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -114,7 +114,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Strength: 0.2
+    - _Strength: 0.9
     - _Surface: 0
     - _ZWrite: 1
     - _wind_influnce_mask: 4
@@ -126,11 +126,11 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Granularity: {r: 0.5, g: 2, b: 0, a: 0}
+    - _Granularity: {r: 1.5, g: 3, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Shape: {r: 0.1, g: 2, b: 0, a: 0}
+    - _Shape: {r: 1, g: 2, b: 0, a: 0}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _Speed: {r: 0.1, g: 0.3, b: 0, a: 0}
+    - _Speed: {r: 0.5, g: -0.6, b: 0, a: 0}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _windDirection: {r: 3.08, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
