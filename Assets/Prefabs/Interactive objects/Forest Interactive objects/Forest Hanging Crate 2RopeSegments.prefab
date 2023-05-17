@@ -8,17 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1203789457146085350, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
+      propertyPath: joint2D
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1561688515509380577, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -4.25
       objectReference: {fileID: 0}
     - target: {fileID: 2374523642532495893, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -9.020689
+      value: -12.081857
       objectReference: {fileID: 0}
     - target: {fileID: 2374523642532495893, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.00000010688034
+      value: 0.00000014315015
       objectReference: {fileID: 0}
     - target: {fileID: 2374523642532495893, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -72,39 +76,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Hanging Crate 2RopeSegments
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1203789457146085350, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5878152465907821749, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3652281315100466709, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6527717721536511560}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
 --- !u!50 &3886698737230306035 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8055996821078131186, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
   m_PrefabInstance: {fileID: 6502341915971394305}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7535497464540267796 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3652281315100466709, guid: c068bf8398b7ece46ba104cdd2e8b102, type: 3}
-  m_PrefabInstance: {fileID: 6502341915971394305}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6527717721536511560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7535497464540267796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c6b64332a5b1843acc39433d9fcf77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joint2D: {fileID: 0}
-  enemyKillForce: 10
-  Enemies:
-    serializedVersion: 2
-    m_Bits: 0
