@@ -6,28 +6,29 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	InputManager inputManager;
+	string sceneToLoad;
 
 	void Start()
-    {
-       inputManager = GetComponent<InputManager>();
+	{
+		inputManager = GetComponent<InputManager>();
 	}
 
 	public void SwitchOffInputManager()
 	{
 		inputManager.DisableInput();
-    }
+	}
 
-    public void SwitchOnInputManager()
-    {
-        inputManager.EnableInput();
-    }
+	public void SwitchOnInputManager()
+	{
+		inputManager.EnableInput();
+	}
 
 	public void GameOver()
 	{
-		StartCoroutine(coGameOver());
+		StartCoroutine(CoGameOver());
 	}
 
-    private void OnEnable()
+	private void OnEnable()
 	{
 		NavigationPoint.OnTriggered += HandleOnNavTrigger;
 	}
@@ -42,15 +43,17 @@ public class GameManager : MonoBehaviour
 		//We go to exitingLevel state if the navigation trigger triggered by the PC is an exit
 		if (navTrigger.isExit)
 		{
-			SceneManager.LoadScene(navTrigger.exitToScene);
+			sceneToLoad = navTrigger.exitToScene;
+			SceneManager.LoadScene(sceneToLoad);
 		}
 	}
 
-	IEnumerator coGameOver()
+	IEnumerator CoGameOver()
 	{
 		//FindObjectOfType<UIManager>().FadeToBlack();
 		yield return new WaitForSeconds(0.5f);
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+		SceneManager.LoadScene(!string.IsNullOrEmpty(sceneToLoad) ? sceneToLoad : SceneManager.GetActiveScene().name);
 	}
 
 }

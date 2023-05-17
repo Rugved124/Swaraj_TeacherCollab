@@ -21,8 +21,10 @@ public class ExplosiveBarrel : InteractiveObject
 			// Check if the collider is on the enemy layer
 			if (collider.gameObject.layer == LayerMask.NameToLayer("Enemies"))
 			{
-				// Call the OnHitByHazard() function of the BaseEnemy script
-				collider.transform.root.GetComponent<BaseEnemy>().OnHitByHazard();
+				if (collider.TryGetComponent(out BaseEnemy enemy))
+				{
+					enemy.OnHitByHazard();
+				}
 			}
 			else
 			{
