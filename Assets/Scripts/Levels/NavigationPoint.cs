@@ -13,6 +13,8 @@ public class NavigationPoint : MonoBehaviour
 	public bool mustPCFaceLeft;
 	[SerializeField] private float switchRange = 4f;
 
+	private Animator animator;
+
 
 	/// <summary>
 	/// true when the PC has been some distance away from it (to avoid trigger when the PC just spawns in it)
@@ -22,6 +24,7 @@ public class NavigationPoint : MonoBehaviour
 
 	void Awake()
 	{
+		animator = GetComponentInChildren<Animator>();
 		isOn = false;
 	}
 
@@ -33,6 +36,10 @@ public class NavigationPoint : MonoBehaviour
 		if (!isCheckpoint && !isExit)
 		{
 			gameObject.SetActive(false);
+		}
+		else if (isExit)
+		{
+			animator.gameObject.SetActive(false);
 		}
 	}
 
@@ -58,18 +65,23 @@ public class NavigationPoint : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D otherColl)
 	{
-		if (!isOn) return;
 
 		if (otherColl.gameObject.layer == LayerMask.NameToLayer("PC"))
 		{
+			if (Time.timeSinceLevelLoad < 0.9f)
+			{
+				animator.SetTrigger("activate");
+			}
+
+			if (!isOn) return;
+
 			OnTriggered?.Invoke(this);
 
-			//if it is a checkpoint we switch it off till the PC moves away from it, to avoid saving it repeatedly
-			if (!isCheckpoint) isOn = false;
+			//we switch it off till the PC moves away from it, to avoid saving it repeatedly
+			isOn = false;
 
 			//trigger the animtion 
-			GetComponentInChildren<Animator>().SetTrigger("activate");
-			print("Animation not playing");
+			animator.SetTrigger("activate");
 		}
 	}
 
