@@ -240,7 +240,7 @@ MonoBehaviour:
   halfAngle: 0
   obstructionLayers:
     serializedVersion: 2
-    m_Bits: 197384
+    m_Bits: 197128
   isSeeing: 0
   sawPlayer: 0
   sawCorpse: 0
@@ -412,7 +412,7 @@ Transform:
   - {fileID: 2507942201398503928}
   - {fileID: 1045532583408954690}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5085876392552840439
 Rigidbody2D:
