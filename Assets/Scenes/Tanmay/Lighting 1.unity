@@ -20847,25 +20847,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BG SKY (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6625905420876545329, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7573945043257030958, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
       propertyPath: m_RootOrder
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573945043257030958, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 355.99405
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573945043257030958, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 46.86335
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573945043257030958, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 19.6
       objectReference: {fileID: 0}
     - target: {fileID: 7573945043257030958, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20906,26 +20890,6 @@ PrefabInstance:
     - target: {fileID: 7573945043257030958, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573945043257030958, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853853078282528979, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-    - target: {fileID: 8853853078282528979, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853853078282528979, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_SortingLayer
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853853078282528979, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1306305379
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
