@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5510456412669147918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4973061964701106306}
+  m_Layer: 0
+  m_Name: tutecapse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4973061964701106306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510456412669147918}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 281.5, y: -30.1487, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3745102851981101864}
+  m_Father: {fileID: 0}
+  m_RootOrder: 149
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8788405433935545883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3745102851981101864}
+  - component: {fileID: 2962411410350813640}
+  - component: {fileID: 9003980533802926556}
+  - component: {fileID: 2050976793082023427}
+  m_Layer: 0
+  m_Name: Tutorial2timelinetunnel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3745102851981101864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788405433935545883}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4973061964701106306}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &2962411410350813640
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788405433935545883}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 376ce47413e1e2b49a011bae37c4e231, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -8140219861989425879, guid: 33f07bf004e5e2444aac263e907bc1ff, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3901222874396688897, guid: 33f07bf004e5e2444aac263e907bc1ff, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: -1913912662867724063, guid: 6967daee02914d64e989f4803e47faa2, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7087461294607014141, guid: 6967daee02914d64e989f4803e47faa2, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5805922994446784515, guid: 6967daee02914d64e989f4803e47faa2, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7237749411616969051, guid: 9308de0dd0b87464ca85ad0e356f6623, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: -7108463594801454286, guid: 9308de0dd0b87464ca85ad0e356f6623, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7237749411616969051, guid: dca583a8dc1074f46a46dd672085b5d3, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2233767821155969083, guid: dca583a8dc1074f46a46dd672085b5d3, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7108463594801454286, guid: dca583a8dc1074f46a46dd672085b5d3, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: -7927071760427934788, guid: dca583a8dc1074f46a46dd672085b5d3, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7237749411616969051, guid: f17ccb6528e0db5428380b6a8089e0d0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5320044051693034451, guid: f17ccb6528e0db5428380b6a8089e0d0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7237749411616969051, guid: 05a74bd605283d046b298a2d997cdb87, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5320044051693034451, guid: 05a74bd605283d046b298a2d997cdb87, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2929831446583121228, guid: 05a74bd605283d046b298a2d997cdb87, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7237749411616969051, guid: 376ce47413e1e2b49a011bae37c4e231, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5320044051693034451, guid: 376ce47413e1e2b49a011bae37c4e231, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!61 &9003980533802926556
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788405433935545883}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 30}
+  m_EdgeRadius: 0
+--- !u!114 &2050976793082023427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788405433935545883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cc8786b358bd343810f19683706c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durationNoControls: 2
