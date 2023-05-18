@@ -97,7 +97,7 @@ public class EnemyFOV : MonoBehaviour
                 hitList.Add(hit);
                 hitSomethingArr[i] = true;
 
-                AdjustLineRenderer(i, collidingMaterial, hit.point);
+                AdjustLineRenderer(i, nonCollidingMaterial, hit.point);
 
                 if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC") && !sawKill)
                 {
@@ -114,6 +114,7 @@ public class EnemyFOV : MonoBehaviour
 
                     sawPlayer = true;
 
+                    AdjustLineRenderer(i, collidingMaterial, hit.point);
                 }
 
                 if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Corpse")
@@ -122,6 +123,8 @@ public class EnemyFOV : MonoBehaviour
                     {
                         sawKill = true;
                     }
+
+                    AdjustLineRenderer(i, collidingMaterial, hit.point);
                 }
 
 

@@ -332,6 +332,7 @@ public class BaseEnemy : MonoBehaviour
     {
         
         enemyRb.isKinematic = true;
+        enemyRb.gravityScale = 0f;
 
         yield return new WaitForSeconds(1f);
 
