@@ -26,9 +26,15 @@ public class ExplosiveBarrel : InteractiveObject
 					enemy.OnHitByHazard();
 				}
 			}
-			else
+			
+			if (collider.gameObject.layer == LayerMask.NameToLayer("PC"))
 			{
 				collider.transform.root.GetComponent<PCController>().Die();
+			}
+			
+			if (collider.gameObject.layer == LayerMask.NameToLayer("Crate"))
+			{
+				Destroy(collider.gameObject);
 			}
 		}
 
