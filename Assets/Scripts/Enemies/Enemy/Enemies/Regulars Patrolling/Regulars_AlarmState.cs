@@ -21,6 +21,7 @@ public class Regulars_AlarmState : EnemyAlarmState
         regularsEnemy.SetVelocity(0f);
         PC = GameObject.FindObjectOfType<PCController>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
+        regularsEnemy.MuzzleFlashActive();
 
         if (!regularsEnemy.enemyFOV.sawKill)
         {

@@ -9,6 +9,7 @@ public class BaseEnemy : MonoBehaviour
     public CharacterData characterData;
 
     public GameObject bloodVFX;
+    public GameObject muzzleFlash;
 
     public int facingDirection = 1;
 
@@ -371,6 +372,16 @@ public class BaseEnemy : MonoBehaviour
         alertMeter.enabled = false;
         bloodVFX.SetActive(true);
         bloodVFX.transform.parent = null;
+    }
+
+    public virtual void MuzzleFlashActive()
+    {
+        muzzleFlash.SetActive(true);
+    }
+
+    public virtual void MuzzleFlashDeactive()
+    {
+        muzzleFlash.SetActive(false);
     }
 
     public virtual void OnHitByHazard()
