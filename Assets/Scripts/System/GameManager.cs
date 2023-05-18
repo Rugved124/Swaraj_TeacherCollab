@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	[SerializeField] GameObject fadeToBlack;
+
 	InputManager inputManager;
 	string sceneToLoad;
 
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator CoGameOver()
 	{
-		//FindObjectOfType<UIManager>().FadeToBlack();
+		fadeToBlack.SetActive(true);
 		yield return new WaitForSeconds(0.5f);
 
 		SceneManager.LoadScene(!string.IsNullOrEmpty(sceneToLoad) ? sceneToLoad : SceneManager.GetActiveScene().name);
