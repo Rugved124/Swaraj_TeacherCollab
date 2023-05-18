@@ -455,7 +455,7 @@ GameObject:
   m_Layer: 9
   m_Name: Drawbridge
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -475,7 +475,7 @@ Transform:
   - {fileID: 5635213797807154127}
   - {fileID: 8566846207591082973}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4793110654262910013
 Rigidbody2D:
@@ -524,7 +524,7 @@ HingeJoint2D:
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
+    m_MaximumMotorForce: 100000
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
