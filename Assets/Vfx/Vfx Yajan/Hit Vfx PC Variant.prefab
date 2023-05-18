@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 262774968652369196, guid: bf69c2f0b735d0147ace4bddcbed7e6f, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 262774968652369196, guid: bf69c2f0b735d0147ace4bddcbed7e6f, type: 3}
       propertyPath: InitialModule.gravitySource
       value: 1
       objectReference: {fileID: 0}
@@ -62,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7369304971485470466, guid: bf69c2f0b735d0147ace4bddcbed7e6f, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7369304971485470466, guid: bf69c2f0b735d0147ace4bddcbed7e6f, type: 3}
       propertyPath: m_LocalScale.x
