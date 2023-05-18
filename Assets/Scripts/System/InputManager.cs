@@ -50,7 +50,7 @@ public class InputManager : MonoBehaviour
 		}
 	}
 
-    public bool CheckVerticalInput()
+    public bool IsVerticalInput()
     {
         if (verticalInputValue != 0f)
         {

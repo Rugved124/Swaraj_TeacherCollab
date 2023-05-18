@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PCController : MonoBehaviour
 {
@@ -39,8 +40,7 @@ public class PCController : MonoBehaviour
 	private float dirY;
 	private Vector2 moveVector;
 	private bool isAlreadyAiming;
-	private bool isClimbing;
-	private bool canBeGrounded;
+	private bool canBeGrounded, canGoClimbing;
 
 	[Header("Audio")]
 	[SerializeField] AudioSource bowDrawSfx;
@@ -64,6 +64,7 @@ public class PCController : MonoBehaviour
 		UpdateState(State.Idle);
 		isAlreadyAiming = false;
 		canBeGrounded = true;
+		canGoClimbing = true;
 	}
 
 	/// <summary>
@@ -93,14 +94,12 @@ public class PCController : MonoBehaviour
 			return;
 		}
 
-		if (collisionManager.LadderCollision && (inputManager.CheckVerticalInput() || currentState == State.Airborne) && !isClimbing)
+		if (canGoClimbing && collisionManager.LadderCollision && (
+			(currentState == State.Idle || currentState == State.Crouch || currentState == State.Walk || currentState == State.Run) && inputManager.IsVerticalInput()
+			|| currentState == State.Airborne)
+			)
 		{
-			if (currentState != State.Climbing)
-			{
-				transform.position = new Vector3(collisionManager.LadderPosition.x, transform.position.y, transform.position.z);
-				isClimbing = true;
-				UpdateState(State.Climbing);
-			}
+			UpdateState(State.Climbing);
 		}
 
 		if ((currentState == State.Idle || currentState == State.Run || currentState == State.Walk) && !collisionManager.IsGrounded)
@@ -223,7 +222,7 @@ public class PCController : MonoBehaviour
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Jump);
 				Jump(jumpForce * (previousState == State.Climbing ? jumpMulitiplierForLadder : 1f));
 				canBeGrounded = false;
-				StartCoroutine(coNoGroundedOnJump());
+				StartCoroutine(CoNoGroundedOnJump());
 				jumpSfx.Play();
 				break;
 
@@ -231,6 +230,7 @@ public class PCController : MonoBehaviour
 				currentState = State.Airborne;
 				maxSpeedX = airborneSpeed;
 				rb.gravityScale = 1f;
+				//if (previousState != State.Jump) visualManager.UpdateAnimState(PCVisualManager.AnimState.Airborne);
 				break;
 
 			case State.Crouch:
@@ -245,6 +245,7 @@ public class PCController : MonoBehaviour
 				maxSpeedX = 0f;
 				rb.gravityScale = 0f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Climbing);
+				StartClimbing();
 				break;
 
 			case State.Aiming:
@@ -276,20 +277,25 @@ public class PCController : MonoBehaviour
 	}
 	private void DoWhileClimbing()
 	{
-		VerticalMove();
-
-		if (collisionManager.IsGrounded && isClimbing && (inputManager.GetVerticalInput() < 0))
+		if (collisionManager.IsGrounded && (inputManager.GetVerticalInput() < 0f))
 		{
-			isClimbing = false;
 			UpdateState(State.Idle);
+			return;
+		}
+		else if (!collisionManager.LadderCollision || inputManager.IsJumping())
+		{
+			dirX = inputManager.GetHorizontalInput();
+			if (dirX > 0f) FaceDirection(true);
+			else if (dirX < 0f) FaceDirection(false);
+
+			UpdateState(State.Jump);
+			canGoClimbing = false;
+			StartCoroutine(CoNoClimbingOnJumpOffLadder());
+			UpdateState(State.Airborne);
+			return;
 		}
 
-		if (!collisionManager.LadderCollision && isClimbing)
-		{
-			isClimbing = false;
-			UpdateState(State.Jump);
-			UpdateState(State.Airborne);
-		}
+		VerticalMove();
 	}
 
 	private void VerticalMove()
@@ -305,13 +311,13 @@ public class PCController : MonoBehaviour
 		moveVector = new Vector2(dirX * maxSpeedX, rb.velocity.y);
 		rb.velocity = moveVector;
 
-		if (dirX > 0) FaceDirection(true);
-		else if (dirX < 0) FaceDirection(false);
+		if (dirX > 0f) FaceDirection(true);
+		else if (dirX < 0f) FaceDirection(false);
 	}
 
 	private void FaceDirection(bool isFacingRight)
 	{
-		transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
+		transform.rotation = Quaternion.Euler(0f, isFacingRight ? 0f : 180f, 0f);
 	}
 
 	void Jump(float jumpHeight)
@@ -359,12 +365,17 @@ public class PCController : MonoBehaviour
 		UpdateState(State.Idle);
 	}
 
-	void StartDeath()
+	void StartClimbing()
 	{
-		StartCoroutine(coDeath());
+		rb.position = new Vector3(collisionManager.LadderPosition.x, rb.position.y);
 	}
 
-	private IEnumerator coDeath()
+	void StartDeath()
+	{
+		StartCoroutine(CoDeath());
+	}
+
+	private IEnumerator CoDeath()
 	{
 		float endTime = Time.time + 1.5f;
 		do
@@ -377,10 +388,16 @@ public class PCController : MonoBehaviour
 		FindObjectOfType<GameManager>().GameOver();
 	}
 
-	private IEnumerator coNoGroundedOnJump()
+	private IEnumerator CoNoGroundedOnJump()
 	{
 		yield return new WaitForSeconds(0.1f);
 		canBeGrounded = true;
+	}
+
+	private IEnumerator CoNoClimbingOnJumpOffLadder()
+	{
+		yield return new WaitForSeconds(0.4f);
+		canGoClimbing = true;
 	}
 
 }

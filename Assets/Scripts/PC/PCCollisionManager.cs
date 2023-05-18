@@ -8,8 +8,8 @@ public class PCCollisionManager : MonoBehaviour
 	[SerializeField] private LayerMask collisionLayerMask;
 
 	public bool IsGrounded { get; private set; }
-    public bool LadderCollision { get; private set; }
-    public Vector3 LadderPosition { get; private set; }
+	public bool LadderCollision { get; private set; }
+	public Vector3 LadderPosition { get; private set; }
 
 	public void OnLadderEnter(Vector3 ladderPosition)
 	{
@@ -24,9 +24,9 @@ public class PCCollisionManager : MonoBehaviour
 	}
 
 	void Update()
-    {
-		if (Physics2D.OverlapPoint(sensorBottomLeft.position , collisionLayerMask)
-			|| Physics2D.OverlapPoint(sensorBottomRight.position , collisionLayerMask))
+	{
+		if (Physics2D.OverlapPoint(sensorBottomLeft.position, collisionLayerMask)
+			|| Physics2D.OverlapPoint(sensorBottomRight.position, collisionLayerMask))
 		{
 			IsGrounded = true;
 		}
@@ -34,6 +34,6 @@ public class PCCollisionManager : MonoBehaviour
 		{
 			IsGrounded = false;
 		}
-    }
+	}
 
 }

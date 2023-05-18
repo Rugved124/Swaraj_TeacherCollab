@@ -18,6 +18,7 @@ public class PCVisualManager : MonoBehaviour
 		CrouchAim = 7,
 		Shoot = 8,
 		Climbing = 9,
+		Airborne = 10
 	}
 
 	[SerializeField] private Animator animator;
