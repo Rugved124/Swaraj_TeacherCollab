@@ -24,6 +24,7 @@ public class PCController : MonoBehaviour
 	[SerializeField] float walkSpeed = 5f, runSpeed = 10f, airborneSpeed = 6.5f, climbingSpeed = 5f;
 	[SerializeField] private float pauseTimeAfterShoot = 0.25f;
 	[SerializeField] private float jumpMulitiplierForLadder = 1 / 3f;
+	[SerializeField] GameObject bloodVFX;
 
 	private InputManager inputManager;
 	private BottomDeathLine bottomDeathLine;
@@ -82,6 +83,8 @@ public class PCController : MonoBehaviour
 	{
 		if (currentState != State.Death)
 			UpdateState(State.Death);
+
+		Instantiate(bloodVFX, transform.position, Quaternion.identity);
 	}
 
 	void Update()
