@@ -99,7 +99,7 @@ public class EnemyFOV : MonoBehaviour
 
                 AdjustLineRenderer(i, nonCollidingMaterial, hit.point);
 
-                if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC") && !sawKill)
+                if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC" || LayerMask.LayerToName(hit.collider.gameObject.layer) == "DeadBody") && !sawKill)
                 {
                     playerPos = hit.collider.gameObject.transform.position;
 
