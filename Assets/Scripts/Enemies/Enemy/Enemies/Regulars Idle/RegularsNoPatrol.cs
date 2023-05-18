@@ -8,6 +8,7 @@ public class RegularsNoPatrol : BaseEnemy
     public RegularsNoPatrol_LookingState lookState;
     public RegularsNoPatrol_SearchingState searchingState;
     public RegularsNoPatrol_DeadState deadState;
+    public RegularsNoPatrol_AlarmState alarmState;
 
     [SerializeField]
     private EnemyIdleStateData enemyIdleStateData;
@@ -21,6 +22,9 @@ public class RegularsNoPatrol : BaseEnemy
     [SerializeField]
     private EnemyDeadStateData enemyDeadStateData;
 
+    [SerializeField]
+    private EnemyAlarmStateData enemyAlarmStateData;
+
     public bool isDead { get; private set; }
 
     public override void Start()
@@ -31,6 +35,7 @@ public class RegularsNoPatrol : BaseEnemy
         lookState = new RegularsNoPatrol_LookingState(enemyFSM, this, "idle", enemyLookingStateData, this);
         searchingState = new RegularsNoPatrol_SearchingState(enemyFSM, this, "aim", enemySearchingStateData, this);
         deadState = new RegularsNoPatrol_DeadState(enemyFSM, this, "dead", enemyDeadStateData, this);
+        alarmState = new RegularsNoPatrol_AlarmState(enemyFSM, this, "shoot", enemyAlarmStateData, this);
 
         enemyFSM.Initialize(idleState);
     }
@@ -38,14 +43,13 @@ public class RegularsNoPatrol : BaseEnemy
     public override void OnHitByArrow(Arrow arrow)
     {
         base.OnHitByArrow(arrow);
-
+        gameObject.layer = 16;
         enemyFSM.ChangeState(deadState);
         //Destroy(this.gameObject);
     }
 
     public override void OnHitByHazard()
     {
-        enemyFSM.ChangeState(deadState);
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

@@ -39,5 +39,10 @@ public class RegularsNoPatrol_IdleState : EnemyIdleState
             stateMachine.ChangeState(regularsNoPatrolEnemy.lookState);
         }
 
+        if (regularsNoPatrolEnemy.enemyFOV.sawKill)
+        {
+            stateMachine.ChangeState(regularsNoPatrolEnemy.alarmState);
+        }
+
     }
 }

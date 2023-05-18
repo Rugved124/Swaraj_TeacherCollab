@@ -54,7 +54,10 @@ public class Regulars_IdleState : EnemyIdleState
 
         }
 
-   
-       
+        if (regularsEnemy.enemyFOV.sawKill)
+        {
+            stateMachine.ChangeState(regularsEnemy.alarmState);
+        }
+
     }
 }

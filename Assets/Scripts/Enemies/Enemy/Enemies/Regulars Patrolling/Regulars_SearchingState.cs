@@ -55,14 +55,16 @@ public class Regulars_SearchingState : EnemySearchingState
                 }
             }
         }
-        else if (isSearchingTimeOver && shoot)
-        {
-            Debug.Log("Player Shot");
-        }
         else
         {
             regularsEnemy.LookAtPlayer();
         }
+
+        if (shoot || regularsEnemy.enemyFOV.sawKill)
+        {
+            stateMachine.ChangeState(regularsEnemy.alarmState);
+        }
+       
         
     }
 }
