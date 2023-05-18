@@ -15,6 +15,8 @@ public class Regulars_AlarmState : EnemyAlarmState
     {
         base.EnterState();
 
+        regularsEnemy.SetVelocity(0f);
+
         if (!regularsEnemy.enemyFOV.sawKill)
         {
             regularsEnemy.shootSound.Play();

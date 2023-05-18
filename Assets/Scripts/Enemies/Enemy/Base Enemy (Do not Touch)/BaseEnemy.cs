@@ -367,6 +367,7 @@ public class BaseEnemy : MonoBehaviour
         isDying = true;
         enemyFOV.SwitchOffLines();
         enemyFOV.enabled = false;
+        alertMeter.enabled = false;
         bloodVFX.SetActive(true);
         bloodVFX.transform.parent = null;
     }
