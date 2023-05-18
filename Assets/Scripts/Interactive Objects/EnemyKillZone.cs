@@ -11,7 +11,6 @@ public class EnemyKillZone : MonoBehaviour
 		{
 			otherCollider.GetComponent<BaseEnemy>().OnHitByHazard();
 		}
-        
 
 	}
 }
