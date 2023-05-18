@@ -7,7 +7,11 @@ public class EnemyKillZone : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D otherCollider)
 	{
 		print("Die!");
-        otherCollider.GetComponent<BaseEnemy>().OnHitByHazard();
+		if (LayerMask.LayerToName(otherCollider.gameObject.layer) == "Enemies")
+		{
+			otherCollider.GetComponent<BaseEnemy>().OnHitByHazard();
+		}
+        
 
 	}
 }
