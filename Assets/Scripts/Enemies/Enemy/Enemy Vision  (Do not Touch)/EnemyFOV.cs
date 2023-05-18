@@ -14,6 +14,7 @@ public class EnemyFOV : MonoBehaviour
     public bool isSeeing;
     public bool sawPlayer;
     public bool sawCorpse;
+    public bool sawKill;
     bool isHitting;
 
     List<RaycastHit2D> hitList;
@@ -40,10 +41,10 @@ public class EnemyFOV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isSeeing = EnemySight(transform.right, visionDistance, halfAngle, raycastCount,obstructionLayers, out hitList, out bool[] hitSomethingArr, transform.parent.rotation);
+        isSeeing = EnemySight(transform.right, visionDistance, halfAngle, raycastCount, obstructionLayers, out hitList, out bool[] hitSomethingArr, transform.parent.rotation);
     }
 
-    public void VisionInit(float visionEnemyAngle,float visionEnemyDistance, int raycastEnemyCount, int facingDir)
+    public void VisionInit(float visionEnemyAngle, float visionEnemyDistance, int raycastEnemyCount, int facingDir)
     {
         visionAngle = visionEnemyAngle;
         visionDistance = visionEnemyDistance;
@@ -69,7 +70,7 @@ public class EnemyFOV : MonoBehaviour
     }
 
 
-    
+
     public bool EnemySight(Vector2 direction, float distance, float halfAngle, int numRays, LayerMask layerMasks, out List<RaycastHit2D> hitList, out bool[] hitSomethingArr, Quaternion rotation)
     {
         float angleStep = (halfAngle * 2) / (numRays - 1);
@@ -106,13 +107,21 @@ public class EnemyFOV : MonoBehaviour
                     {
                         PC = hit.collider.gameObject.GetComponent<PCController>();
                     }
-                    else 
+                    else
                     {
                         PC = GameObject.FindObjectOfType<PCController>();
                     }
 
                     sawPlayer = true;
 
+                }
+
+                if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Enemies")
+                {
+                    if (hit.collider.gameObject.GetComponent<BaseEnemy>().isDying)
+                    {
+                        
+                    }
                 }
 
 
@@ -128,7 +137,7 @@ public class EnemyFOV : MonoBehaviour
             currentAngle += angleStep;
         }
 
-        
+
 
         return didHit;
     }
@@ -139,11 +148,11 @@ public class EnemyFOV : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
         transform.rotation = targetRotation;
-       
+
 
     }
 
-   
+
 
     void SpawnLineRenderers(int lineCount)
     {
@@ -167,6 +176,14 @@ public class EnemyFOV : MonoBehaviour
             existingLineRenderer[lineIndex].SetPosition(0, transform.position);
             existingLineRenderer[lineIndex].SetPosition(1, endPoint);
         }
-        
+
+    }
+
+    public void SwitchOffLines()
+    {
+        foreach (LineRenderer line in existingLineRenderer)
+        {
+            line.enabled = false; 
+        }
     }
 }

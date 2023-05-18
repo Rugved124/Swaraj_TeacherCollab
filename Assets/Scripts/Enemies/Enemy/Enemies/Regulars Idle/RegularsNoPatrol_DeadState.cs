@@ -18,6 +18,9 @@ public class RegularsNoPatrol_DeadState : EnemyDeadState
     public override void EnterState()
     {
         base.EnterState();
+        regularsNoPatrolEnemy.SetVelocity(0f);
+        regularsNoPatrolEnemy.SetDyingTime();
+        regularsNoPatrolEnemy.StartCoroutine(regularsNoPatrolEnemy.SpawnCorpse());
 
     }
 

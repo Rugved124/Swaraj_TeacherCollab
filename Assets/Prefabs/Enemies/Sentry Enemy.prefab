@@ -39,7 +39,7 @@ Transform:
   - {fileID: 6023310139440433459}
   - {fileID: 5292476942701240458}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6744312611252762457
 Rigidbody2D:
@@ -138,7 +138,7 @@ MonoBehaviour:
   enemyIdleStateData: {fileID: 11400000, guid: fbe68bc92a8c3f24db9c95af2110b8a0, type: 2}
   enemyLookingStateData: {fileID: 11400000, guid: 4547044cf4a27d446b9a389a3eb4d8ce, type: 2}
   enemySearchingStateData: {fileID: 11400000, guid: d67c0ec09f45f6d42a881bcead944dd1, type: 2}
-  enemyDeadStateData: {fileID: 0}
+  enemyDeadStateData: {fileID: 11400000, guid: 6abc4df99fcae8046925f524ad1e5819, type: 2}
 --- !u!82 &3145356517204667637
 AudioSource:
   m_ObjectHideFlags: 0
@@ -759,11 +759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5769875463518766178, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0129955225
+      value: 0.012976656
       objectReference: {fileID: 0}
     - target: {fileID: 5769875463518766178, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9999156
+      value: 0.99991584
       objectReference: {fileID: 0}
     - target: {fileID: 6538740247375116463, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -783,11 +783,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6698133664974244915, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999958
+      value: 0.99999565
       objectReference: {fileID: 0}
     - target: {fileID: 6698133664974244915, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00291812
+      value: -0.002953072
       objectReference: {fileID: 0}
     - target: {fileID: 6968560659454579267, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -803,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377162192830452615, guid: c128afcb3c2d5ca4a83c7a34065efbe3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.002709647
+      value: 0.0027257307
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

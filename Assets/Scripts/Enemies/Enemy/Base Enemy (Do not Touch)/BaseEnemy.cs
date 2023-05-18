@@ -1,9 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -84,10 +82,11 @@ public class BaseEnemy : MonoBehaviour
     public GameObject deadEnemyGO;
 
     public float dyingTime;
+    public bool isDying;
 
     public virtual void Start()
     {
-
+        isDying = false;
         enemyFOV = transform.Find("EnemyVision").GetComponent<EnemyFOV>();
         alertMeter = transform.Find("AlertMeter").GetComponent<AlertMeter>();
 
@@ -126,16 +125,7 @@ public class BaseEnemy : MonoBehaviour
 
     }
 
-    public IEnumerator SpawnCorpse()
-    {
-        enemyRb.isKinematic = true;
-        enemyCollider.enabled = false;
-
-        yield return new WaitForSeconds(dyingTime);
-
-        Instantiate(deadEnemyGO, transform.position, transform.rotation);
-        Destroy(gameObject);
-    }
+    
 
     public virtual void Update()
     {
@@ -334,6 +324,20 @@ public class BaseEnemy : MonoBehaviour
        dyingTime = enemyAnim.GetCurrentAnimatorStateInfo(0).length;
     }
 
+    public IEnumerator SpawnCorpse()
+    {
+        
+        enemyRb.isKinematic = true;
+        enemyCollider.enabled = false;
+
+
+        yield return new WaitForSeconds(1f);
+
+        isDying = false;
+        Instantiate(deadEnemyGO, transform.position - (new Vector3(0.75f,0f,0f)*facingDirection), transform.rotation);
+        Destroy(gameObject);
+    }
+
     public float GetVisionRotation()
     {
         return localWaypoints[currentWaypoint].rotateAngle;
@@ -357,6 +361,9 @@ public class BaseEnemy : MonoBehaviour
     public virtual void OnHitByArrow(Arrow arrow)
     {
         //Rugved
+        isDying = true;
+        enemyFOV.SwitchOffLines();
+        enemyFOV.enabled = false;
         bloodVFX.SetActive(true);
         bloodVFX.transform.parent = null;
     }
