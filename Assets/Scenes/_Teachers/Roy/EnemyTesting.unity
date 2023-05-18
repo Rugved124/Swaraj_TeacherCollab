@@ -955,6 +955,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 116497165150726983, guid: 6a28268f07848ec40bb8bf8cef6202fe, type: 3}
+      propertyPath: obstructionLayers.m_Bits
+      value: 66312
+      objectReference: {fileID: 0}
     - target: {fileID: 1436183226668256076, guid: 6a28268f07848ec40bb8bf8cef6202fe, type: 3}
       propertyPath: m_RootOrder
       value: 12

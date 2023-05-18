@@ -40,7 +40,7 @@ Transform:
   - {fileID: 6023310139440433459}
   - {fileID: 5292476942701240458}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6744312611252762457
 Rigidbody2D:
@@ -416,7 +416,7 @@ MonoBehaviour:
   halfAngle: 0
   obstructionLayers:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 66312
   isSeeing: 0
   sawPlayer: 0
   sawCorpse: 0
