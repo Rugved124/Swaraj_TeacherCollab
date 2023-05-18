@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7354989131328895070}
   - component: {fileID: 50462065464232006}
   - component: {fileID: 5781705241460839661}
-  - component: {fileID: 7734037458612257033}
   m_Layer: 9
   m_Name: Forest Crate
   m_TagString: Untagged
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6557513673900100075
 SpriteRenderer:
@@ -172,20 +171,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f02b141b2b0fd1847b8d0afdfa0f7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7734037458612257033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7210318310630267898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c6b64332a5b1843acc39433d9fcf77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joint2D: {fileID: 0}
-  enemyKillForce: 10
-  Enemies:
-    serializedVersion: 2
-    m_Bits: 128
