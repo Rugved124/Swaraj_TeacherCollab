@@ -99,7 +99,7 @@ public class EnemyFOV : MonoBehaviour
 
                 AdjustLineRenderer(i, collidingMaterial, hit.point);
 
-                if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC") || LayerMask.LayerToName(hit.collider.gameObject.layer) == "Corpse")
+                if ((LayerMask.LayerToName(hit.collider.gameObject.layer) == "PC") && !sawKill)
                 {
                     playerPos = hit.collider.gameObject.transform.position;
 
@@ -116,11 +116,11 @@ public class EnemyFOV : MonoBehaviour
 
                 }
 
-                if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Enemies")
+                if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Corpse")
                 {
                     if (hit.collider.gameObject.GetComponent<BaseEnemy>().isDying)
                     {
-                        
+                        sawKill = true;
                     }
                 }
 

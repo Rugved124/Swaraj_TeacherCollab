@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
@@ -83,12 +84,17 @@ public class BaseEnemy : MonoBehaviour
 
     public float dyingTime;
     public bool isDying;
+    int dyingLayer;
+
+    public AudioSource shootSound;
+    public AudioSource sawKillSound;
 
     public virtual void Start()
     {
         isDying = false;
         enemyFOV = transform.Find("EnemyVision").GetComponent<EnemyFOV>();
         alertMeter = transform.Find("AlertMeter").GetComponent<AlertMeter>();
+        dyingLayer = LayerMask.NameToLayer("Dying");
 
         enemyRb = GetComponent<Rigidbody2D>();
         enemyCollider = GetComponent<Collider2D>();
@@ -328,8 +334,6 @@ public class BaseEnemy : MonoBehaviour
     {
         
         enemyRb.isKinematic = true;
-        enemyCollider.enabled = false;
-
 
         yield return new WaitForSeconds(1f);
 
@@ -361,6 +365,7 @@ public class BaseEnemy : MonoBehaviour
     public virtual void OnHitByArrow(Arrow arrow)
     {
         //Rugved
+        
         isDying = true;
         enemyFOV.SwitchOffLines();
         enemyFOV.enabled = false;

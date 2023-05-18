@@ -26,7 +26,7 @@ public class Regulars_PatrolState : EnemyPatrolState
     {
         base.UpdateState();
 
-        if (regularsEnemy.isSeeingPlayer || regularsEnemy.isAlarmed)
+        if (regularsEnemy.isSeeingPlayer)
         {
             stateMachine.ChangeState(regularsEnemy.searchingState);
             return;
@@ -51,6 +51,11 @@ public class Regulars_PatrolState : EnemyPatrolState
             }
             
         }
-        
+
+        if (regularsEnemy.enemyFOV.sawKill)
+        {
+            stateMachine.ChangeState(regularsEnemy.alarmState);
+        }
+
     }
 }

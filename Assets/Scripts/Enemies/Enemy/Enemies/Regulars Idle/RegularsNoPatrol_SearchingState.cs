@@ -44,14 +44,16 @@ public class RegularsNoPatrol_SearchingState : EnemySearchingState
                stateMachine.ChangeState(regularsNoPatrolEnemy.idleState);
             }
         }
-        else if (shoot)
-        {
-            //Debug.Log("Player Shot");
-        }
         else
         {
             regularsNoPatrolEnemy.LookAtPlayer();
         }
+
+        if (shoot || regularsNoPatrolEnemy.enemyFOV.sawKill)
+        {
+            stateMachine.ChangeState(regularsNoPatrolEnemy.alarmState);
+        }
+        
 
     }
 }

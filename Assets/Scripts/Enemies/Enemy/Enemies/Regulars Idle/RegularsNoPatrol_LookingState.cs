@@ -42,6 +42,11 @@ public class RegularsNoPatrol_LookingState : EnemyLookingState
             stateMachine.ChangeState(regularsNoPatrolEnemy.idleState);
 
         }
+
+        if (regularsNoPatrolEnemy.enemyFOV.sawKill)
+        {
+            stateMachine.ChangeState(regularsNoPatrolEnemy.alarmState);
+        }
     }
 
     private void SetLookingTime()
