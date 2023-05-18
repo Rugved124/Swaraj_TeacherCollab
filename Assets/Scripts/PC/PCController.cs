@@ -230,7 +230,7 @@ public class PCController : MonoBehaviour
 				currentState = State.Airborne;
 				maxSpeedX = airborneSpeed;
 				rb.gravityScale = 1f;
-				//if (previousState != State.Jump) visualManager.UpdateAnimState(PCVisualManager.AnimState.Airborne);
+				if (previousState != State.Jump) visualManager.UpdateAnimState(PCVisualManager.AnimState.Airborne);
 				break;
 
 			case State.Crouch:
