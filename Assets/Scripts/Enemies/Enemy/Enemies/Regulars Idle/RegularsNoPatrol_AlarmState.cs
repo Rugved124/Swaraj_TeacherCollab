@@ -5,6 +5,9 @@ using UnityEngine;
 public class RegularsNoPatrol_AlarmState : EnemyAlarmState
 {
     private RegularsNoPatrol regularsNoPatrolEnemy;
+    GameManager gameManager;
+    PCController PC;
+    bool gameOver;
 
     public RegularsNoPatrol_AlarmState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemyAlarmStateData stateData, RegularsNoPatrol regularsNoPatrolEnemy) : base(stateMachine, baseEnemy, animBoolName, stateData)
     {
@@ -16,18 +19,18 @@ public class RegularsNoPatrol_AlarmState : EnemyAlarmState
         base.EnterState();
 
         regularsNoPatrolEnemy.SetVelocity(0f);
+        PC = GameObject.FindObjectOfType<PCController>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
 
         if (!regularsNoPatrolEnemy.enemyFOV.sawKill)
         {
             regularsNoPatrolEnemy.shootSound.Play();
-            PCController PC = GameObject.FindObjectOfType<PCController>();
             PC.Die();
         }
         else
         {
             regularsNoPatrolEnemy.sawKillSound.Play();
-            PCController PC = GameObject.FindObjectOfType<PCController>();
-            PC.Die();
+            gameOver = true;
         }
 
        
@@ -36,13 +39,18 @@ public class RegularsNoPatrol_AlarmState : EnemyAlarmState
     public override void ExitState()
     {
         base.ExitState();
-
+        gameOver = false;
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
+        if (gameManager != null && (Time.time >= startTime + regularsNoPatrolEnemy.sawKillSound.clip.length) && gameOver)
+        {
+            gameManager.GameOver();
+        }
 
     }
+
 }

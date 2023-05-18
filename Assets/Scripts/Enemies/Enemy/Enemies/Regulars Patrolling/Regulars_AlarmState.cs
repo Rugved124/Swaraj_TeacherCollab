@@ -5,6 +5,9 @@ using UnityEngine;
 public class Regulars_AlarmState : EnemyAlarmState
 {
     private Regulars regularsEnemy;
+    GameManager gameManager;
+    PCController PC;
+    bool gameOver;
 
     public Regulars_AlarmState(FiniteStateMachine stateMachine, BaseEnemy baseEnemy, string animBoolName, EnemyAlarmStateData stateData, Regulars regularsEnemy) : base(stateMachine, baseEnemy, animBoolName, stateData)
     {
@@ -16,18 +19,20 @@ public class Regulars_AlarmState : EnemyAlarmState
         base.EnterState();
 
         regularsEnemy.SetVelocity(0f);
+        PC = GameObject.FindObjectOfType<PCController>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
 
         if (!regularsEnemy.enemyFOV.sawKill)
         {
             regularsEnemy.shootSound.Play();
-            PCController PC = GameObject.FindObjectOfType<PCController>();
+            
             PC.Die();
         }
         else
         {
             regularsEnemy.sawKillSound.Play();
-            PCController PC = GameObject.FindObjectOfType<PCController>();
-            PC.Die();
+            gameOver = true;
+          
         }
 
        
@@ -36,13 +41,17 @@ public class Regulars_AlarmState : EnemyAlarmState
     public override void ExitState()
     {
         base.ExitState();
-
+        gameOver = false;
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
+        if (gameManager != null && (Time.time >= startTime + regularsEnemy.sawKillSound.clip.length) && gameOver)
+        {
+            gameManager.GameOver();
+        }
 
 
     }
