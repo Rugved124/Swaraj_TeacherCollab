@@ -400,7 +400,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5181885, y: 6.766735}
+  m_Offset: {x: -0.42450663, y: 6.766735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -411,7 +411,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0276794, y: 13.533472}
+  m_Size: {x: 0.84031576, y: 13.533472}
   m_EdgeRadius: 0
 --- !u!50 &8709984260628735176
 Rigidbody2D:
@@ -425,7 +425,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 500
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -475,7 +475,7 @@ Transform:
   - {fileID: 5635213797807154127}
   - {fileID: 8566846207591082973}
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4793110654262910013
 Rigidbody2D:
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc34ca4d9ca2cb468b526d02ba4c78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformFallingForce: 10000
+  platformFallingForce: 100000
   torquePoint: {fileID: 6459469378974966026}
   rb: {fileID: 8709984260628735176}
   drawBridgeSFX: {fileID: 2735937433211298156}
