@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 044e74293ba464648adf7d2c719735e4
+  - enabled: 1
+    path: Assets/Scenes/Aditya/level 1.unity
+    guid: 25848e29e68050248ba7bb236962c896
+  - enabled: 1
+    path: Assets/Scenes/Aditya/Leve 2.unity
+    guid: 41efd930c69f8054aa5fcddc498c9e0a
+  - enabled: 1
+    path: Assets/Scenes/Aditya/Level 3.unity
+    guid: 29a61a2c6983113439cceed9e3f0ff5d
+  - enabled: 1
+    path: Assets/Scenes/Rugved/Level 9.unity
+    guid: 523ce79565b6bb24bad02025b815e0db
+  - enabled: 1
+    path: Assets/Scenes/Rugved/Level 9 back track.unity
+    guid: b7caac0a3a8c8d144a019b95869f3b43
+  - enabled: 1
+    path: Assets/Scenes/Aditya/Level 3 backtrack.unity
+    guid: 716a03d5017c0c641ab6c1cd2a7c617a
+  - enabled: 1
+    path: Assets/Scenes/Rugved/Victory Screen.unity
+    guid: 136478bffa1805a46bf38d3c607b5a7b
   m_configObjects: {}
