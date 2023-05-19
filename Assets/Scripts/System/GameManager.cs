@@ -60,6 +60,6 @@ public class GameManager : MonoBehaviour
 
 	public void GoToVictoryScreen()
 	{
-		SceneManager.LoadScene(3);
+		SceneManager.LoadScene(7);
 	}
 }
