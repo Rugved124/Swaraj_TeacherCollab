@@ -58,4 +58,8 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadScene(!string.IsNullOrEmpty(sceneToLoad) ? sceneToLoad : SceneManager.GetActiveScene().name);
 	}
 
+	public void GoToVictoryScreen()
+	{
+		SceneManager.LoadScene(3);
+	}
 }

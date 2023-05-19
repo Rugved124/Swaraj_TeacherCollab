@@ -8,13 +8,20 @@ public class VictoryScreen : MonoBehaviour
 {
 	public UIManager uiManager;
 	public Button mainMenu;
+	[SerializeField] float victoryScreenTime = 5f;
     // Start is called before the first frame update
     void Start()
     {
-		uiManager = GetComponent<UIManager>();
+		StartCoroutine(AutoReturnMainMenu());
     }
 	public void ReturnToMainMenu()
 	{
+		SceneManager.LoadScene(0);
+	}
+
+	IEnumerator AutoReturnMainMenu()
+	{
+		yield return new WaitForSeconds(victoryScreenTime);
 		SceneManager.LoadScene(0);
 	}
 }
