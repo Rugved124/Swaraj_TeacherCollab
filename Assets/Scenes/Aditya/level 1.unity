@@ -19130,6 +19130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 688534143}
+  - component: {fileID: 688534144}
   m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
@@ -19157,6 +19158,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688534144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688534142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d015c8aa093ec6845a67549d51619178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousPosition: {x: 0, y: 0, z: 0}
+  parallaxMultiplier: 0.08
 --- !u!1 &691220085
 GameObject:
   m_ObjectHideFlags: 0
