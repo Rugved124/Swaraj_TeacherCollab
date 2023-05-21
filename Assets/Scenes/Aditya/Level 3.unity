@@ -86049,7 +86049,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758797098}
-  - component: {fileID: 1758797099}
   m_Layer: 0
   m_Name: Frg Fort
   m_TagString: Untagged
@@ -86081,20 +86080,6 @@ Transform:
   m_Father: {fileID: 1562934845}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1758797099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758797097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d015c8aa093ec6845a67549d51619178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previousPosition: {x: 0, y: 0, z: 0}
-  parallaxMultiplier: 0.08
 --- !u!1001 &1759366702
 PrefabInstance:
   m_ObjectHideFlags: 0
