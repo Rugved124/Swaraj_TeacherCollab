@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
-		inputManager = GetComponent<InputManager>();
+        inputManager = GetComponent<InputManager>();
 	}
 
 	public void SwitchOffInputManager()
