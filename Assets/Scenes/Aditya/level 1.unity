@@ -81663,6 +81663,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 816384289731673440, guid: 80a8f2da8c9f95349a2b8b496aea1d6c, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2942813281325451693, guid: 80a8f2da8c9f95349a2b8b496aea1d6c, type: 3}
       propertyPath: orthographic size
       value: 10
