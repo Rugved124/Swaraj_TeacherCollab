@@ -15491,6 +15491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Parallax bg (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7936174214170163811, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7952252070412311100, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -19304,7 +19308,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6625905420876545329, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1403801936}
   m_SourcePrefab: {fileID: 100100000, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
 --- !u!1001 &714283561
 PrefabInstance:
@@ -73415,6 +73422,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1916044274257237037, guid: 1904b35f34870c24ba2edc87b823dd55, type: 3}
   m_PrefabInstance: {fileID: 1170935259}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1403801933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6625905420876545329, guid: f3d29be66a3d39443834e174c2b890b1, type: 3}
+  m_PrefabInstance: {fileID: 713001317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1403801936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403801933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d015c8aa093ec6845a67549d51619178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousPosition: {x: 0, y: 0, z: 0}
+  parallaxMultiplier: 1
 --- !u!1 &1407960973
 GameObject:
   m_ObjectHideFlags: 0
@@ -78749,6 +78775,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580609944537535615, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447307505039530020, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: parallaxMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870933657188622597, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: parallaxMultiplier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397485584026925670, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 271.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397485584026925670, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3668653610999902961, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -78793,16 +78839,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4042631837283322045, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 283.54678
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042631837283322045, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878327351627034666, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891492579490725724, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: parallaxMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456696725652898410, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 255.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456696725652898410, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.31
+      objectReference: {fileID: 0}
     - target: {fileID: 7936174214170163811, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
       propertyPath: m_Name
       value: Forest Parallax bg
       objectReference: {fileID: 0}
     - target: {fileID: 7936174214170163811, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727374361461601257, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 280.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727374361461601257, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1524177897127100211, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba175d662df4bd048934e98f6cdd7aff, type: 3}
