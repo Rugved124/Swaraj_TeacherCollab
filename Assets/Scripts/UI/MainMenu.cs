@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame()
-    {
+	SvgManager svgManager;
+
+	private void Start()
+	{
+		svgManager = FindObjectOfType<SvgManager>();
+	}
+	public void StartGame()
+	{
 		try
 		{
 			print("SvgManager.SvgData.currentSceneName = " + SvgManager.SvgData.currentSceneName); //TEST
@@ -21,9 +27,9 @@ public class MainMenu : MonoBehaviour
 	}
 
 	public void QuitGame()
-    {
-        Application.Quit();
-    }
+	{
+		Application.Quit();
+	}
 
 	void LaunchGame(string sceneToLoad)
 	{
@@ -37,4 +43,8 @@ public class MainMenu : MonoBehaviour
 		}
 	}
 
+	public void DeleteSaveGame()
+	{
+		svgManager.DeleteSavegameDEBUG();
+	}
 }
