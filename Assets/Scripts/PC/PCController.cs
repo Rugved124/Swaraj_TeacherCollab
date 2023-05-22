@@ -215,7 +215,6 @@ public class PCController : MonoBehaviour
 				maxSpeedX = runSpeed;
 				rb.gravityScale = 1f;
 				visualManager.UpdateAnimState(PCVisualManager.AnimState.Run);
-				runSfx.Play();
 				break;
 
 			case State.Jump:
@@ -403,4 +402,8 @@ public class PCController : MonoBehaviour
 		canGoClimbing = true;
 	}
 
+	public void PlayStepSFX()
+	{
+		runSfx.Play();
+	}
 }
