@@ -181,9 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'START
-
-'
+  m_text: PLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 93ac0c1432b52b445b4348e93b07b2c5, type: 2}
   m_sharedMaterial: {fileID: -4839759244133437761, guid: 93ac0c1432b52b445b4348e93b07b2c5, type: 2}
@@ -320,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1811525495}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1215362491
