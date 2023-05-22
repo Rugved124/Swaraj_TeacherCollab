@@ -99,6 +99,7 @@ public class BaseEnemy : MonoBehaviour
         enemyCollider = GetComponent<Collider2D>();
         //enemyShooting = GetComponent<AudioSource>();
 
+        hasFinishedLooking = false;
         enemyFSM = new FiniteStateMachine();
 
         if (localWaypoints != null)
@@ -338,7 +339,7 @@ public class BaseEnemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         isDying = false;
-        Instantiate(deadEnemyGO, transform.position - (new Vector3(0.75f,0f,0f)*facingDirection), transform.rotation);
+        Instantiate(deadEnemyGO, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

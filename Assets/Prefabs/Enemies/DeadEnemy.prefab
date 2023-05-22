@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 960651048011043556}
-  - component: {fileID: 2804078024220903514}
+  - component: {fileID: 7304553691711384569}
   m_Layer: 18
   m_Name: DeadEnemy
   m_TagString: Untagged
@@ -117,8 +117,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2804078024220903514
-BoxCollider2D:
+--- !u!60 &7304553691711384569
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,10 +146,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3, y: 0.45}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -159,9 +159,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.1368275, y: 0.36337656}
+      - {x: -1.8946234, y: 0.2976487}
+      - {x: -1.8951368, y: -0.047342658}
+      - {x: 0.09894955, y: -0.02460599}
+      - {x: -0.39039993, y: 0.46817297}
+  m_UseDelaunayMesh: 0
 --- !u!1 &5557692040274515136
 GameObject:
   m_ObjectHideFlags: 0
