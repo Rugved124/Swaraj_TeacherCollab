@@ -45,6 +45,6 @@ public class MainMenu : MonoBehaviour
 
 	public void DeleteSaveGame()
 	{
-		svgManager.DeleteSavegameDEBUG();
+		svgManager.DeleteSaveGame();
 	}
 }

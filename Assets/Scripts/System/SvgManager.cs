@@ -100,11 +100,16 @@ public class SvgManager : MonoBehaviour
 		PlayerPrefs.Save();
 	}
 
+    public void DeleteSaveGame()
+    {
+        PlayerPrefs.DeleteKey(SavedGameName);
+        print("Deleted " + SavedGameName + " key in PlayerPrefs!!!");
+    }
 
 #if UNITY_EDITOR
 
-	//DEBUG
-	[UnityEditor.MenuItem("IT Debug Tools/Display savegame data as currently in memory [!RUNTIME ONLY]")]
+    //DEBUG
+    [UnityEditor.MenuItem("IT Debug Tools/Display savegame data as currently in memory [!RUNTIME ONLY]")]
 	static void DisplayUnserializedDEBUG()
 	{
 		FieldInfo[] fields = SvgData.GetType().GetFields(/*BindingFlags.Public | BindingFlags.Instance*/);
@@ -140,3 +145,4 @@ public class SvgManager : MonoBehaviour
 
 #endif
 }
+
